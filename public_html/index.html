@@ -13,7 +13,7 @@
     <h1 id="helloStefan">test</h1>
     <script>
       $.getJSON("http://swapi.co/api/people/1/", function(data){
-        alert(data);
+        $('#helloStefan').text(data.name);
       });
     </script>
   </body>
