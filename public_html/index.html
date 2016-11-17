@@ -10,11 +10,25 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1 id="helloStefan">test</h1>
+    <h1 id='testHeader1'>test</h1>
+    <h1 id='testHeader2'>test</h1>
+    <h1 id='testHeader3'>test</h1>
     <script>
-      $.getJSON("http://swapi.co/api/people/1/", function(data){
-        $('#helloStefan').text(data.name);
+      $.ajax({
+        url: "http://localhost:8080/api/v1/people",
+        dataType: "json",
+        success: function(data) {
+          $('#testHeader1').text(data[0].name);
+          $('#testHeader2').text(data[1].name);
+          $('#testHeader3').text(data[2].name);
+        },
+        error: function(){
+          alert('something went wrong'); //w razie erroru alert
+        },
       });
+      /*$.getJSON('http://localhost:8080/api/v1/people', function(data){
+        alert("nice");
+      });*/
     </script>
   </body>
 </html>
