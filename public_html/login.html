@@ -1,10 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!DOCTYPE html >
+<html lang="en"
+      ng-app="minmax" >
+<head >
+    <title >BeHappy</title >
+    <link href="css/bootstrap.min.css"
+          rel="stylesheet" >
+    <link href="css/main.css"
+          rel="stylesheet" >
+</head >
 
-</body>
-</html>
+<body >
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container" >
+        <div class="navbar-header" >
+            <a class="navbar-brand"
+               href="/" >Login to BeHappy
+            </a >
+        </div >
+        ,
+    </div >
+</nav >
+
+<div class="container main-content" ng-controller="MinMaxCtrl">
+
+    <form >
+        <div class="form-group" >
+            <label for="email" >Email</label >
+            <input type="email"
+                   class="form-control"
+                   ng-model="formModel.email"
+                   id="email" >
+        </div >
+
+        <div class="form-group" >
+            <label for="password" >Password</label >
+            <input type="password"
+                   class="form-control"
+                   ng-model="formModel.password"
+                   id="password" >
+        </div >
+
+        <div class="form-group" >
+            <button class="btn btn-primary" ng-click="onSubmit()">Login
+            </button >
+        </div >
+
+    </form >
+
+</div >
+
+<script src="../node_modules/angular/angular.min.js" ></script >
+<script src="js/login.js" ></script >
+
+
+</body >
+</html >
