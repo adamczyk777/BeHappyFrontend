@@ -1,71 +1,62 @@
 <!DOCTYPE html >
-<html lang="en"
-      ng-app="minmax" >
+<html lang="en" ng-app="minmax">
 <head >
-	<title >Behappy</title >
-	<link href="css/bootstrap.min.css"
-	      rel="stylesheet" >
-	<link href="css/main.css"
-	      rel="stylesheet" >
+    <title >Form Validation - Part 3</title >
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/main.css" rel="stylesheet" >
 </head >
 
 <body >
-
 <nav class="navbar navbar-inverse navbar-fixed-top" >
-	<div class="container" >
-		<div class="navbar-header" >
-			<a class="navbar-brand"
-			   href="/" >Register at BeHappy
-			</a >
-		</div >
-		,
-	</div >
+    <div class="container" >
+        <div class="navbar-header" >
+            <a class="navbar-brand"
+               href="/" >Form Validation - Part 3
+            </a >
+        </div >
+    </div >
 </nav >
 
-<div class="container main-content" ng-controller="MinMaxCtrl">
+<div class="container main-content" ng-controller="registerCtrl">
 
-	<form ng-submit="onSubmit(theForm.$valid)"
-            name="theForm"
-            novalidate="novalidate">
-		<div class="form-group" >
-			<label for="name" class="control-label">Name</label >
-			<input type="text"
-			       class="form-control"
-			       ng-model="formModel.name"
-			       id="name"
-                    required="required">
-		</div >
+    <form ng-submit="onSubmit()"
+          novalidate="novalidate">
+        <div class="form-group">
+            <label for="email" class="control-label">Email</label >
+            <input type="email"
+                   class="form-control"
+                   ng-model="formModel.email"
+                   id="email"
+                   required="required" >
+        </div >
 
-		<div class="form-group" >
-			<label for="email" >Email</label >
-			<input type="email"
-			       class="form-control"
-			       ng-model="formModel.email"
-			       id="email" >
-		</div >
+        <div class="form-group" >
+            <label for="password" class="control-label">Password</label >
+            <input type="password"
+                   class="form-control"
+                   ng-model="formModel.password"
+                   id="password"
+                   required="required"
+                   ng-minlength="6">
+        </div >
 
-		<div class="form-group" >
-			<label for="password" >Password</label >
-			<input type="password"
-			       class="form-control"
-			       ng-model="formModel.password"
-			       id="password" >
-		</div >
+        <div class="form-group">
+            <button class="btn btn-primary"
+                    type="submit">Register
+            </button>
+        </div>
 
-		<div class="form-group" >
-			<button class="btn btn-primary" ng-click="onSubmit()">Register
-			</button >
-		</div >
+    </form >
 
-	</form >
-
-	<pre>{{ formModel | json }}</pre>
+    <pre>{{ formModel | json }}</pre>
 
 </div >
 
+
 <script src="../bower_components/angular/angular.min.js" ></script >
-<script src="../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
-<script src="js/register.js" ></script >
+<script src="../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+
+<script src="main.js" ></script >
 
 
 </body >
