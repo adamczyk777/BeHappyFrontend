@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="therapy">
 <head>
     <meta charset="UTF-8">
     <title>Therapy</title>
-    <link href="/app/index.css" rel="stylesheet" >
+    <link href="/app/index.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-    <div class="container" >
+<body >
+    <div class="container"  ng-controller="PanelController as panelCtrl" ng-init="tab = 2">
             <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
-            <button>Your therapies</button>
+            <button ng-click="panelCtrl.selectTab(1)"><a>Your therapies</a></button>
+            <div class="panel" ng-show="panelCtrl.isSelected(1)" ng-controller="TherapyController as therapyCtrl">
+                <h1>Your therapies</h1>
+                <div ng-repeat="product in  therapyCtrl.products">
+                    Name: {{product.name}}<br>
+                    Id: {{product.id}}
+                </div>
+                <button ng-click="panelCtrl.selectTab(2)">Hide</button>
+            </div>
 
     </div>
+
+
+    <script type="text/javascript" src="../angular.min.js"></script>
+    <script type="text/javascript" src="therapy.js"></script>
 </body>
 </html>
