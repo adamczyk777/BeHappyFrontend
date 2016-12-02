@@ -8,7 +8,7 @@
     app.directive("therapyDescription", function () {
        return {
          restrict: 'E',
-         templateUrl: therapy-description.html
+         templateUrl: 'therapy-description.html'
        };
     });
     var therapies = [
@@ -36,9 +36,9 @@
         };
         this.isSelected = function(checkTab){
             return this.tab === checkTab;
-        }
+        };
 
-    })
+    });
 
 })();
 
