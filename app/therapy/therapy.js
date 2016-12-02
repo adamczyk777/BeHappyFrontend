@@ -5,6 +5,12 @@
         this.products = therapies;
     });
 
+    app.directive("therapyDescription", function () {
+       return {
+         restrict: 'E',
+         templateUrl: therapy-description.html
+       };
+    });
     var therapies = [
         {
             name: 'First therapy lorem',
@@ -18,7 +24,7 @@
             name: 'Third therapy dolor',
             id: 3
         },
-    ]
+    ];
 
     var test = 'Lorem ipsum test variable for controllers';
 
@@ -27,7 +33,7 @@
 
         this.selectTab = function(setTab){
             this.tab = setTab;
-        }
+        };
         this.isSelected = function(checkTab){
             return this.tab === checkTab;
         }
