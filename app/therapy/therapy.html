@@ -13,7 +13,6 @@
             <button ng-click="panelCtrl.selectTab(1)"><a>Your therapies</a></button>
             <div class="panel" ng-show="panelCtrl.isSelected(1)" ng-controller="TherapyController as therapyCtrl">
                 <h1>Your therapies</h1>
-                <therapy-description ng-repeat="product in therapyCtrl.products"></therapy-description>
                 <button ng-click="panelCtrl.selectTab(2)">Hide</button>
             </div>
 
