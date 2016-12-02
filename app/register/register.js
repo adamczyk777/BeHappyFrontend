@@ -1,20 +1,16 @@
-var app = angular.module('minmax', [
-    'jcs-autoValidate'
-]);
-
-app.controller('registerCtrl', function ($scope, $http) {
+angular.module('main').controller('registerCtrl', function ($scope, $http) {
     $scope.formModel = {};
 
-    $scope.onSubmit = function () {
+    $scope.onSubmit = function () { //kiedy nacisniemy przycisk submit
 
-        console.log("Hey i'm submitted!");
-        console.log($scope.formModel);
+        console.log("Hey i'm submitted!"); //info ze nacisniety
+        console.log($scope.formModel); //wyswietla w konsoli co polecialo
 
-        $http.post("http://localhost:8080/api/v1/user", $scope.formModel).
-        success(function (data) {
-            console.log(":)")
-        }).error(function(data) {
-            console.log(":(")
+        $http.post("http://localhost:8080/api/v1/user", $scope.formModel). // wysyla to co widzielismy przed chwila
+        success(function (data) { //log kiedy sukces w wysylaniu
+            console.log("submitted to the server!")
+        }).error(function(data) { //log kiedy sie zjebie
+            console.log("there is an error, check if it's not CORS")
         });
 
     };
