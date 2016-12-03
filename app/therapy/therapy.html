@@ -8,13 +8,13 @@
     <script src="../bower_components/angular/angular.min.js" ></script >
 </head>
 <body>
-    <div class="container"  ng-controller="PanelController as panelCtrl" ng-init="tab = 2">
+    <div class="container"  ng-controller="PanelController" ng-init="tab = 2">
             <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
-            <button ng-click="panelCtrl.selectTab(1)"><a>Your therapies</a></button>
-            <div class="panel" ng-show="panelCtrl.isSelected(1)" ng-controller="TherapyController as therapyCtrl">
+            <button ng-click="selectTab(1)"><a>Your therapies</a></button>
+            <div class="panel" ng-show="isSelected(1)" ng-controller="TherapyController">
                 <h1>Your therapies</h1>
-                <therapy-description ng-repeat="product in therapyCtrl.products"></therapy-description>
-                <button ng-click="panelCtrl.selectTab(2)">Hide</button>
+                <therapy-description ng-repeat="product in therapies"></therapy-description>
+                <button ng-click="selectTab(2)">Hide</button>
             </div>
 
     </div>

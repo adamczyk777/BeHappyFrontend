@@ -1,9 +1,23 @@
 (function(){
     var app = angular.module('therapy', [ ]);
 
-    app.controller('TherapyController', function(){
-        this.products = therapies;
-    });
+    app.controller('TherapyController', ['$scope',function($scope) {
+
+         $scope.therapies = [
+            {
+                name: 'First therapy lorem',
+                id: 1
+            },
+            {
+                name: 'Second therapy ipsum',
+                id: 2
+            },
+            {
+                name: 'Third therapy dolor',
+                id: 3
+            }
+        ];
+    }]);
 
     app.directive("therapyDescription", function () {
        return {
@@ -11,34 +25,21 @@
          templateUrl: 'therapy-description.html'
        };
     });
-    var therapies = [
-        {
-            name: 'First therapy lorem',
-            id: 1
-        },
-        {
-            name: 'Second therapy ipsum',
-            id: 2
-        },
-        {
-            name: 'Third therapy dolor',
-            id: 3
-        },
-    ];
+
+
 
     var test = 'Lorem ipsum test variable for controllers';
 
-    app.controller("PanelController", function(){
-        this.tab = 2;   //FIXME if possible change it into ng-init
+    app.controller("PanelController", ['$scope', function($scope){
 
-        this.selectTab = function(setTab){
-            this.tab = setTab;
+        $scope.selectTab = function(setTab){
+            $scope.tab = setTab;
         };
-        this.isSelected = function(checkTab){
-            return this.tab === checkTab;
+        $scope.isSelected = function(checkTab){
+            return $scope.tab === checkTab;
         };
 
-    });
+    }]);
 
 })();
 
