@@ -1,22 +1,39 @@
 (function(){
     var app = angular.module('therapy', [ ]);
 
-    app.controller('TherapyController', ['$scope',function($scope) {
+     // app.constant = ("baseUrl", "http://localhost:3000");
+    /*app.service = ('retrieveData', ['$http', 'baseUrl', function($http, baseUrl){
+            this.getTherapies = function(){
+                return $http.get(baseUrl + "/therapies");
+            };
+    }]); */
+    app.controller('TherapyController', ['$scope', '$http', function($scope, $http) {
 
-         $scope.therapies = [
-            {
-                name: 'First therapy lorem',
-                id: 1
-            },
-            {
-                name: 'Second therapy ipsum',
-                id: 2
-            },
-            {
-                name: 'Third therapy dolor',
-                id: 3
-            }
-        ];
+         $scope.therapies =  [
+             {
+                 name: 'First therapy lorem',
+                 id: 1
+             },
+             {
+                 name: 'Second therapy ipsum',
+                 id: 2
+             },
+             {
+                 name: 'Third therapy dolor',
+                 id: 3
+             }
+         ];
+
+
+        /*retrieveData.getTherapies()
+            .then(
+                function(response) {
+                    $scope.therapies = response.data;
+                }
+            ); */
+
+
+
     }]);
 
     app.directive("therapyDescription", function () {
