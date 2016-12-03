@@ -16,14 +16,7 @@
         });
 
     }]);
-
-    app.directive("therapyDescription", function () {
-       return {
-         restrict: 'E',
-         templateUrl: 'therapy-description.html'
-       };
-    });
-
+    
 
     app.controller("PanelController", ['$scope', function($scope){
 
@@ -40,16 +33,32 @@
     }]);
 
     app.controller("PatientsController", ['$scope', function($scope){
-        $scope.patients = [];
-        $http({
-            method: 'GET',
-            url: 'http://localhost:3000/therapies/{{tab}}/members'
-            /*url: 'http://localhost:8080/therapies'*/
-        }).then(function successCallback(response) {
-            $scope.patients = response.data;
-        }, function errorCallback(response) {
-            alert("Cannot display test.json")
-        });
+        $scope.patients = [
+            {
+                name:"Łukasz",
+                id: 1
+            },
+            {
+                name: "Dawid",
+                id: 2
+            },
+            {
+              name: "Kuba",
+                id: 3
+            }
+
+        ];
+        // $http({
+        //     method: 'GET',
+        //     url: 'http://localhost:3000/therapies/members
+        //     /*url: 'http://localhost:8080/therapies'*/
+        // }).then(function successCallback(response) {
+        //     $scope.patients = response.data;
+        // }, function errorCallback(response) {
+        //     alert("Cannot display test.json")
+        // });
+
+
     }]);
 
 })();

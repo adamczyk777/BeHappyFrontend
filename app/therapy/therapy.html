@@ -20,14 +20,13 @@
                     <button ng-click="selectTab(product.id)">Add</button>
                 </div>
                 {{checkTab()}}
-                <!--<therapy-description ng-repeat="product in therapies"></therapy-description>-->
             </div>
             <button ng-click="selectTab(-1)">Hide</button>
-            <div class="panel" ng-show="checkTab()" ng-controller = "PanelController">
+            <div class="panel" ng-show="checkTab()" ng-controller = "PatientsController">
                 <h1>Patients in therapy</h1>
-                <ol ng-repeat="patient in patients">
+                <ul ng-repeat="patient in patients">
                     <li>{{patient.name}}    <button ng-click="addPatient()"></button></li>
-                </ol>
+                </ul>
             </div>
     </div>
 
