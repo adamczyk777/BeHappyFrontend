@@ -10,7 +10,7 @@
     app.controller('TherapyController', ['$scope', '$http', function($scope, $http) {
 
          $scope.therapies =  [
-             {
+  /*           {
                  name: 'First therapy lorem',
                  id: 1
              },
@@ -21,8 +21,18 @@
              {
                  name: 'Third therapy dolor',
                  id: 3
-             }
+             }*/
          ];
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/therapies'
+            /*url: 'http://localhost:8080/therapies'*/
+        }).then(function successCallback(response) {
+            $scope.therapies = response.data;
+        }, function errorCallback(response) {
+            alert("Cannot display test.json")
+        });
+
 
 
         /*retrieveData.getTherapies()
