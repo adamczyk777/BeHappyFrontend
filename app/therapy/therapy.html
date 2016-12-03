@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="therapy">
+<head>
+    <meta charset="UTF-8">
+    <title>Therapy</title>
+    <link href="/app/index.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="../bower_components/angular/angular.min.js" ></script >
+</head>
+<body>
+
+    <div class="container"  ng-controller="PanelController" ng-init="tab = -1">
+            <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
+            <button ng-click="selectTab(0)"><a>Your therapies</a></button>
+            <div class="panel" ng-hide="tab === -1" ng-controller="TherapyController">
+                <h1>Your therapies</h1>
+                <div ng-repeat="product in therapies">
+                    Name:{{product.name}}<br>
+                    Id:{{product.id}}<br>
+                    <button ng-click="selectTab(product.id)">Add</button>
+                </div>
+                {{checkTab()}}
+                <!--<therapy-description ng-repeat="product in therapies"></therapy-description>-->
+            </div>
+            <button ng-click="selectTab(-1)">Hide</button>
+            <div class="panel" ng-show="checkTab()" ng-controller = "PanelController">
+                <h1>Patients in therapy</h1>
+                <ol ng-repeat="patient in patients">
+                    <li>{{patient.name}}    <button ng-click="addPatient()"></button></li>
+                </ol>
+            </div>
+    </div>
+
+
+
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="therapy.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
