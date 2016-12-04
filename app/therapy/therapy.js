@@ -74,9 +74,10 @@
          });
 
 
-         $scope.addPatient = function(count){
+         $scope.addPatient = function(patient, role){
              alert("Assigned!");
-             $http.post("http://localhost:3000/therapies/" + $scope.thId + "/members", $scope.patients[count]).
+             $scope.message = {id:patient.id +3,role: role};
+             $http.post("http://localhost:3000/therapies/" + $scope.thId + "/members", $scope.message);
              success(function (data) {
                  console.log(":)")
              }).error(function(data) {

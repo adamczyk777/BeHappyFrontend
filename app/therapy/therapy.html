@@ -27,7 +27,15 @@
                 <ul ng-repeat="patient in patients">
                     <!-- check therapy.js for description of usage of patient.id - 11 -->
                    <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
-                    <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 1)" class="btn btn-primary" type="submit">Assign</button></li>
+                    <li>{{patient.email}}   <form name="newPatientForm" ng-submit="newPatientForm.$valid && addPatient(patient, role)" novalidate>
+                        <div class="form-group">
+                        <label for="role" class="control-label">Role in therapy</label>
+                        <select class="form-control" ng-model="role" id="role" required="required">
+                            <option value="Warden">Warden</option>
+                            <option value="Therapist">Therapist</option>
+                            <option value="Patient">Patient</option>
+                        </select>
+                    </div> <button class="btn btn-primary" type="submit">Assign</button></form></li>
                 </ul>
                 <button ng-click="hidePatientsList()">Hide</button>
             </div>
