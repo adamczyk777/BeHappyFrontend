@@ -16,7 +16,7 @@
         });
 
     }]);
-    
+
 
     app.controller("PanelController", ['$scope', function($scope){
 
@@ -32,19 +32,19 @@
 
     }]);
 
-    app.controller("PatientsController", ['$scope', function($scope){
+    app.controller("PatientsController", ['$scope', '$http', function($scope, $http){
         $scope.patients = [
             {
-                name:"Łukasz",
-                id: 1
+                email:"1234@gmail.com",
+                id: 11
             },
             {
-                name: "Dawid",
-                id: 2
+                email: "eloelo@poczta.onet.pl",
+                id: 12
             },
             {
-              name: "Kuba",
-                id: 3
+                email: "hello@interia.pl",
+                id: 13
             }
 
         ];
@@ -58,6 +58,16 @@
         //     alert("Cannot display test.json")
         // });
 
+         $scope.addPatient = function(count){
+             alert($scope.patients[count].email);
+
+             $http.post("http://localhost:3000/posts", $scope.patients[count]).
+             success(function (data) {
+                 console.log(":)")
+             }).error(function(data) {
+                 console.log(":(")
+             });
+         };
 
     }]);
 
