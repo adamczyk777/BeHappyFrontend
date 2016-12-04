@@ -6,12 +6,8 @@
         $scope.formModel = {};
 
         $scope.onSubmit = function () {
-
             alert("Submitted!");
-            alert($scope.formModel.name);
-
-
-            $http.post("http://localhost:3000/posts", $scope.formModel).
+            $http.post("http://localhost:3000/therapies", $scope.formModel).
             success(function (data) {
                 console.log(":)")
             }).error(function(data) {
