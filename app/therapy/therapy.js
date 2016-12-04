@@ -34,7 +34,7 @@
 
     app.controller("PatientsController", ['$scope', '$http', function($scope, $http){
         $scope.patients = [
-            {
+          /*  {
                 email:"1234@gmail.com",
                 id: 11                          // start counting from 11 because of server error "duplicate id"
             },
@@ -45,18 +45,18 @@
             {
                 email: "hello@interia.pl",
                 id: 13
-            }
+            } */
 
         ];
-        // $http({
-        //     method: 'GET',
-        //     url: 'http://localhost:3000/therapies/members
-        //     /*url: 'http://localhost:8080/therapies'*/
-        // }).then(function successCallback(response) {
-        //     $scope.patients = response.data;
-        // }, function errorCallback(response) {
-        //     alert("Cannot display test.json")
-        // });
+         $http({
+             method: 'GET',
+             url: 'http://localhost:3000/patients'
+             /*url: 'http://localhost:8080/therapies'*/
+         }).then(function successCallback(response) {
+             $scope.patients = response.data;
+         }, function errorCallback(response) {
+             alert("Cannot display elo.json")
+         });
 
          $scope.addPatient = function(count){
              alert($scope.patients[count].email);
