@@ -36,7 +36,7 @@
         $scope.patients = [
             {
                 email:"1234@gmail.com",
-                id: 11
+                id: 11                          // start counting from 11 because of server error "duplicate id"
             },
             {
                 email: "eloelo@poczta.onet.pl",

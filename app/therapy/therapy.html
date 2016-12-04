@@ -22,9 +22,10 @@
                 {{checkTab()}}
             </div>
             <button ng-click="selectTab(-1)">Hide</button>
-            <div class="panel"  ng-controller = "PatientsController" <!--ng-show="checkTab()"-->>
+            <div class="panel"  ng-controller = "PatientsController" ng-show="checkTab()">
                 <h1>Patients in therapy</h1>
                 <ul ng-repeat="patient in patients">
+                    <!-- check therapy.js for description of usage of patient.id - 11 -->
                     <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)"class="btn btn-primary" type="submit">Add</button></li>
                 </ul>
             </div>
