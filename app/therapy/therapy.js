@@ -2,7 +2,10 @@
     var app = angular.module('therapy', [ ]);
 
 
-    app.controller('TherapyController', ['$scope', '$http', function($scope, $http) {
+
+
+
+    app.controller('TherapyController', ['$scope', '$http', '$httpBackend', function($scope, $http, $httpBackend) {
 
         $scope.therapies =  [];
         $http({
@@ -15,7 +18,11 @@
             alert("Cannot display test.json")
         });
 
+
     }]);
+
+
+
 
 
     app.controller("PanelController", ['$scope', function($scope){
@@ -29,16 +36,20 @@
                 return 0;
         };
 
-            $scope.therapyId = function(setTab){
-            $scope.selectTab(setTab);
+        $scope.therapyId = function(setTab){
+            $scope.patientsList = 1;
             $scope.thId = setTab;
+        };
+
+        $scope.hidePatientsList = function () {
+          $scope.patientsList = 0;
         };
 
     }]);
 
     app.controller("PatientsController", ['$scope', '$http', function($scope, $http){
         $scope.patients = [
-          /*  {
+           /*{
                 email:"1234@gmail.com",
                 id: 11                          // start counting from 11 because of server error "duplicate id"
             },
@@ -62,10 +73,10 @@
              alert("Cannot display elo.json")
          });
 
+
          $scope.addPatient = function(count){
-             alert($scope.patients[count].email);
-             alert($scope.thId);
-             $http.post("http://localhost:3000/posts/" + $scope.thId, $scope.patients[count]).
+             alert("Assigned!");
+             $http.post("http://localhost:3000/therapies/" + $scope.thId + "/members", $scope.patients[count]).
              success(function (data) {
                  console.log(":)")
              }).error(function(data) {
