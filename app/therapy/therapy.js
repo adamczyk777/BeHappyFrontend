@@ -29,11 +29,8 @@
         $scope.selectTab = function(setTab){
             $scope.tab = setTab;
         };
-        $scope.checkTab = function(){
-             if ($scope.tab > 0)
-                 return 1;
-            else
-                return 0;
+        $scope.checkTab = function(checkTab){
+             return  $scope.tab === checkTab;
         };
 
         $scope.therapyId = function(setTab){
