@@ -17,9 +17,8 @@
                 <div ng-repeat="product in therapies">
                     Name:{{product.name}}<br>
                     Id:{{product.id}}<br>
-                    <button ng-click="selectTab(product.id)">Add</button>
+                    <button ng-click="therapyId(product.id)">Add</button>
                 </div>
-                {{checkTab()}}
             </div>
             <button ng-click="selectTab(-1)">Hide</button>
             <div class="panel"  ng-controller = "PatientsController" ng-show="checkTab()">
@@ -27,7 +26,7 @@
                 <ul ng-repeat="patient in patients">
                     <!-- check therapy.js for description of usage of patient.id - 11 -->
                    <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
-                    <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>
+                    <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 1)" class="btn btn-primary" type="submit">Add</button></li>
                 </ul>
             </div>
     </div>

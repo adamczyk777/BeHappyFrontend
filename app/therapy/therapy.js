@@ -19,7 +19,6 @@
 
 
     app.controller("PanelController", ['$scope', function($scope){
-
         $scope.selectTab = function(setTab){
             $scope.tab = setTab;
         };
@@ -28,6 +27,11 @@
                  return 1;
             else
                 return 0;
+        };
+
+            $scope.therapyId = function(setTab){
+            $scope.selectTab(setTab);
+            $scope.thId = setTab;
         };
 
     }]);
@@ -60,8 +64,8 @@
 
          $scope.addPatient = function(count){
              alert($scope.patients[count].email);
-
-             $http.post("http://localhost:3000/posts", $scope.patients[count]).
+             alert($scope.thId);
+             $http.post("http://localhost:3000/posts/" + $scope.thId, $scope.patients[count]).
              success(function (data) {
                  console.log(":)")
              }).error(function(data) {
