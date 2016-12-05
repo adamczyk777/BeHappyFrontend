@@ -15,11 +15,21 @@
             <button ng-click="selectTab(0)"><a>Your therapies</a></button>
             <div class="panel" ng-hide="checkTab(-1)" ng-controller="TherapyController">
                 <h1>Your therapies</h1>
-                <div ng-repeat="product in therapies">
-                    Name:{{product.name}}<br>
-                    Date:{{product.date | date}}<br>
-                    <button ng-click="therapyId(product.id)">Add</button>
-                </div>
+                <table class="table" ng-repeat="product in therapies">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Date</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{product.name}}</td>
+                            <td>{{product.date | date}}</td>
+                            <td><button ng-click="therapyId(product.id)">Add</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <button ng-click="selectTab(-1)">Hide</button>
             <div class="panel"  ng-controller = "PatientsController" ng-show="patientsList">
