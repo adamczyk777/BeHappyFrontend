@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html lang="en"
+      ng-app="minmax" >
+<head >
+    <title >BeHappy</title >
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="login.css" rel="stylesheet" >
+</head >
+
+<body >
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container" >
+        <div class="navbar-header" >
+            <a class="navbar-brand"
+               href="/" >Login to BeHappy
+            </a >
+        </div >
+        ,
+    </div >
+</nav >
+
+<div class="container main-content" ng-controller="MinMaxCtrl">
+
+    <form >
+        <div class="form-group" >
+            <label for="email" >Email</label >
+            <input type="email"
+                   class="form-control"
+                   ng-model="formModel.email"
+                   id="email" >
+        </div >
+
+        <div class="form-group" >
+            <label for="password" >Password</label >
+            <input type="password"
+                   class="form-control"
+                   ng-model="formModel.password"
+                   id="password" >
+        </div >
+
+        <div class="form-group" >
+            <button class="btn btn-primary" ng-click="onSubmit()">Login
+            </button >
+        </div >
+
+    </form >
+
+</div >
+
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../bower_components/angular/angular.min.js" ></script >
+<script src="../../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+<script src="login.js" ></script >
+
+
+</body >
+</html >
