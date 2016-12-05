@@ -32,7 +32,7 @@ angular.module('main').controller('loginCtrl', ['$scope', '$http', 'TokenStorage
         $http.get(urls.apiUrl + "users/"+urls.applicationId+"/login", config).then(
             function successCallback(response) {
                 TokenStorage.store(response.headers("X-AUTH-TOKEN"));
-                $location.path("/manage").replace();
+                // $location.path("/").replace();   //wait for user page
             },
             function faiulureCallback(response) {
                 console.log("Can't login properly");
