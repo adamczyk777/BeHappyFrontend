@@ -2,7 +2,10 @@
  * Created by adamc on 26.11.2016.
  */
 var app = angular.module('main', [
-    'jcs-autoValidate'
+    'jcs-autoValidate',
+    'ngRoute',
+    'ngDialog',
+    'n3-line-chart'
 ]);
 
 app.factory('TokenStorage', ['$window', function ($window) {

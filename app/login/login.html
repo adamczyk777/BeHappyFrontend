@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html lang="en"
-      ng-app="minmax" >
+      ng-app="main" >
 <head >
     <title >BeHappy</title >
-    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link href="login.css" rel="stylesheet" >
 </head >
 
@@ -46,7 +46,7 @@
     </div>
 </nav>
 
-<div class="container main-content" ng-controller="MinMaxCtrl">
+<div class="container main-content" ng-controller="LoginCtrl">
     <div class="jumbotron">
 
         <form >
@@ -79,6 +79,8 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../../bower_components/angular/angular.min.js" ></script >
 <script src="../../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+<script src="../../bower_components/angular-route/angular-route.js" ></script >
+
 <script src="../app.js"></script>
 <script src="login.js" ></script >
 

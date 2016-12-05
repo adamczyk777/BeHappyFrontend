@@ -24,6 +24,6 @@
     "angular-route": "^1.5.9",
     "angular-loader": "^1.5.9",
     "angular-mocks": "^1.5.9",
-    "ng-dialog": "^0.6.4"
+    "ng-dialog": "ngDialog#^0.6.4"
   }
 }
