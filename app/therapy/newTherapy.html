@@ -1,43 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="newTherapy">
 <head>
     <meta charset="UTF-8">
     <title>Add new therapy</title>
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="newTherapy.css" rel="stylesheet" >
     <script src="../bower_components/angular/angular.min.js" ></script >
 </head>
-<body ng-init="clicked=0">
+<body ng-controller = "TestController">
     <h1>NEW THERAPY FORM</h1>
-
     <button onclick="window.location.href='therapy.html'">Back to your account</button>
     <div class="container"> <!-- Form -->
-        <form ng-submit="#">
+        <form name="newTherapyForm" ng-submit="newTherapyForm.$valid && onSubmit()" novalidate>
             <div class="form-group">
-                <label for="#" class="control-label">....</label >
-                <input type="#"
+                <label for="therapyName" class="control-label">Therapy Name</label >
+                <input type="text"
                        class="form-control"
-                       ng-model="#"
-                       id="#"
+                       ng-model="formModel.name"
+                       id="therapyName"
                        required="required" >
             </div >
 
             <div class="form-group">
-                <label for="#" class="control-label">....</label >
-                <input type="#"
+                <label for="startDate" class="control-label">Start date</label >
+                <input type="date"
                        class="form-control"
-                       ng-model="#"
-                       id="#"
-                       required="required" >
+                       ng-model="formModel.date"
+                       id="startDate"
+                       required="required"
+                       placeholder="yyyy-MM-dd">
             </div >
-
-            <div class="form-group">
-                <label for="#" class="control-label">....</label >
-                <input type="#"
-                       class="form-control"
-                       ng-model="#"
-                       id="#"
-                       required="required" >
-            </div >
+            
 
             <div class="form-group">
                 <button class="btn btn-primary"
@@ -48,7 +41,7 @@
     </div>
 
     <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="newTherapy.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
