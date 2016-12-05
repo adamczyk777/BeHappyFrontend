@@ -46,7 +46,7 @@ app.config(function ($httpProvider) {
 
 app.service('urls', function () {
     var domain = "http://localhost:8080/";  //add our local domain
-    var api = "api/v1/";                    //add our default endpoint
+    var api = "api/";                    //add our default endpoint
     this.apiUrl = domain + api;
     this.applicationId = "57d313d019388513cf91d701";
 });
