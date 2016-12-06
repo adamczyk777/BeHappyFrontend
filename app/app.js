@@ -1,16 +1,8 @@
 'use strict';
 
 angular.module('main', [
-    'ngRoute',
     'jcs-autoValidate',
-    'main.login',
-    'main.register'
-]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-    $locationProvider.hashPrefix('!');
-
-    $routeProvider.otherwise({redirectTo: 'index.html'});
-}])
-
+])
     .factory('TokenStorage', TokenStorage)
     .factory('TokenAuthInterceptor', TokenAuthInterceptor)
     .config(function ($httpProvider) {
