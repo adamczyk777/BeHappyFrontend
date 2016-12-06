@@ -29,7 +29,7 @@ angular.module('main').controller('loginCtrl', ['$scope', '$http', 'TokenStorage
         var config={};
         config.headers = {};
         config.headers["Authorization"] = $scope.email + ":" + $scope.password;
-        $http.get(urls.apiUrl + "users/"+urls.applicationId+"/login", config).then(
+        $http.get(urls.apiUrl + "users/login", config).then(
             function successCallback(response) {
                 TokenStorage.store(response.headers("X-AUTH-TOKEN"));
                 // $location.path("/manage").replace();   //wait for user page

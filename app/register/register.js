@@ -6,7 +6,7 @@ angular.module('main').controller('registerCtrl', function ($scope, $http) {
         console.log("Hey i'm submitted!"); //info ze nacisniety
         // console.log($scope.formModel); //wyswietla w konsoli co polecialo
 
-        $http.post("http://localhost:8080/api/v1/user", $scope.formModel). // wysyla to co widzielismy przed chwila
+        $http.post("http://localhost:8080/api/user", $scope.formModel). // wysyla to co widzielismy przed chwila
         then(
             function successCallback(response) {
                 console.log("submitted to the server!");
