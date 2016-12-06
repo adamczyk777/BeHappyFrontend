@@ -1,8 +1,15 @@
-angular.module('main').controller('loginCtrl', ['$scope', '$http', 'TokenStorage', '$location', 'urls',
-    function ($scope, $http, TokenStorage, $location, urls) {
-    // $scope.formModel = {};
-    var self=this;
+'use strict';
 
+angular.module('main.login', [ngRoute])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/login', {
+            templateUrl: 'login/login.html',
+            controller : 'loginCtrl',
+            controllerAs: "vm"
+        });
+    }])
+    .controller('loginCtrl', ['$http', 'TokenStorage',
+    function ($http, TokenStorage) {
     // $scope.onSubmit = function () { //kiedy nacisniemy przycisk submit
     //
     //     console.log("Hey i'm submitted!"); //info ze nacisniety
@@ -16,27 +23,29 @@ angular.module('main').controller('loginCtrl', ['$scope', '$http', 'TokenStorage
     //     });
     //
     // };
-    $http.get(urls.apiUrl + "users/logoutAdmin").then(
-        function successCallback(response){
-            TokenStorage.clear();
-        },
-        function failureCallback(response){
-            console.log("Can't logout properly");
-        }
-    );
+    // $http.get(urls.apiUrl + "users/logoutAdmin").then(
+    //     function successCallback(response){
+    //         TokenStorage.clear();
+    //     },
+    //     function failureCallback(response){
+    //         console.log("Can't logout properly");
+    //     }
+    // );
 
     $scope.onSubmit = function() {
         var config={};
         config.headers = {};
         config.headers["Authorization"] = $scope.email + ":" + $scope.password;
-        $http.get(urls.apiUrl + "users/login", config).then(
-            function successCallback(response) {
-                TokenStorage.store(response.headers("X-AUTH-TOKEN"));
-                // $location.path("/manage").replace();   //wait for user page
-                console.log("xD");
+        $http.get(
+            "http://localhost:8080/api/users/login",
+            {headers: {"Authorization": btoa(vm.login + ":" + vm.password)}}
+        ).then(
+            function onSuccess(response) {
+                console.log(response.data.token);
+                TokenStorage.store(response.data.token);
             },
-            function faiulureCallback(response) {
-                console.log("Can't login properly");
+            function onFailure(response) {
+                console.log(response);
             }
         )
     }
