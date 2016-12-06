@@ -1,6 +1,5 @@
 angular.module('main').controller('registerCtrl', function ($scope, $http) {
     $scope.formModel = {};
-
     $scope.onSubmit = function () { //kiedy nacisniemy przycisk submit
 
         console.log("Hey i'm submitted!"); //info ze nacisniety
@@ -13,7 +12,9 @@ angular.module('main').controller('registerCtrl', function ($scope, $http) {
                 TokenStorage.store(response.data.token);
             },
             function failureCallback(response) {
-                console.log("there is an error, check if it's not CORS")
+                console.log("there is an error, check if it's not CORS");
+                console.log(btoa($scope.formModel));
+                console.log(response);
             });
 
     };

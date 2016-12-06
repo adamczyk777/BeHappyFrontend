@@ -10,7 +10,7 @@ angular.module('main')
         config.headers["Authorization"] = $scope.email + ":" + $scope.password;
         $http.get(
             "http://localhost:8080/api/users/login",
-            {headers: {"Authorization": btoa(vm.login + ":" + vm.password)}}
+            {headers: {"Authorization": btoa($scope.email + ":" + $scope.password)}}
         ).then(
             function onSuccess(response) {
                 console.log(response.data.token);
