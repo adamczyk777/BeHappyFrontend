@@ -49,12 +49,14 @@
 <div class="container main-content" ng-controller="LoginCtrl">
     <div class="jumbotron">
 
-        <form >
+        <form ng-submit="onSubmit()"
+            novalidate="novalidate">
             <div class="form-group" >
                 <label for="email" >Email</label >
                 <input type="email"
                        class="form-control"
                        ng-model="formModel.email"
+                       required="required"
                        id="email" >
             </div >
 
@@ -63,6 +65,7 @@
                 <input type="password"
                        class="form-control"
                        ng-model="formModel.password"
+                       required="required"
                        id="password" >
             </div >
 
