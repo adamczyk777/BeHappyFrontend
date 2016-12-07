@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="therapy">
+<head>
+    <meta charset="UTF-8">
+    <title>Therapy</title>
+    <link href="/app/index.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="../bower_components/angular/angular.min.js" ></script >
+    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+</head>
+<body>
+
+    <div class="container"  ng-controller="PanelController" ng-init="tab = -1" ng-init="patientsList = 0">
+            <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
+            <button ng-click="selectTab(0)"><a>Your therapies</a></button>
+            <div class="panel" ng-hide="checkTab(-1)" ng-controller="TherapyController as t">
+                <h1>Your therapies</h1>
+                <table class="table" ng-repeat="product in therapies">
+                    <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Date</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{product.name}}</td>
+                            <td>{{product.date | date}}</td>
+                            <td><button ng-click="therapyId(product.id)">Add</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button ng-click="selectTab(-1)">Hide</button>
+            <div class="panel"  ng-controller = "PatientsController" ng-show="patientsList && tab===0">
+                <h1>Patients in therapy</h1>
+                <ul ng-repeat="patient in patients">
+                    <!-- check therapy.js for description of usage of patient.id - 11 -->
+                   <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
+                    <li>{{patient.email}}   <form name="newPatientForm" ng-submit="newPatientForm.$valid && addPatient(patient, role)" novalidate>
+                        <div class="form-group">
+                        <label for="role" class="control-label">Role in therapy</label>
+                        <select class="form-control" ng-model="role" id="role" required="required">
+                            <option value="Warden">Warden</option>
+                            <option value="Therapist">Therapist</option>
+                            <option value="Patient">Patient</option>
+                        </select>
+                    </div> <button class="btn btn-primary" type="submit">Assign</button></form></li>
+                </ul>
+                <button ng-click="hidePatientsList()">Hide</button>
+            </div>
+    </div>
+
+
+
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="therapy.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
