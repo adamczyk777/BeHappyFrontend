@@ -1,0 +1,17 @@
+{
+"therapies" : [
+            {
+                "name": "First therapy lorem",
+                "id": 1
+            },
+            {
+                "name": "Second therapy ipsum",
+                "id": 2
+            },
+            {
+                "name": "Third therapy dolor",
+                "id": 3
+            }
+        ]
+}
+        

@@ -13,7 +13,7 @@
     <div class="container"  ng-controller="PanelController" ng-init="tab = -1" ng-init="patientsList = 0">
             <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
             <button ng-click="selectTab(0)"><a>Your therapies</a></button>
-            <div class="panel" ng-hide="checkTab(-1)" ng-controller="TherapyController as t">
+            <div class="panel" ng-hide="checkTab(-1)" ng-controller="TherapyController">
                 <h1>Your therapies</h1>
                 <table class="table" ng-repeat="product in therapies">
                     <thead>
