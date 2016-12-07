@@ -1,11 +1,11 @@
-angular.module('main').controller('registerCtrl', function ($scope, $http) {
+angular.module('main').controller('registerCtrl', ['$scope', '$http', 'TokenStorage', function ($scope, $http, TokenStorage) {
     $scope.formModel = {};
     $scope.onSubmit = function () { //kiedy nacisniemy przycisk submit
 
         console.log("Hey i'm submitted!"); //info ze nacisniety
         // console.log($scope.formModel); //wyswietla w konsoli co polecialo
 
-        $http.post("http://localhost:8080/api/user", btoa($scope.formModel)). // wysyla to co widzielismy przed chwila
+        $http.post("http://localhost:8080/api/user/register", btoa($scope.formModel)). // wysyla to co widzielismy przed chwila
         then(
             function successCallback(response) {
                 console.log("submitted to the server!");
@@ -18,4 +18,4 @@ angular.module('main').controller('registerCtrl', function ($scope, $http) {
             });
 
     };
-});
+}]);

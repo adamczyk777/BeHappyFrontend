@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('main', [
-    'jcs-autoValidate',
-])
+    'jcs-autoValidate'
+    ])
     .factory('TokenStorage', TokenStorage)
     .factory('TokenAuthInterceptor', TokenAuthInterceptor)
     .config(function ($httpProvider) {
