@@ -1,10 +1,6 @@
-angular.module('main').controller('registerCtrl', ['$scope', '$http', 'TokenStorage', function ($scope, $http, TokenStorage) {
+angular.module('main').controller('registerCtrl', ['$scope', '$http', "TokenStorage", function ($scope, $http, TokenStorage) {
     $scope.formModel = {};
-    $scope.onSubmit = function () { //kiedy nacisniemy przycisk submit
-
-        console.log("Hey i'm submitted!"); //info ze nacisniety
-        // console.log($scope.formModel); //wyswietla w konsoli co polecialo
-
+    $scope.onSubmit = function () {
         $http.post("http://localhost:8080/api/user/register", btoa($scope.formModel)). // wysyla to co widzielismy przed chwila
         then(
             function successCallback(response) {
@@ -15,6 +11,7 @@ angular.module('main').controller('registerCtrl', ['$scope', '$http', 'TokenStor
                 console.log("there is an error, check if it's not CORS");
                 console.log(btoa($scope.formModel));
                 console.log(response);
+                TokenStorage.clear();
             });
 
     };
