@@ -17,8 +17,12 @@ angular.module('main')
                     TokenStorage.store(response.data.token);
                 },
                 function onFailure(response) {
-                    console.log(response);
+                    console.log(TokenStorage.retrieve());
                 }
             )
+        }
+        $scope.logout = function() {
+            console.log(TokenStorage.retrieve());
+            TokenStorage.clear();
         }
     }]);
