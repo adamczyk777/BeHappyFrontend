@@ -10,12 +10,11 @@
         $scope.therapies =  [];
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/therapies'
-            /*url: 'http://localhost:8080/therapies'*/
+            url: 'http://localhost:8080/therapies'
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {
-            alert("Cannot display test.json")
+            alert("Cannot display list of your therapies")
         });
 
 
@@ -60,9 +59,10 @@
             } */
 
         ];
+        http://localhost:8080/api/therapies/{therapy_id}/members
          $http({
              method: 'GET',
-             url: 'http://localhost:3000/patients'
+             url: "http://localhost:8080/api/therapies" + $scope.thId + "members"
              /*url: 'http://localhost:8080/therapies'*/
          }).then(function successCallback(response) {
              $scope.patients = response.data;

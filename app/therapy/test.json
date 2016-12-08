@@ -1,17 +1,18 @@
-{
-"therapies" : [
-            {
-                "name": "First therapy lorem",
-                "id": 1
-            },
-            {
-                "name": "Second therapy ipsum",
-                "id": 2
-            },
-            {
-                "name": "Third therapy dolor",
-                "id": 3
-            }
-        ]
-}
-        
+[
+  {
+    "id":1,
+    "name":"Therapy1",
+    "beginningDate":"2016-12-03T11:59:13.000",
+    "patientsCount":0,
+    "therapistsCount":1,
+    "wardensCount":0
+  },
+  {
+    "id":2,
+    "name":"Therapy2",
+    "beginningDate":"2016-12-05T21:29:15.003",
+    "patientsCount":1,
+    "therapistsCount":0,
+    "wardensCount":0
+  }
+]
