@@ -6,12 +6,19 @@
         $scope.formModel = {};
 
         $scope.onSubmit = function () {
-            alert("Submitted!");
-            $http.post("http://localhost:3000/therapies", $scope.formModel).
-            success(function (data) {
-                console.log(":)")
-            }).error(function(data) {
-                console.log(":(")
+            //var data = $.param($scope.formModel);
+
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8080/therapies',
+                data: $scope.formModel,
+                /*params: {name: $scope.formModel.name,
+                         date: $scope.formModel.date,
+                         role: $scope.formModel.role}*/
+            }).then(function successCallback(response) {
+                alert("Submitted!");
+            }, function errorCallback(response) {
+                alert("Http error status code:" + response.status.toString());
             });
 
         };

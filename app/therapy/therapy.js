@@ -10,7 +10,7 @@
         $scope.therapies =  [];
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/therapies'
+            url: 'http://localhost:8080/api/therapies'
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {
@@ -59,15 +59,15 @@
             } */
 
         ];
-        http://localhost:8080/api/therapies/{therapy_id}/members
+        //http://localhost:8080/api/therapies/{therapy_id}/members
          $http({
              method: 'GET',
              url: "http://localhost:8080/api/therapies" + $scope.thId + "members"
-             /*url: 'http://localhost:8080/therapies'*/
+             /*url: 'http://localhost:3000/therapies'*/
          }).then(function successCallback(response) {
              $scope.patients = response.data;
          }, function errorCallback(response) {
-             alert("Cannot display elo.json")
+             alert("Cannot display members of your therapy")
          });
 
 
