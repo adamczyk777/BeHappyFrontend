@@ -10,8 +10,8 @@
         $scope.therapies =  [];
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/therapies'
-            /*url: 'http://localhost:8080/therapies'*/
+            /*url: 'http://localhost:3000/therapies' */
+            url: 'http://localhost:8080/therapies'
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {
@@ -62,8 +62,8 @@
         ];
          $http({
              method: 'GET',
-             url: 'http://localhost:3000/patients'
-             /*url: 'http://localhost:8080/therapies'*/
+             /*url: 'http://localhost:3000/patients'*/
+             url: 'http://localhost:8080/patients'
          }).then(function successCallback(response) {
              $scope.patients = response.data;
          }, function errorCallback(response) {
