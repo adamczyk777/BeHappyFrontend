@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('main', [
-    'jcs-autoValidate',
-])
+    'jcs-autoValidate'
+    ])
+    .config(['$locationProvider', function ($locationProvider) {
+        $locationProvider.hashPrefix('!');
+    }])
     .factory('TokenStorage', TokenStorage)
     .factory('TokenAuthInterceptor', TokenAuthInterceptor)
     .config(function ($httpProvider) {

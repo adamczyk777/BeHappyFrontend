@@ -9,7 +9,7 @@ angular.module('main')
             config.headers = {};
             config.headers["Authorization"] = $scope.email + ":" + $scope.password;
             $http.get(
-                "http://localhost:8080/api/users/login",
+                "http://localhost:8080/api/user/login",
                 {headers: {"Authorization": btoa($scope.email + ":" + $scope.password)}}
             ).then(
                 function onSuccess(response) {
@@ -17,8 +17,12 @@ angular.module('main')
                     TokenStorage.store(response.data.token);
                 },
                 function onFailure(response) {
-                    console.log(response);
+                    console.log(TokenStorage.retrieve());
                 }
             )
+        }
+        $scope.logout = function() {
+            console.log(TokenStorage.retrieve());
+            TokenStorage.clear();
         }
     }]);
