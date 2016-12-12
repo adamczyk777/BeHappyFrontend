@@ -25,4 +25,13 @@ angular.module('main')
             console.log(TokenStorage.retrieve());
             TokenStorage.clear();
         }
+        $scope.checkToken = function()
+        {
+            $http.get("http://localhost:8080/api/test/secure")
+                .then(function successCallback(response) {
+                    console.log("Success callback!");
+                }, function errorCallback(response) {
+                    console.log("Error callback");
+                });
+        }
     }]);
