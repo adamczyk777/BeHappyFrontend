@@ -4,6 +4,7 @@
 
     app.controller('TestController', ['$scope', '$http', function($scope, $http){
         $scope.formModel = {};
+        $scope.roleModel = {};
 
         $scope.onSubmit = function () {
             //var data = $.param($scope.formModel);
@@ -21,7 +22,7 @@
             }
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/therapies',
+                url: 'http://localhost:8080/api/therapies',
                 data: $scope.formModel,
                 /*params: {name: $scope.formModel.name,
                          date: $scope.formModel.date,
