@@ -3,14 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Therapy</title>
-    <link href="/app/index.css" rel="stylesheet" type="text/css">
-    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <script src="../../bower_components/angular/angular.min.js" ></script >
+    <link type="text/css" href="../main.css" rel="stylesheet">
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bower_components/angular/angular.min.js" ></script>
     <script src="../../bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="therapy.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-    <div class="container"  ng-controller="PanelController" ng-init="tab = -1" ng-init="patientsList = 0">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">BeHappy</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../calendar/calendar.html">Calendar</a></li>
+                    <li class="active"><a href="therapy.html">Therapy</a></li>
+                    <li><a href="newTherapy.html">New Therapy</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../register/register.html">Register</a></li>
+                    <li><a href="../login/login.html">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container main-content"  ng-controller="PanelController" ng-init="tab = -1" ng-init="patientsList = 0">
+        <div class="jumbotron">
             <button onclick="window.location.href='newTherapy.html'">Add new therapy</button>
             <button ng-click="selectTab(0)"><a>Your therapies</a></button>
             <div class="panel" ng-hide="checkTab(-1)" ng-controller="TherapyController">
@@ -48,14 +70,8 @@
                     </div> <button class="btn btn-primary" type="submit">Assign</button></form></li>
                 </ul>
                 <button ng-click="hidePatientsList()">Hide</button>
+                </div>
             </div>
     </div>
-
-
-
-
-    <script src="../../bower_components/jquery/dist/jquery.js"></script>
-    <script src="therapy.js"></script>
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
