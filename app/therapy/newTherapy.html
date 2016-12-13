@@ -3,26 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Add new therapy</title>
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="newTherapy.css" rel="stylesheet" >
-    <script src="../bower_components/angular/angular.min.js" ></script >
+    <link href="newTherapy.css" rel="stylesheet">
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bower_components/angular/angular.min.js" ></script>
+    <script src="../../bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="newTherapy.js"></script>
 </head>
 <body ng-controller = "TestController">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">BeHappy</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../calendar/calendar.html">Calendar</a></li>
+                    <li><a href="therapy.html">Therapy</a></li>
+                    <li class="active"><a href="newTherapy.html">New Therapy</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../register/register.html">Register</a></li>
+                    <li><a href="../login/login.html">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+     <div class="container main-content">
+        <div class="jumbotron">
     <h1>NEW THERAPY FORM</h1>
     <button onclick="window.location.href='therapy.html'">Back to your account</button>
     <div class="container"> <!-- Form -->
         <form name="newTherapyForm" ng-submit="newTherapyForm.$valid && onSubmit()" novalidate>
             <div class="form-group">
-                <label for="therapyName" class="control-label">Therapy Name</label >
+                <label for="therapyName" class="control-label">Therapy Name</label>
                 <input placeholder="Enter therapy name" type="text"
                        class="form-control"
                        ng-model="formModel.name"
                        id="therapyName"
-                       required="required" >
-            </div >
-
+                       required="required">
+            </div>
             <div class="form-group">
-                <label for="startDate" class="control-label">Start date</label >
+                <label for="startDate" class="control-label">Start date</label>
                 <input type="date"
                        class="form-control"
                        ng-model="formModel.beginningDate"
@@ -38,8 +62,6 @@
                     <option value="PATIENT">Patient</option>
                 </select>
             </div>
-            
-
             <div class="form-group">
                 <button class="btn btn-primary"
                         type="submit">Send
@@ -47,10 +69,7 @@
              </div>
         </form>
     </div>
-    <hr />
-
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="newTherapy.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </div>
+    </div>
 </body>
 </html>
