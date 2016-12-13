@@ -1,8 +1,5 @@
-(function () {
-
-    var app = angular.module('newTherapy', [ ]);
-
-    app.controller('TestController', ['$scope', '$http', function($scope, $http){
+angular.module('main')
+    .controller('TestController', ['$scope', '$http', function($scope, $http){
         $scope.formModel = {};
         $scope.roleModel = {};
 
@@ -36,4 +33,3 @@
         };
     }]);
 
-})();
