@@ -8,9 +8,9 @@ angular.module('main', [
     }])
     .factory('TokenStorage', TokenStorage)
     .factory('TokenAuthInterceptor', TokenAuthInterceptor)
-    .config('$httpProvider', function ($httpProvider) {
+    .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('TokenAuthInterceptor');
-    });
+    }]);
 
 
 
