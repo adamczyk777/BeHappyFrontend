@@ -16,7 +16,6 @@
             + $scope.formModel.beginningDate.getUTCMilliseconds();*/
 
 
-
             $scope.formModel.role = "THERAPIST";
             $scope.formModel.patientsCount = 0;
             $scope.formModel.therapistsCount = 0;
@@ -32,9 +31,20 @@
                 $scope.formModel.patientsCount ++;
             }
 
+            var toSend = {
+                //id: $scope.formModel.id,
+                name: $scope.formModel.name,
+                beginningDate: $scope.formModel.beginningDate,
+             /*   patientsCount: $scope.formModel.patientsCount,
+                therapistsCount: $scope.formModel.therapistsCount,
+                wardensCount: $scope.formModel.wardensCount,*/
+                role: $scope.formModel.role
+            };
+
             $http({
                 method: 'POST',
                 url: 'http://localhost:8080/api/therapies',
+                /*data: toSend*/
                 data: $scope.formModel
                 /*params: {name: $scope.formModel.name,
                          date: $scope.formModel.date,
