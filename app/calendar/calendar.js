@@ -1,7 +1,5 @@
-'use strict';
-
 angular.module('main')
-    .controller('CalendarCtrl', function($scope, $http, $filter) {
+    .controller('CalendarCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 
         // Daty dla kalendarza:
         $scope.now = new Date();
@@ -12,7 +10,7 @@ angular.module('main')
          // obiekt, do którego widok przyczepia dane do wysłania:
         $scope.formModel = {
             date: $scope.now,
-            mark: "",
+            mark: ""
         };
 
         var therapy_id = 1; // tymczasowo, pozniej bedzie zczytywana w zaleznosci na jaka terapie wejdziemy
@@ -29,4 +27,4 @@ angular.module('main')
             });
             //var jsonToSend = JSON.stringify($scope.formModel); // zamienia obiekt na string JSON
         };
-    });
+    }]);

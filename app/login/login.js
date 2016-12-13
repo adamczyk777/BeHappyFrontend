@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('main')
     .controller('loginCtrl', ['$http', 'TokenStorage', '$scope',
     function ($http, TokenStorage, $scope) {

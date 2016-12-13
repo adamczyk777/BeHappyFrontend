@@ -20,7 +20,7 @@ angular.module('main')
             $http({
                 method: 'POST',
                 url: 'http://localhost:8080/api/therapies',
-                data: $scope.formModel,
+                data: $scope.formModel
                 /*params: {name: $scope.formModel.name,
                          date: $scope.formModel.date,
                          role: $scope.formModel.role}*/

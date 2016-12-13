@@ -1,10 +1,7 @@
-'use strict';
-
 angular.module('main', [
     'jcs-autoValidate',
     'ngMaterial',
-    'ngMessages',
-    'ngRoute'
+    'ngMessages'
     ])
     .config(['$locationProvider', function ($locationProvider) {
         $locationProvider.hashPrefix('!');

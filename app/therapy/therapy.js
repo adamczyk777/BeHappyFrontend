@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('main')
     .controller('TherapyController', ['$scope', '$http', '$httpBackend', function($scope, $http, $httpBackend) {
         $scope.therapies =  [];
