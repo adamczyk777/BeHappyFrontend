@@ -6,7 +6,7 @@
         $scope.formModel = {};
 
         $scope.onSubmit = function () {
-            $scope.formModel.beginningDate = "1111-11-11T23:00:00.00"
+            $scope.formModel.beginningDate = "1111-11-11T23:00:00.00Z";
           /*  $scope.formModel.beginningDate = $scope.formModel.beginningDate.getUTCFullYear()
             + "-" + $scope.formModel.beginningDate.getUTCMonth()
             + "-" + $scope.formModel.beginningDate.getUTCDay() + "T23:00:00.000";*/
@@ -15,6 +15,10 @@
             + $scope.formModel.beginningDate.getUTCSeconds() + ":"
             + $scope.formModel.beginningDate.getUTCMilliseconds();*/
 
+            $scope.localFormat = 'YYYY-MM-DD[T]HH:mm:ss';
+            $scope.formModel.beginningDate = moment($scope.formModel.beginningDate).format($scope.localFormat);
+
+            alert ($scope.formModel.beginningDate);
 
             $scope.formModel.role = "THERAPIST";
             $scope.formModel.patientsCount = 0;
