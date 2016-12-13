@@ -74,7 +74,7 @@
          $scope.addPatient = function(patient, role){
              alert("Assigned!");
              $scope.message = {id:patient.id, role: role};
-             $http.post("http://localhost:3000/therapies/" + $scope.thId + "/members", $scope.message);
+             $http.post("http://localhost:8080/api/therapies/" + $scope.thId + "/members", $scope.message);
              success(function (data) {
                  console.log(":)")
              }).error(function(data) {
