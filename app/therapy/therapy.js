@@ -10,7 +10,8 @@
         $scope.therapies =  [];
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/therapies'
+            url: 'http://localhost:8080/api/therapies',
+            headers: {'X-Auth-Token': 'loremIpsumToken'}    //FIXME Change it into a real token
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {

@@ -1,5 +1,4 @@
 (function () {
-
     var app = angular.module('newTherapy', [ ]);
 
     app.controller('TestController', ['$scope', '$http', function($scope, $http){
@@ -17,7 +16,7 @@
 
 
             $scope.formModel.role = "THERAPIST";
-            $scope.formModel.patientsCount = 0;
+    /*        $scope.formModel.patientsCount = 0;
             $scope.formModel.therapistsCount = 0;
             $scope.formModel.wardensCount = 0;
             //$scope.formModel.date = $filter('date')(new Date(), "MM/dd/yyyy")
@@ -29,7 +28,7 @@
             }
             if ($scope.formModel.role.localeCompare("PATIENT") == 0){
                 $scope.formModel.patientsCount ++;
-            }
+            }*/
 
             var toSend = {
                 //id: $scope.formModel.id,
@@ -45,7 +44,8 @@
                 method: 'POST',
                 url: 'http://localhost:8080/api/therapies',
                 /*data: toSend*/
-                data: $scope.formModel
+                data: $scope.formModel,
+                //headers: {'X-Auth-Token': 'loremIpsumToken'}    //FIXME Change it into a real token
                 /*params: {name: $scope.formModel.name,
                          date: $scope.formModel.date,
                          role: $scope.formModel.role}*/
