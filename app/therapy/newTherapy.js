@@ -1,8 +1,5 @@
-(function () {
-
-    var app = angular.module('newTherapy', [ ]);
-
-    app.controller('TestController', ['$scope', '$http', function($scope, $http){
+angular.module('main')
+    .controller('TestController', ['$scope', '$http', function($scope, $http){
         $scope.formModel = {};
         $scope.roleModel = {};
 
@@ -23,7 +20,7 @@
             $http({
                 method: 'POST',
                 url: 'http://localhost:8080/api/therapies',
-                data: $scope.formModel,
+                data: $scope.formModel
                 /*params: {name: $scope.formModel.name,
                          date: $scope.formModel.date,
                          role: $scope.formModel.role}*/
@@ -36,4 +33,3 @@
         };
     }]);
 
-})();
