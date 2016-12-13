@@ -1,12 +1,5 @@
-(function(){
-    var app = angular.module('therapy', [ ]);
-
-
-
-
-
-    app.controller('TherapyController', ['$scope', '$http', '$httpBackend', function($scope, $http, $httpBackend) {
-
+angular.module('main')
+    .controller('TherapyController', ['$scope', '$http', '$httpBackend', function($scope, $http, $httpBackend) {
         $scope.therapies =  [];
         $http({
             method: 'GET',
@@ -14,17 +7,13 @@
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {
-            alert("Cannot display list of your therapies")
+            console.log("Cannot display list of your therapies");
+            console.log(response);
         });
 
 
-    }]);
-
-
-
-
-
-    app.controller("PanelController", ['$scope', function($scope){
+    }])
+    .controller("PanelController", ['$scope', function($scope){
         $scope.selectTab = function(setTab){
             $scope.tab = setTab;
         };
@@ -41,9 +30,8 @@
           $scope.patientsList = 0;
         };
 
-    }]);
-
-    app.controller("PatientsController", ['$scope', '$http', function($scope, $http){
+    }])
+    .controller("PatientsController", ['$scope', '$http', function($scope, $http){
         $scope.patients = [
            /*{
                 email:"1234@gmail.com",
@@ -67,7 +55,8 @@
          }).then(function successCallback(response) {
              $scope.patients = response.data;
          }, function errorCallback(response) {
-             alert("Cannot display members of your therapy")
+             console.log("Cannot display members of your therapy");
+             console.log(response);
          });
 
 
@@ -84,5 +73,5 @@
 
     }]);
 
-})();
+
 

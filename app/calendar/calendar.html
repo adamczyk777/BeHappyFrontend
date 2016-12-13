@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calendar</title>
+    <link type="text/css" rel="stylesheet"  href="../../bower_components/angular-material/angular-material.min.css" />
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../main.css" rel="stylesheet">
+    <!-- Angular things -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../../bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="../../bower_components/angular-material/angular-material.js"></script>
+    <script src="../../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script>
+    <script src="../app.js"></script>
+    <script src="calendar.js"></script>
+</head>
+<body ng-controller="CalendarCtrl">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">BeHappy</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="active"><a href="calendar.html">Calendar</a></li>
+                    <li><a href="../therapy/therapy.html">Therapy</a></li>
+                    <li><a href="../therapy/newTherapy.html">New Therapy</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../register/register.html">Register</a></li>
+                    <li><a href="../login/login.html">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container main-content">
+    <div class="jumbotron">
+        <form name="wellBeing" ng-submit="submitForm()" class="form-inline">
+            <p>Oceń swoje samopoczucie wybranego dnia w skali od 1 do 10:</p>
+            <div class="form-group">
+                <select ng-model="formModel.mark" required class="form-control">
+                    <option value="">--wybierz--</option>
+                    <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]" value="{{n}}">{{n}}</option>
+                </select>
+                <md-datepicker ng-model="formModel.date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+            </div>
+            <button class="btn btn-primary">Zapisz</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
