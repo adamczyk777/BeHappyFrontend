@@ -14,7 +14,7 @@ angular.module('main')
             mark: null
         };
 
-        var therapy_id = 0; // tymczasowo, pozniej bedzie zczytywana w zaleznosci na jaka terapie wejdziemy
+        var therapy_id = 1; // tymczasowo, pozniej bedzie zczytywana w zaleznosci na jaka terapie wejdziemy
 
         $scope.submitForm = function() {  // wysyła dane z formularza (nie wiem jak to ma do końca wyglądać)
             $scope.toSend = {
