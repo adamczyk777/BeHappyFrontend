@@ -62,7 +62,7 @@
                 </div>
             </div>
             <button ng-click="selectTab(-1)">Hide</button>
-            <div class="panel"  ng-controller = "PatientsController" ng-show="patientsList && tab===0">
+            <div class="panel"  ng-controller = "PatientsController" ng-show="patientsList && tab===0 && test != 0">
                 <h3>Patients in therapy</h3>
                 <ul ng-repeat="patient in patients">
                     <!-- check therapy.js for description of usage of patient.id - 11 -->
