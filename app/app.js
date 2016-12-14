@@ -1,16 +1,16 @@
-'use strict';
-
 angular.module('main', [
-    'jcs-autoValidate'
+    'jcs-autoValidate',
+    'ngMaterial',
+    'ngMessages'
     ])
     .config(['$locationProvider', function ($locationProvider) {
         $locationProvider.hashPrefix('!');
     }])
     .factory('TokenStorage', TokenStorage)
     .factory('TokenAuthInterceptor', TokenAuthInterceptor)
-    .config(function ($httpProvider) {
+    .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('TokenAuthInterceptor');
-    });
+    }]);
 
 
 
