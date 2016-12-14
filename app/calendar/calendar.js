@@ -14,7 +14,7 @@ angular.module('main')
             mark: null
         };
 
-        var therapy_id = 1; // tymczasowo, pozniej bedzie zczytywana w zaleznosci na jaka terapie wejdziemy
+        $scope.therapy_id; // tymczasowo, pozniej bedzie zczytywana w zaleznosci na jaka terapie wejdziemy
 
         $scope.submitForm = function() {  // wysyła dane z formularza (nie wiem jak to ma do końca wyglądać)
             $scope.toSend = {
@@ -25,7 +25,7 @@ angular.module('main')
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/api/v1/stats/' + therapy_id,
+                url: 'http://localhost:8080/api/v1/stats/' + $scope.therapy_id,
                 data: $scope.toSend
             }).then(function successCallback(response) {
                 alert("Submitted!");
