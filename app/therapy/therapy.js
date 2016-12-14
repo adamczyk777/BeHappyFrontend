@@ -51,7 +51,7 @@ angular.module('main')
         //http://localhost:8080/api/therapies/{therapy_id}/members
          $http({
              method: 'GET',
-             url: "http://localhost:8080/api/therapies" + $scope.thId + "members"
+             url: "http://localhost:8080/api/therapies/" + $scope.thId + "/members"
              /*url: 'http://localhost:3000/therapies'*/
          }).then(function successCallback(response) {
              $scope.patients = response.data;
