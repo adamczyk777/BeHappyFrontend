@@ -4,7 +4,7 @@ angular.module('main')
         $http({
             method: 'GET',
             url: 'http://localhost:8080/api/therapies',
-            headers: {'X-Auth-Token': 'loremIpsumToken'}    //FIXME Change it into a real token
+         //   headers: {'X-Auth-Token': 'loremIpsumToken'}    //FIXME Change it into a real token
         }).then(function successCallback(response) {
             $scope.therapies = response.data;
         }, function errorCallback(response) {
@@ -14,7 +14,7 @@ angular.module('main')
 
 
     }])
-    .controller("PanelController", ['$scope', function($scope){
+    .controller("PanelController", ['$scope', '$http', function($scope, $http){
         $scope.selectTab = function(setTab){
             $scope.tab = setTab;
         };
@@ -22,9 +22,25 @@ angular.module('main')
              return  $scope.tab === checkTab;
         };
 
+        $scope.getMembers = function() {
+
+            alert($scope.thId);
+            $http({
+                method: 'GET',
+                url: "http://localhost:8080/api/therapies/" + $scope.thId + "/members"
+                /*url: 'http://localhost:3000/therapies'*/
+            }).then(function successCallback(response) {
+                $scope.patients = response.data;
+            }, function errorCallback(response) {
+                console.log("Cannot display members of your therapy");
+                console.log(response);
+            });
+        };
+
         $scope.therapyId = function(setTab){
             $scope.patientsList = 1;
             $scope.thId = setTab;
+            $scope.getMembers();
         };
 
         $scope.hidePatientsList = function () {
@@ -49,16 +65,6 @@ angular.module('main')
 
         ];
         //http://localhost:8080/api/therapies/{therapy_id}/members
-         $http({
-             method: 'GET',
-             url: "http://localhost:8080/api/therapies/" + $scope.thId + "/members"
-             /*url: 'http://localhost:3000/therapies'*/
-         }).then(function successCallback(response) {
-             $scope.patients = response.data;
-         }, function errorCallback(response) {
-             console.log("Cannot display members of your therapy");
-             console.log(response);
-         });
 
 
          $scope.addPatient = function(patient, role){
