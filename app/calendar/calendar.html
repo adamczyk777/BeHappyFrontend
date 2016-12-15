@@ -17,6 +17,7 @@
     <script src="../../bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="../../bower_components/angular-material/angular-material.js"></script>
     <script src="../../bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
     <script src="../app.js"></script>
     <script src="calendar.js"></script>
 </head>
@@ -43,8 +44,11 @@
     <div class="container main-content">
     <div class="jumbotron">
         <form name="wellBeing" ng-submit="submitForm()" class="form-inline">
-            <p>Oceń swoje samopoczucie wybranego dnia w skali od 1 do 10:</p>
+
             <div class="form-group">
+                <label>Podaj therapy_id (dla testów):</label>
+                <input type="text" required ng-model="therapy_id" class="form-control">
+                <label>Oceń swoje samopoczucie wybranego dnia w skali od 1 do 10:</label>
                 <select ng-model="formModel.mark" required class="form-control">
                     <option value="">--wybierz--</option>
                     <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]" value="{{n}}">{{n}}</option>
