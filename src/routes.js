@@ -17,6 +17,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/home/view.html')
     })
+    .state('app.register', {
+      url: '/register',
+      controller: 'RegisterController',
+      controllerAs: 'vm',
+      template: require('./modules/register/view.html')
+    })
     .state('app.auth', {
       url: '/auth',
       controller: 'AuthController',
