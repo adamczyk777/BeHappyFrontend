@@ -6,10 +6,31 @@
     <title>FountainJS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
   </head>
-
   <body ng-app="app">
-    <ui-view></ui-view>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">BeHappy</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Therapy</a></li>
+            <li><a href="#">New Therapy</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Log In</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="jumbotron">
+        <ui-view></ui-view>
+      </div>
+    </div>
   </body>
 </html>
