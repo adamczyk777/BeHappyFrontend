@@ -1,15 +1,20 @@
 var angular = require('angular');
 
-var hello = require('./app/hello');
+var techsModule = require('./app/techs/index');
 require('angular-ui-router');
 var routesConfig = require('./routes');
 
+var main = require('./app/main');
+var header = require('./app/header');
+var title = require('./app/title');
+var footer = require('./app/footer');
+
 require('./index.scss');
 
-var app = 'app';
-module.exports = app;
-
 angular
-  .module(app, ['ui.router'])
+  .module('app', [techsModule, 'ui.router'])
   .config(routesConfig)
-  .component('app', hello);
+  .component('app', main)
+  .component('fountainHeader', header)
+  .component('fountainTitle', title)
+  .component('fountainFooter', footer);
