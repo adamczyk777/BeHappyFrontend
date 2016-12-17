@@ -7,7 +7,20 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('app', {
+      url: '',
+      abstract: true,
+      template: require('./modules/layout.html')
+    })
+    .state('app.home', {
       url: '/',
-      component: 'app'
+      controller: 'HomeController',
+      controllerAs: 'vm',
+      template: require('./modules/home/view.html')
+    })
+    .state('app.auth', {
+      url: '/auth',
+      controller: 'AuthController',
+      controllerAs: 'vm',
+      template: require('./modules/auth/view.html')
     });
 }

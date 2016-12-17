@@ -1,10 +1,15 @@
 var angular = require('angular');
 require('angular-ui-router');
-var routesConfig = require('./routes');
-var main = require('./app/main');
 require('./index.scss');
+
+var routesConfig = require('./routes');
+var authController = require('./modules/auth/controller');
+var homeController = require('./modules/home/controller');
+var therapiesService = require('./services/therapies.service');
 
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
-  .component('app', main);
+  .controller('AuthController', authController)
+  .controller('HomeController', homeController)
+  .factory('TherapiesService', therapiesService);
