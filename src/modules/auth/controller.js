@@ -3,6 +3,7 @@ module.exports = controller;
 function controller($http, TokenStorage, $log) {
   var vm = this;
   vm.LogIn = function () {
+    $log.log('dupa');
     var config = {};
     config.headers = {};
     config.headers["Authorization"] = vm.email + ":" + vm.password;
