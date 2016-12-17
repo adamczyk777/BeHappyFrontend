@@ -6,10 +6,14 @@ var routesConfig = require('./routes');
 var authController = require('./modules/auth/controller');
 var homeController = require('./modules/home/controller');
 var therapiesService = require('./services/therapies.service');
+var tokenStorageService = require('./services/tokenStorage.service');
+var tokenAuthInterceptor = require('./services/tokenAuthInterceptor');
 
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
   .controller('AuthController', authController)
   .controller('HomeController', homeController)
-  .factory('TherapiesService', therapiesService);
+  .factory('TherapiesService', therapiesService)
+  .factory('TokenStorage', tokenStorageService)
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor);

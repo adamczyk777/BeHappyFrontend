@@ -1,1 +1,59 @@
-<h1>{{vm.text}}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h1>Login</h1>
+      <form ng-submit="vm.LogIn()"
+            novalidate="novalidate">
+        <div class="form-group">
+          <label for="emailLogin">Email</label>
+          <input type="email"
+                 class="form-control"
+                 ng-model="vm.email"
+                 required="required"
+                 id="emailLogin">
+        </div>
+        <div class="form-group">
+          <label for="passwordLogin" >Password</label>
+          <input type="password"
+                 class="form-control"
+                 ng-model="vm.loginForm.password"
+                 required="required"
+                 id="passwordLogin">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-6">
+      <h1>Register</h1>
+      <form>
+        <form ng-submit="vm.SignUp()"
+              novalidate="novalidate">
+          <div class="form-group">
+            <label for="emailSignup" class="control-label">Email</label>
+            <input type="email"
+                   class="form-control"
+                   ng-model="registerForm.email"
+                   id="emailSignup"
+                   required="required">
+          </div>
+          <div class="form-group">
+            <label for="passwordSignup" class="control-label">Password</label>
+            <input type="password"
+                   class="form-control"
+                   ng-model="registerForm.password"
+                   id="passwordSignup"
+                   required="required"
+                   ng-minlength="6">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary"
+                    type="submit">Register
+            </button>
+          </div>
+        </form>
+      </form>
+    </div>
+  </div>
+</div>
