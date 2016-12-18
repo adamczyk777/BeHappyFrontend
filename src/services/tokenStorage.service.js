@@ -1,5 +1,7 @@
 module.exports = service;
 
+service.$inject = ['$window'];
+
 function service($window) {
   var storageKey = "auth_token";
   return {

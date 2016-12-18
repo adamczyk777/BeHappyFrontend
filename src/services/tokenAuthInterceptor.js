@@ -1,5 +1,7 @@
 module.exports = service;
 
+service.$inject = ['$q', 'TokenStorage'];
+
 function service($q, TokenStorage) {
   return {
     request: function (config) {
