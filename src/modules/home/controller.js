@@ -1,8 +1,8 @@
 module.exports = controller;
 
-function controller(TherapiesService) {
+function controller(LoginService) {
   var vm = this;
-  vm.create = function () {
-    TherapiesService.createTherapy();
+  vm.login = function () {
+    LoginService.login();
   };
 }
