@@ -7,7 +7,8 @@ var authController = require('./modules/auth/controller');
 var homeController = require('./modules/home/controller');
 var therapiesService = require('./services/therapies.service');
 var tokenStorageService = require('./services/tokenStorage.service');
-var tokenAuthInterceptor = require('./services/tokenAuthInterceptor');
+var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
+var loginService = require('./services/login.service');
 
 angular
   .module('app', ['ui.router'])
@@ -16,4 +17,5 @@ angular
   .controller('HomeController', homeController)
   .factory('TherapiesService', therapiesService)
   .factory('TokenStorage', tokenStorageService)
-  .factory('TokenAuthInterceptor', tokenAuthInterceptor);
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor)
+  .factory('LoginService', loginService);
