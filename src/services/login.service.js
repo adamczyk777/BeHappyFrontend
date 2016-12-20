@@ -1,25 +1,5 @@
 module.exports = service;
 
-function service(TokenStorage, $http, $log) {
-  var vm = this;
-  return {
-    login: function () {
-      var config = {};
-      config.headers = {};
-      config.headers.Authorization = vm.email + ":" + vm.password;
-      $http.get(
-        "http://localhost:8080/api/user/login",
-        {headers: {Authorization: btoa(vm.email + ":" + vm.password)}}
-      ).then(
-        function onSuccess(response) {
-          $log.log(response.data.token);
-          TokenStorage.store(response.data.token);
-        },
-        function onFailure(response) {
-          $log.log(response);
-          $log.log(TokenStorage.retrieve());
-        }
-      );
-    }
-  };
+function service() {
+
 }
