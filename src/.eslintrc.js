@@ -1,4 +1,3 @@
-/*eslint linebreak-style: ["error", "unix"]*/
 module.exports = {
   extends: [
     'angular'
