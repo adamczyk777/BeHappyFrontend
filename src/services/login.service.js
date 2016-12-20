@@ -1,6 +1,7 @@
 module.exports = service;
 
-function service(TokenStorage) {
+function service(TokenStorage, $http, $log) {
+  var vm = this;
   var config = {};
   config.headers = {};
   config.headers["Authorization"] = vm.email + ":" + vm.password;

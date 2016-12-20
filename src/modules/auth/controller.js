@@ -1,10 +1,6 @@
 module.exports = controller;
 
-function controller($http, TokenStorage, $log) {
-  vm.LogIn = function () {
+function controller(TokenStorage) {
+  var vm = this;
 
-  };
-  vm.SignUp = function () {
-
-  };
 }
