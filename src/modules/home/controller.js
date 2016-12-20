@@ -8,7 +8,7 @@ function controller($log, TokenStorage, $http) {
     config.headers = {};
     config.headers.Authorization = vm.emailField + ":" + vm.passwordField;
     $http.get(
-      "http://localhost:8080/api/user/login",
+      "http://localhost:8080/api/user/login", // TODO: edit endpoint to make it usabvle with online server
       {headers: {Authorization: btoa(vm.emailField + ":" + vm.passwordField)}}
     ).then(
       function onSuccess(response) {
