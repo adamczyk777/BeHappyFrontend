@@ -23,9 +23,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/login/view.html')
     })
-    .state('app.auth', {
+    .state('app.register', {
       url: '/register',
-      controller: 'AuthController',
+      controller: 'RegisterController',
       controllerAs: 'vm',
       template: require('./modules/register/view.html')
     });

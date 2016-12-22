@@ -3,7 +3,7 @@ require('angular-ui-router');
 require('./index.scss');
 
 var routesConfig = require('./routes');
-var authController = require('./modules/register/controller');
+var regiserController = require('./modules/register/controller');
 var loginController = require('./modules/login/controller');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
@@ -13,7 +13,7 @@ var homeController = require('./modules/home/controller');
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
-  .controller('AuthController', authController)
+  .controller('RegisterController', regiserController)
   .controller('LoginController', loginController)
   .controller('HomeController', homeController)
   .factory('TokenStorage', tokenStorageService)

@@ -3,7 +3,10 @@ module.exports = controller;
 function controller(TokenStorage, $log, $http, $state) {
   var vm = this;
 
-  vm.registerForm = {};
+  vm.registerForm = {
+    email: '',
+    password: ''
+  };
 
   vm.register = function () {
     $http.post("http://localhost:8080/api/user/register", vm.registerForm) // TODO: edit endpoint to match online server
@@ -16,6 +19,7 @@ function controller(TokenStorage, $log, $http, $state) {
         function failureCallback(response) {
           $log.log("Mamy błąd :/");
           $log.log(response);
+          $log.log(vm.registerForm);
         });
   };
 }
