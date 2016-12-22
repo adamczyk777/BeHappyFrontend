@@ -1,32 +1,28 @@
-<!--<nav class="navbar navbar-default navbar-static-top">-->
-<!--<div class="container">-->
-<!--<div class="navbar-header">-->
-<!--<a class="navbar-brand" ui-sref="app.home">BeHappy</a>-->
-<!--</div>-->
-<!--<div id="navbar" class="navbar-collapse collapse">-->
-<!--<ul class="nav navbar-nav">-->
-<!--</ul>-->
-<!--<ul class="nav navbar-nav navbar-right">-->
-<!--<li ui-sref-active="active"><a ui-sref="app.auth">Log In</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</nav>-->
-<!--<div class="container">-->
-<!--<ui-view></ui-view>-->
-<!--</div>-->
+<!--<nav class="navbar navbar-default navbar-static-top">
+<div class="container">
+<div class="navbar-header">
+<a class="navbar-brand" ui-sref="app.home">BeHappy</a>
+</div>
+<div id="navbar" class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li ui-sref-active="active"><a ui-sref="app.auth">Log In</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container">
+<ui-view></ui-view>
+</div>-->
 <div id="wrapper">
 
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a href="#">
-          Start Bootstrap
-        </a>
-      </li>
-
-    </ul>
+    <nav class="sidebar-nav">
+      <a ui-sref="app.therapies({therapy_id: 1})">therapy 1</a>
+      <a ui-sref="app.therapies({therapy_id: 2})">therapy 1</a>
+    </nav>
   </div>
   <!-- /#sidebar-wrapper -->
 
@@ -35,6 +31,5 @@
     <ui-view></ui-view>
   </div>
   <!-- /#page-content-wrapper -->
-
 </div>
 <!-- /#wrapper -->

@@ -5,6 +5,8 @@ require('./index.scss');
 var routesConfig = require('./routes');
 var authController = require('./modules/auth/controller');
 var homeController = require('./modules/home/controller');
+var therapiesController = require('./modules/therapies/controller');
+var statsController = require('./modules/stats/controller');
 var therapiesService = require('./services/therapies.service');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
@@ -15,6 +17,8 @@ angular
   .config(routesConfig)
   .controller('AuthController', authController)
   .controller('HomeController', homeController)
+  .controller('StatsController', statsController)
+  .controller('TherapiesController', therapiesController)
   .factory('TherapiesService', therapiesService)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)

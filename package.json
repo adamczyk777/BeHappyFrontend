@@ -3,7 +3,9 @@
     "angular": "^1.5.0",
     "angular-auto-validate": "^1.19.0",
     "angular-ui-router": "1.0.0-beta.1",
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "^3.3.7",
+    "moment": "^2.17.1",
+    "chart.js": "^2.4.0"
   },
   "devDependencies": {
     "@types/angular": "^1.5.16",
