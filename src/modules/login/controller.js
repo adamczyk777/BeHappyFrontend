@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller($log, TokenStorage, $http) {
+function controller($log, TokenStorage, $http, $state) {
   var vm = this;
 
   vm.login = function () {
@@ -14,6 +14,7 @@ function controller($log, TokenStorage, $http) {
       function onSuccess(response) {
         $log.log(response.data.token);
         TokenStorage.store(response.data.token);
+        $state.go('app.home');
       },
       function onFailure(response) {
         $log.log(response);

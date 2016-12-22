@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller(TokenStorage, $log, $http) {
+function controller(TokenStorage, $log, $http, $state) {
   var vm = this;
 
   vm.registerForm = {};
@@ -11,6 +11,7 @@ function controller(TokenStorage, $log, $http) {
         function successCallback(response) {
           $log.log("Poszło, Uff... xD");
           TokenStorage.store(response.data.token);
+          $state.go('app.home');
         },
         function failureCallback(response) {
           $log.log("Mamy błąd :/");
