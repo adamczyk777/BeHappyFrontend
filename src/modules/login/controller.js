@@ -19,6 +19,7 @@ function controller($log, TokenStorage, $http, $state) {
       function onFailure(response) {
         $log.log(response);
         $log.log(TokenStorage.retrieve());
+        $log.log(vm.emailField);
       }
     );
   };
