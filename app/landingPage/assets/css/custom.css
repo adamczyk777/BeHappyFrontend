@@ -6,4 +6,85 @@
  *
  */
 
+div.toArticleContainer {
+
+    text-align:center !important;
+
+}
+
+a.toApp {
+    background: #e91e63;
+    color: #ffffff !important;
+    transition: ease-in-out 0.2s;
+    display: inline-block !important;
+    line-height: 1.5rem !important;
+    border-radius: 0.125rem !important;
+    padding: 0.4375rem 1rem !important;
+    font-size: 0.875rem !important;
+    margin: 0.5rem 15px !important;
+}
+
+
+a.toMoreArticles{
+
+    background: #3f51b5 ;
+    color: #ffffff !important;
+    transition: ease-in-out 0.2s;
+    display: inline-block !important;
+    line-height: 1.5rem !important;
+    border-radius: 0.125rem !important;
+    padding: 0.9375rem 1.5em !important;
+    font-size: 1rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+
+}
+
+
+a.toArticle:link {
+
+    color: black;
+
+}
+
+a.toArticle:visited {
+
+    color: black;
+
+}
+
+a.toArticle:hover {
+
+    color: blue;
+
+}
+
+a.toArticle:active {
+
+    color: blue;
+
+}
+
+@media (min-width: 991px) {
+    a.toApp {
+        margin: 1.5rem 15px !important;
+    }
+}
+
+a.toApp:hover {
+    cursor: pointer;
+    background: #c61954 !important;
+}
+
+a.toMoreArticles:hover {
+
+    cursor: pointer;
+    background: #354499  !important;
+
+}
+
+
+
+
 
