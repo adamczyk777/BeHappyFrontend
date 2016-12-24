@@ -1,0 +1,36 @@
+<div class="container main-content">
+  <div class="jumbotron">
+    <div class="container"> <!-- Form -->
+      <form name="newTherapyForm" ng-submit="newTherapyForm.$valid && onSubmit()" novalidate>
+        <div class="form-group">
+          <label for="therapyName" class="control-label">Therapy Name</label>
+          <input placeholder="Enter therapy name" type="text"
+                 class="form-control"
+                 ng-model="formModel.name"
+                 id="therapyName"
+                 required="required">
+        </div>
+        <div class="form-group">
+          <label for="startDate" class="control-label">Start date</label>
+          <input type="date"
+                 class="form-control"
+                 ng-model="formModel.beginningDate"
+                 id="startDate"
+                 required="required"
+                 placeholder="yyyy-MM-dd">
+        </div >
+        <div class="form-group">
+          <label for="role" class="control-label">Select your role</label>
+          <select class="form-control" ng-model="formModel.role" id="role" required="required">
+            <option value="WARDEN">Warden</option>
+            <option value="THERAPIST">Therapist</option>
+            <option value="PATIENT">Patient</option>
+          </select>
+          <button class="btn btn-primary"
+                  type="submit">Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
