@@ -41,8 +41,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/mood/view.html')
     })
+    .state('app.activity', {
+      url: '/activity/{therapyId}',
+      controller: 'ActivityController',
+      controllerAs: 'vm',
+      template: require('./modules/activity/view.html')
+    })
     .state('app.stats', {
-      url: '/stats',
+      url: '/stats/{therapyId}',
       controller: 'StatsController',
       controllerAs: 'vm',
       template: require('./modules/stats/view.html')
