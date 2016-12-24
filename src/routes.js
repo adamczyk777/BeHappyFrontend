@@ -25,10 +25,16 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
 
     .state('app.therapies', {
-      url: '/therapies/:therapy_id',
+      url: '/therapies/{therapyId}',
       controller: 'TherapiesController',
       controllerAs: 'vm',
       template: require('./modules/therapies/view.html')
+    })
+    .state('app.addTherapy', {
+      url: '/addTherapy',
+      controller: 'addTherapyController',
+      controllerAs: 'vm',
+      template: require('./modules/addTherapy/view.html')
     })
     .state('app.stats', {
       url: '/stats',
