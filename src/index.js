@@ -8,6 +8,7 @@ var homeController = require('./modules/home/controller');
 var therapiesController = require('./modules/therapies/controller');
 var statsController = require('./modules/stats/controller');
 var addTherapyController = require('./modules/addTherapy/controller');
+var moodController = require('./modules/mood/controller');
 var therapiesService = require('./services/therapies.service');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
@@ -20,7 +21,8 @@ angular
   .controller('HomeController', homeController)
   .controller('StatsController', statsController)
   .controller('TherapiesController', therapiesController)
-  .controller('addTherapyController', addTherapyController)
+  .controller('AddTherapyController', addTherapyController)
+  .controller('MoodController', moodController)
   .factory('TherapiesService', therapiesService)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)

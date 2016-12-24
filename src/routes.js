@@ -19,11 +19,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('app.auth', {
       url: '/auth',
-      controller: 'authController',
+      controller: 'AuthController',
       controllerAs: 'vm',
       template: require('./modules/auth/view.html')
     })
-
     .state('app.therapies', {
       url: '/therapies/{therapyId}',
       controller: 'TherapiesController',
@@ -32,9 +31,15 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('app.addTherapy', {
       url: '/addTherapy',
-      controller: 'addTherapyController',
+      controller: 'AddTherapyController',
       controllerAs: 'vm',
       template: require('./modules/addTherapy/view.html')
+    })
+    .state('app.mood', {
+      url: '/mood/{therapyId}',
+      controller: 'MoodController',
+      controllerAs: 'vm',
+      template: require('./modules/mood/view.html')
     })
     .state('app.stats', {
       url: '/stats',
