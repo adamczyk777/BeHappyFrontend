@@ -1,1 +1,16 @@
-therapyId: {{therapyId}}
+therapyId: {{ therapyId }}
+<div class="container main-content" style="width: 75%">
+  <div class="jumbotron">
+    <form name="wellBeing" ng-submit="submitForm()" class="form-inline">
+      <div class="form-group">
+        <label for="MARK">Oceń swoje samopoczucie wybranego dnia w skali od 1 do 10:</label>
+        <select id="MARK" ng-model="formModel.mark" required class="form-control">
+          <option value="">--wybierz--</option>
+          <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]" value="{{n}}">{{n}}</option>
+        </select>
+        <md-datepicker ng-model="formModel.date" md-placeholder="Enter date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+      </div>
+      <button class="btn btn-primary">Zapisz</button>
+    </form>
+  </div>
+</div>
