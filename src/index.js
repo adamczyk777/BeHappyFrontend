@@ -11,14 +11,18 @@ var addTherapyController = require('./modules/addTherapy/controller');
 var moodController = require('./modules/mood/controller');
 var activityController = require('./modules/activity/controller');
 var therapiesService = require('./services/therapies.service');
+var regiserController = require('./modules/register/controller');
+var loginController = require('./modules/login/controller');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var loginService = require('./services/login.service');
+var homeController = require('./modules/home/controller');
 
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
-  .controller('AuthController', authController)
+  .controller('RegisterController', regiserController)
+  .controller('LoginController', loginController)
   .controller('HomeController', homeController)
   .controller('StatsController', statsController)
   .controller('TherapiesController', therapiesController)
