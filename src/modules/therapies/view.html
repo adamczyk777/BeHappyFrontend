@@ -1,0 +1,12 @@
+Id terapii: {{ therapyId }}
+<nav><!-- menu z obrazkami -->
+  <ul class="list-inline">
+    <li><a ui-sref="app.mood({therapyId: {{therapyId}}})">How are you?</a></li>
+    <li><a ui-sref="app.activity({therapyId: {{therapyId}}})">Daily Activity</a></li>
+    <li><a ui-sref="app.stats({therapyId: {{therapyId}}})">All stats</a></li>
+    <li><a ui-sref="#">Personalization</a></li>
+    <li><a ui-sref="#">About</a></li>
+  </ul>
+</nav>
+<div id="NEWS"></div> <!-- Radek to robi, paginacja sie tu zalicza -->
+<div id="RIGHT_SIDEBAR"></div> <!-- Prawy sidebar z wykresem i uczestnikami terapii -->

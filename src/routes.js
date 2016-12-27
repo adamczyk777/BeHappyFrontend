@@ -28,5 +28,35 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'RegisterController',
       controllerAs: 'vm',
       template: require('./modules/register/view.html')
+    })
+    .state('app.therapies', {
+      url: '/therapies/{therapyId}',
+      controller: 'TherapiesController',
+      controllerAs: 'vm',
+      template: require('./modules/therapies/view.html')
+    })
+    .state('app.addTherapy', {
+      url: '/addTherapy',
+      controller: 'AddTherapyController',
+      controllerAs: 'vm',
+      template: require('./modules/addTherapy/view.html')
+    })
+    .state('app.mood', {
+      url: '/mood/{therapyId}',
+      controller: 'MoodController',
+      controllerAs: 'vm',
+      template: require('./modules/mood/view.html')
+    })
+    .state('app.activity', {
+      url: '/activity/{therapyId}',
+      controller: 'ActivityController',
+      controllerAs: 'vm',
+      template: require('./modules/activity/view.html')
+    })
+    .state('app.stats', {
+      url: '/stats/{therapyId}',
+      controller: 'StatsController',
+      controllerAs: 'vm',
+      template: require('./modules/stats/view.html')
     });
 }

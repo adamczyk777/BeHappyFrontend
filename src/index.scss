@@ -123,4 +123,11 @@ body {
     position: relative;
     margin-right: 0;
   }
+
+  /* stat tests */
+  canvas .stat-test{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 }
