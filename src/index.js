@@ -14,6 +14,7 @@ var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var loginService = require('./services/login.service');
 var homeController = require('./modules/home/controller');
+var inviteController = require('./modules/invite/controller');
 
 angular
   .module('app', ['ui.router'])
@@ -26,6 +27,7 @@ angular
   .controller('AddTherapyController', addTherapyController)
   .controller('MoodController', moodController)
   .controller('ActivityController', activityController)
+  .controller('InviteController', inviteController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)
   .factory('LoginService', loginService);
