@@ -11,7 +11,7 @@ function controller(TokenStorage, $log, $http, $state, $stateParams) {
   vm.registerForm = {
     email: vm.extract(),
     password: ''
-  };
+  }; //koment
 
   vm.register = function () {
     $http.post("http://localhost:8080/api/user/register", vm.registerForm) // TODO endpoint
