@@ -4,7 +4,7 @@ function controller(TokenStorage, $log, $http, $state) {
   var vm = this;
 
   vm.registerForm = {
-    email: 'abc',
+    email: '',
     password: ''
   };
 
@@ -17,6 +17,7 @@ function controller(TokenStorage, $log, $http, $state) {
     function onFailure(response) {
       $log.log(response);
       $log.log('ERROR');
+      $state.go('app.register');
     }
   );
 
