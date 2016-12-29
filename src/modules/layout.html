@@ -1,0 +1,23 @@
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a ui-sref="app.home">My account</a></li>
+        <li><a ui-sref="app.therapies({therapyId: 1})">therapy 1</a></li>
+        <li><a ui-sref="app.therapies({therapyId: 2})">therapy 2</a></li>
+        <li><a ui-sref="app.addTherapy">Add new one</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <ui-view></ui-view>
+  </div>
+  <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

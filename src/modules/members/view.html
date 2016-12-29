@@ -1,0 +1,9 @@
+<div class="panel"  ng-controller = "UsersController" ng-show="patientsList && tab===0 && test != 0">
+  <h3>Patients in therapy</h3>
+  <ul ng-repeat="patient in patients">
+    <!-- check therapy.js for description of usage of patient.id - 11 -->
+    <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
+    <li>{{patient.email}}</li>
+  </ul>
+  <button ng-click="hidePatientsList()">Hide</button>
+</div>

@@ -4,7 +4,7 @@
     "props": {
       "framework": "angular1",
       "modules": "webpack",
-      "js": "babel",
+      "js": "js",
       "ci": [],
       "css": "scss",
       "resolved": "/usr/local/lib/node_modules/generator-fountain-webapp/node_modules/generator-fountain-angular1/generators/app/index.js",
