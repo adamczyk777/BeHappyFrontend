@@ -26,6 +26,20 @@ function controller($scope, $stateParams, $http, $log) {
     {email: "hello@interia.pl", role: "PATIENT"}];
   $log.log($scope.patients[1]);
 
+  $scope.deleteUser = function (user) {
+    $log.log("Trying to delete user {{user}}!");
+    $http({
+      method: 'POST',
+      url: "http://localhost:8080/api/therapies/#", // waiting for endpoint
+      data: user
+    }).then(function successCallback(response) {
+      $log.log("User deleted!");
+      $log.log(response);
+    }, function errorCallback(response) {
+      $log.log("Http error status code:" + response.status.toString());
+    });
+  };
+
   $scope.addUser = function (userEmail, role) {
     $log.log("Assigned!");
     $scope.message = {role: role, email: userEmail};

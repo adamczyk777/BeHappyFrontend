@@ -5,6 +5,9 @@
     <!-- check therapy.js for description of usage of patient.id - 11 -->
     <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
       <li>{{patient.email}}   role: {{patient.role}}</li>
+      <form name="deleteUserForm" ng-submit="deleteUser(patient)">
+        <button class="btn btn-primary" type="submit">Delete</button>
+      </form>
     </ul>
     <button ng-click="hidePatientsList()">Hide</button>
   </div>
