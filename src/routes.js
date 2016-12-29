@@ -16,7 +16,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
           },
           'sidebar': {
             template: require('./modules/sidebar/sidebar.html'),
-            controller: 'TherapiesController'
+            controller: 'TherapiesController',
+            controllerAs: 'vm'
           }
         }
         /* eslint-enable */
@@ -85,5 +86,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'MembersController',
       controllerAs: 'vm',
       template: require('./modules/members/view.html')
+    })
+    .state('app.personalization', {
+      url: '/therapies/{therapyId}/personalization',
+      controller: 'TherapiesController',
+      controllerAs: 'vm',
+      template: require('./modules/personalization/view.html')
     });
 }

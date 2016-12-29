@@ -1,0 +1,14 @@
+<div class="container">
+    <ul>
+        <li>Therapy name: <form ng-submit="changeName(newName)"><div class="form-group">
+            <!-- not sure if I will get proper therapy name in placeholder with proper data from server?-->
+            <input placeholder= "{{therapies[therapyId - 1].name}}" type="text"
+                   class="form-control"
+                   ng-model="newName"
+                   id="newName"
+                   required="required">
+            <button class="btn btn-primary" type="submit">Change name</button></div></form></li>
+        <li><form ng-submit="deleteTherapy()">
+            <button class="btn btn-primary" type="submit">Delete therapy</button></form></li>
+    </ul>
+</div>
