@@ -6,11 +6,26 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('app', {
+      .state('app', {
+        url: '',
+        abstract: true,
+        /* eslint-disable */
+        views: {
+          'layout': {
+            template: require('./modules/layout.html')
+          },
+          'sidebar': {
+            template: require('./modules/sidebar/sidebar.html'),
+            controller: 'TherapiesController'
+          }
+        }
+        /* eslint-enable */
+      })
+  /* .state('app', {
       url: '',
       abstract: true,
       template: require('./modules/layout.html')
-    })
+    }) */
     .state('app.home', {
       url: '/',
       controller: 'HomeController',
