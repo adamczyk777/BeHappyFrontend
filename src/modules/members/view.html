@@ -1,4 +1,4 @@
-<div class="panel"  ng-controller = "UsersController" ng-show="patientsList && tab===0 && test != 0">
+<div class="panel">
   <h3>Patients in therapy</h3>
   <ul ng-repeat="patient in patients">
     <!-- check therapy.js for description of usage of patient.id - 11 -->
@@ -6,4 +6,26 @@
     <li>{{patient.email}}</li>
   </ul>
   <button ng-click="hidePatientsList()">Hide</button>
+</div>
+<div class="container">
+  <form name="addUserForm" ng-submit="onSubmit()">
+    <div class="form-group">
+      <label for="userEmail" class="control-label">User email</label>
+      <input placeholder="Enter user email" type="text"
+             class="form-control"
+             ng-model="formModel.email"
+             id="userEmail"
+             required="required">
+
+      <label for="role" class="control-label">Select your role</label>
+      <select class="form-control" ng-model="formModel.role" id="role" required="required">
+        <option value="WARDEN">Warden</option>
+        <option value="THERAPIST">Therapist</option>
+        <option value="PATIENT">Patient</option>
+      </select>
+      <button class="btn btn-primary"
+              type="submit">Send
+      </button>
+    </div>
+  </form>
 </div>

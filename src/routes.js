@@ -64,5 +64,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'InviteController',
       controllerAs: 'vm',
       template: require('./modules/invite/view.html')
+    })
+    .state('app.members', {
+      url: '/therapies/{therapyId}/members',
+      controller: 'MembersController',
+      controllerAs: 'vm',
+      template: require('./modules/members/view.html')
     });
 }
