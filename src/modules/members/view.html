@@ -1,15 +1,17 @@
 <div>
   <div class="panel">
     <h3>Patients in therapy</h3>
-    <ul ng-repeat="patient in patients">
+    <button ng-show="isHidden" ng-click="hidePatientsList()">Show</button>
+    <ul ng-hide="isHidden">
     <!-- check therapy.js for description of usage of patient.id - 11 -->
     <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
-      <li>{{patient.email}}   role: {{patient.role}}</li>
-      <form name="deleteUserForm" ng-submit="deleteUser(patient)">
-        <button class="btn btn-primary" type="submit">Delete</button>
-      </form>
+      <li ng-repeat="patient in patients">{{patient.email}}   role: {{patient.role}}
+        <form name="deleteUserForm" ng-submit="deleteUser(patient)">
+          <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+      </li><br>
+      <button ng-click="hidePatientsList()">Hide</button>
     </ul>
-    <button ng-click="hidePatientsList()">Hide</button> <!--FIXME Add such function-->
   </div>
   <div class="container">
     <form name="addUserForm" ng-submit="addUser(userEmail, role)">

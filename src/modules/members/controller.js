@@ -2,6 +2,7 @@ module.exports = controller;
 
 function controller($scope, $stateParams, $http, $log) {
   $scope.therapyId = $stateParams.therapyId;
+  $scope.isHidden = 0;
 
   $http({
     method: 'GET',
@@ -55,5 +56,9 @@ function controller($scope, $stateParams, $http, $log) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
+  };
+
+  $scope.hidePatientsList = function () {
+    $scope.isHidden = ($scope.isHidden === 0) ? 1 : 0;
   };
 }
