@@ -9,18 +9,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       .state('app', {
         url: '',
         abstract: true,
-        /* eslint-disable */
-        views: {
-          'layout': {
-            template: require('./modules/layout.html')
-          },
-          'sidebar': {
-            template: require('./modules/sidebar/sidebar.html'),
-            controller: 'TherapiesController',
-            controllerAs: 'vm'
-          }
-        }
-        /* eslint-enable */
+        template: require('./modules/layout.html'),
+        controller: 'TherapiesController',
+        controllerAs: 'vm'
       })
   /* .state('app', {
       url: '',

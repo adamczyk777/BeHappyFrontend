@@ -1,6 +1,14 @@
 <div id="wrapper">
 
-
+  <div id="sidebar-wrapper">
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a ui-sref="app.home">My account</a></li>
+        <li ng-repeat="therapy in therapies"><a ui-sref="app.therapies({therapyId: {{therapy.id}} })">{{therapy.name}}</a></li>
+        <li><a ui-sref="app.addTherapy">Add new one</a></li>
+      </ul>
+    </nav>
+  </div>
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <ui-view></ui-view>
