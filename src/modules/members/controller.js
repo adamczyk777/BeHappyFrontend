@@ -30,7 +30,7 @@ function controller($scope, $stateParams, $http, $log) {
     $log.log("Trying to delete user {{user}}!");
     $http({
       method: 'POST',
-      url: "http://localhost:8080/api/therapies/#", // waiting for endpoint
+      url: "http://localhost:8080/api/therapies/#",    /* TODO waiting for endpoint*/
       data: user
     }).then(function successCallback(response) {
       $log.log("User deleted!");
