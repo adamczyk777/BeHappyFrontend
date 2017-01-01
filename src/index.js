@@ -15,6 +15,7 @@ var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var loginService = require('./services/login.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
+var membersController = require('./modules/members/controller');
 
 angular
   .module('app', ['ui.router'])
@@ -28,6 +29,7 @@ angular
   .controller('MoodController', moodController)
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
+  .controller('MembersController', membersController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)
   .factory('LoginService', loginService);

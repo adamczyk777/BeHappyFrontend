@@ -1,0 +1,39 @@
+<div>
+  <div class="panel">
+    <h3>Patients in therapy</h3>
+    <button ng-show="isHidden" ng-click="hidePatientsList()">Show</button>
+    <ul ng-hide="isHidden">
+    <!-- check therapy.js for description of usage of patient.id - 11 -->
+    <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
+      <li ng-repeat="patient in patients">{{patient.email}}   role: {{patient.role}}
+        <form name="deleteUserForm" ng-submit="deleteUser(patient)">
+          <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+      </li><br>
+      <button ng-click="hidePatientsList()">Hide</button>
+    </ul>
+  </div>
+  <!-- Szczęśliwego nowego roku!!!!!-->
+  <div class="container">
+    <form name="addUserForm" ng-submit="addUser(userEmail, role)">
+      <div class="form-group">
+        <label for="userEmail" class="control-label">User email</label>
+        <input placeholder="Enter user email" type="text"
+             class="form-control"
+             ng-model="userEmail"
+             id="userEmail"
+             required="required">
+
+        <label for="role" class="control-label">Select user role</label>
+        <select class="form-control" ng-model="role" id="role" required="required">
+          <option value="WARDEN">Warden</option>
+          <option value="THERAPIST">Therapist</option>
+          <option value="PATIENT">Patient</option>
+        </select>
+        <button class="btn btn-primary"
+              type="submit">Send
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
