@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller(TokenStorage, $log, $http, $state) {
+function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
   var vm = this;
 
   vm.extract = function () {
