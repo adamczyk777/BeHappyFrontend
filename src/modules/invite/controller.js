@@ -13,7 +13,7 @@ function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
     password: ''
   };
 
-  $http.get(api.endpoint + "/invite/" + vm.userId
+  $http.get(api.endpoint + "/invite/" + vm.userId // TODO endpoint
   ).then(
     function onSuccess(response) {
       $log.log(response.data.email);
