@@ -3,6 +3,11 @@ module.exports = controller;
 function controller(TokenStorage, $log, $http, $state) {
   var vm = this;
 
+  vm.extract = function () {
+    vm.userId = $stateParams.userId;
+    return atob(vm.userId);
+  };
+
   vm.registerForm = {
     email: '',
     password: ''
@@ -22,11 +27,6 @@ function controller(TokenStorage, $log, $http, $state) {
   );
 
   $log.log(vm.registerForm);
-
-  // vm.extract = function () {
-  //   vm.emailAdress = $stateParams.emailAdress;
-  //   return atob(vm.emailAdress);
-  // };
 
   vm.register = function () {
     $http.post("http://localhost:8080/api/user/register", vm.registerForm) // TODO endpoint

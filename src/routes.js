@@ -67,7 +67,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/stats/view.html')
     })
     .state('app.invite', {
-      url: '/invite/{ending}',
+      url: '/invite/{userId}',
       controller: 'InviteController',
       controllerAs: 'vm',
       template: require('./modules/invite/view.html')
