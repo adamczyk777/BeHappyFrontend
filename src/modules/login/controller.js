@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller($log, TokenStorage, $http, $state) {
+function controller($log, TokenStorage, $http, api, $state) {
   var vm = this;
 
   vm.loginForm = {
@@ -13,7 +13,7 @@ function controller($log, TokenStorage, $http, $state) {
     config.headers = {};
     config.headers.Authorization = vm.loginForm.email + ":" + vm.loginForm.password;
     $http.get(
-      "http://localhost:8080/api/user/login", // TODO: edit endpoint to make it usabvle with online server
+      api.endpoint + "user/login", // TODO: edit endpoint to make it usabvle with online server
       {headers: {Authorization: btoa(vm.emailField + ":" + vm.passwordField)}}
     ).then(
       function onSuccess(response) {

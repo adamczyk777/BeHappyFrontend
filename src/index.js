@@ -12,7 +12,6 @@ var moodController = require('./modules/mood/controller');
 var activityController = require('./modules/activity/controller');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
-var loginService = require('./services/login.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
@@ -20,6 +19,11 @@ var membersController = require('./modules/members/controller');
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
+  .factory('api', function () {
+    return {
+      endpoint: 'http://137.74.113.225:8081/api/'
+    };
+  })
   .controller('RegisterController', registerController)
   .controller('LoginController', loginController)
   .controller('HomeController', homeController)
@@ -31,5 +35,4 @@ angular
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
   .factory('TokenStorage', tokenStorageService)
-  .factory('TokenAuthInterceptor', tokenAuthInterceptor)
-  .factory('LoginService', loginService);
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor);
