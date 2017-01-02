@@ -13,8 +13,8 @@ function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
     password: ''
   };
 
-  $http.get(api.endpoint + "/invite/" + vm.userId // TODO endpoint
-  ).then(
+  $http.get(api.endpoint + "/invite/" + vm.userId)
+  .then(
     function onSuccess(response) {
       $log.log(response.data.email);
       vm.registerForm.email = response.data.email;
@@ -29,7 +29,7 @@ function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
   $log.log(vm.registerForm);
 
   vm.register = function () {
-    $http.post(api.endpoint + "/invite/" + vm.userId, vm.registerForm) // TODO endpoint
+    $http.post(api.endpoint + "/invite/" + vm.userId, vm.registerForm)
       .then(
         function successCallback(response) {
           $log.log("Poszło, Uff... xD");
