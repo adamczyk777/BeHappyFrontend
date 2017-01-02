@@ -29,7 +29,7 @@ function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
   $log.log(vm.registerForm);
 
   vm.register = function () {
-    $http.post(api.endpoint + "/user/register", vm.registerForm) // TODO endpoint
+    $http.post(api.endpoint + "/invite/" + vm.userId, vm.registerForm) // TODO endpoint
       .then(
         function successCallback(response) {
           $log.log("Poszło, Uff... xD");
