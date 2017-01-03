@@ -1,6 +1,9 @@
 module.exports = controller;
 
-function controller($scope, $stateParams, $log, $http, api) { //  moment)
+function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) { //  moment)
+  if(TokenStorage.retrieve() === null){
+    $state.go('app.login');
+  }
   $scope.therapyId = $stateParams.therapyId;
 
   // Daty dla kalendarza:

@@ -1,6 +1,9 @@
 module.exports = controller;
 
-function controller($scope, $http, $log, moment, api) {
+function controller($scope, TokenStorage, $http, $log, moment, api, $state) {
+  if(TokenStorage.retrieve() === null){
+    $state.go('app.login');
+  }
   // vm = this;
   $scope.formModel = {};
   $scope.roleModel = {};

@@ -7,5 +7,6 @@ function controller(TokenStorage, $state) {
   }
   vm.logout = function () {
     TokenStorage.clear();
+    $state.go('app.login');
   };
 }

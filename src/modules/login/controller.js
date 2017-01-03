@@ -22,6 +22,7 @@ function controller($log, TokenStorage, $http, api, $state) {
         $state.go('app.home');
       },
       function onFailure(response) {
+        // TODO: add a handlet that will redirect user to register page if he is unathorized + in the future add something like a popup with ur unregisteret or sth ~Kuba
         $log.log(response);
         $log.log(vm.loginForm);
         $log.log(TokenStorage.retrieve());
