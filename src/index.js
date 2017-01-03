@@ -19,6 +19,9 @@ var membersController = require('./modules/members/controller');
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('TokenAuthInterceptor');
+  })
   .factory('api', function () {
     return {
       endpoint: 'http://137.74.113.225:8081/api'
