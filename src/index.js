@@ -21,7 +21,7 @@ angular
   .config(routesConfig)
   .factory('api', function () {
     return {
-      endpoint: 'http://137.74.113.225:8081/api/'
+      endpoint: 'http://137.74.113.225:8081/api'
     };
   })
   .controller('RegisterController', registerController)

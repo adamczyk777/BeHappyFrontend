@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller($scope, $stateParams, $log, $http) { //  moment)
+function controller($scope, $stateParams, $log, $http, api) { //  moment)
   $scope.therapyId = $stateParams.therapyId;
 
   // Daty dla kalendarza:
@@ -24,7 +24,7 @@ function controller($scope, $stateParams, $log, $http) { //  moment)
   // TODO linijka powyzej wykrzacza angulara. Ogarnac dependencies (moment.js)
     $http({
       method: 'POST',
-      url: 'http://localhost:8080/api/v1/stats/' + $scope.therapyId,
+      url: api.endpoint + '/stats/' + $scope.therapyId,
       data: $scope.toSend
     }).then(function successCallback(response) {
       $log("Submitted! " + response);

@@ -1,12 +1,12 @@
 module.exports = controller;
 
-function controller($scope, $stateParams, $http, $log) {
+function controller($scope, $stateParams, $http, $log, api) {
   $scope.therapyId = $stateParams.therapyId;
   $scope.isHidden = 0;
 
   $http({
     method: 'GET',
-    url: "http://localhost:8080/api/therapies/" + $scope.therapyId + "/members"
+    url: api.endpoint + "/therapies/" + $scope.therapyId + "/members"
   }).then(function successCallback(response) {
     if (response.data === null) {
       $log("Data is null");

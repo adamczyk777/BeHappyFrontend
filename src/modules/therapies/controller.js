@@ -1,11 +1,11 @@
 module.exports = controller;
 
-function controller($scope, $stateParams, $http, $log) {
+function controller($scope, $stateParams, $http, $log, api) {
   // var vm = this;
   // $scope.therapyId = $stateParams.therapyId;
   $http({
     method: 'GET',
-    url: 'http://localhost:8080/api/therapies'
+    url: api.endpoint + '/therapies'
   }).then(function successCallback(response) {
     $scope.therapies = response.data;
   }, function errorCallback(response) {

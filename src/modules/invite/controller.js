@@ -1,15 +1,20 @@
 module.exports = controller;
 
-function controller(TokenStorage, $log, $http, $state) {
+function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
   var vm = this;
+
+  vm.extract = function () {
+    vm.userId = $stateParams.userId;
+    return atob(vm.userId);
+  };
 
   vm.registerForm = {
     email: '',
     password: ''
   };
 
-  $http.get("http://TUTAJMABYCENDPOINTODGRZESKA"
-  ).then(
+  $http.get(api.endpoint + "/invite/" + vm.userId)
+  .then(
     function onSuccess(response) {
       $log.log(response.data.email);
       vm.registerForm.email = response.data.email;
@@ -23,13 +28,8 @@ function controller(TokenStorage, $log, $http, $state) {
 
   $log.log(vm.registerForm);
 
-  // vm.extract = function () {
-  //   vm.emailAdress = $stateParams.emailAdress;
-  //   return atob(vm.emailAdress);
-  // };
-
   vm.register = function () {
-    $http.post("http://localhost:8080/api/user/register", vm.registerForm) // TODO endpoint
+    $http.post(api.endpoint + "/invite/" + vm.userId, vm.registerForm)
       .then(
         function successCallback(response) {
           $log.log("Poszło, Uff... xD");
