@@ -1,6 +1,6 @@
 module.exports = controller;
 
-function controller($scope, $http, $log, moment) {
+function controller($scope, $http, $log, moment, api) {
   // vm = this;
   $scope.formModel = {};
   $scope.roleModel = {};
@@ -18,7 +18,7 @@ function controller($scope, $http, $log, moment) {
     $log($scope.toSend.role);
     $http({
       method: 'POST',
-      url: 'http://localhost:8080/api/therapies',
+      url: api.endpoint + '/therapies',
       data: $scope.toSend
     }).then(function successCallback() {
       $log("Submitted!");
