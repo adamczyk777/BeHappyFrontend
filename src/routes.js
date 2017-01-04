@@ -83,5 +83,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'TherapiesController',
       controllerAs: 'vm',
       template: require('./modules/personalization/view.html')
+    })
+    .state('app.myAccount', {
+      url: '/myAccount',
+      controller: 'MyAccountController',
+      controllerAs: 'vm',
+      template: require('./modules/myAccount/view.html')
     });
 }
