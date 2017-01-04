@@ -19,8 +19,6 @@ function controller(TokenStorage, $state, $log, $http, api) {
       });
   };
   vm.edit = function () {
-
     $state.go('app.myAccount');
-
   };
 }
