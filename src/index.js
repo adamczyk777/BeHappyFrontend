@@ -16,6 +16,7 @@ var loginService = require('./services/login.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
+var myAccountController = require('.modules/myAccount/controller');
 
 angular
   .module('app', ['ui.router'])
@@ -30,6 +31,7 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('MyAccountController', myAccountController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)
   .factory('LoginService', loginService);
