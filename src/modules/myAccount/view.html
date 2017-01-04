@@ -1,5 +1,25 @@
-<div class="container">
-  <h3>Wienio's Mouth</h3>
+<div class="container main-content" style="width: 95%">
+  <div class="jumbotron">
+    <div class="container">
+      <h3>Edit your account</h3>
+      <form ng-submit="changeAddress(newAddress)"><div class="col-xs-4">
+        <!--How to make an association?-->
+        <input placeholder= "{{association to old mail address}}" type="text"
+        class="form-control"
+               ng-model="newAddress"
+               id="newName"
+               required="required">
+        <button class="btn btn-primary" type="submit">Change e-mail address</button></div></form></li>
+    </div>
+    <br>
+    <div class="container"> <form ng-submit="deleteUser()">
+      <button class="btn btn-primary" type="submit">Delete account</button></form>
 
+
+    </div>
+
+    </div>
+  </div>
 </div>
+
 
