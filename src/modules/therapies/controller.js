@@ -3,6 +3,9 @@ module.exports = controller;
 function controller($scope, $stateParams, $http, $log, api) {
   // var vm = this;
   // $scope.therapyId = $stateParams.therapyId;
+  $scope.therapyShow = 0;
+  $scope.therapies = [];
+
   $http({
     method: 'GET',
     url: api.endpoint + '/therapies'
@@ -13,8 +16,9 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log(response);
   });
   // Hardcoded till authentication will work
-  $scope.therapies = [{name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3}];
-  $log.log($scope.therapies[1].name, $scope.therapies[1].id);
+  // $scope.getTherapies();
+  $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
+  $log.log($scope.therapies);
   $scope.therapyId = $stateParams.therapyId;
 
   $scope.changeName = function (newName) {
@@ -22,8 +26,8 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log.log(newName);
     $http({
       method: 'POST',
-      url: "http://localhost:8080/api/therapies/#", // TODO waiting for endpoint
-      data: {name: newName, id: $scope.therapyId}
+      url: api.endpoint + '/therapies' + $scope.therapyId, // TODO waiting for endpoint
+      data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
       $log.log("Therapy name changed");
       $log.log(response);

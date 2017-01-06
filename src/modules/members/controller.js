@@ -15,9 +15,9 @@ function controller($scope, $stateParams, $http, $log, api) {
       $scope.test = 1;
     }
     $scope.patients = response.data;
-    $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
+   /* $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
     $scope.patients[$scope.patients.length] = {email: "eloelo@poczta.onet.pl", role: "THERAPIST"};
-    $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"};
+    $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"}; */
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
@@ -28,7 +28,7 @@ function controller($scope, $stateParams, $http, $log, api) {
   $log.log($scope.patients[1]);
 
   $scope.deleteUser = function (user) {
-    $log.log("Trying to delete user {{user}}!");
+    $log.log("Trying to delete user " + user.email + "!");
     $http({
       method: 'POST',
       url: "http://localhost:8080/api/therapies/#",    /* TODO waiting for endpoint*/
@@ -48,7 +48,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log.log($scope.message.email);
     $http({
       method: 'POST',
-      url: "http://localhost:8080/api/therapies/" + $scope.therapyId + "/members",
+      url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",
       data: $scope.message
     }).then(function successCallback(response) {
       $log.log("Submitted!");
@@ -56,6 +56,13 @@ function controller($scope, $stateParams, $http, $log, api) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
+  };
+
+  $scope.isWarden = function (role) {
+    return (role === "WARDEN");
+  };
+  $scope.addPermission = function () {
+
   };
 
   $scope.hidePatientsList = function () {

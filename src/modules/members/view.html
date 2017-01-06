@@ -9,6 +9,9 @@
         <form name="deleteUserForm" ng-submit="deleteUser(patient)">
           <button class="btn btn-primary" type="submit">Delete</button>
         </form>
+        <form ng-submit="addPermission()">
+          <button ng-show="isWarden(patient.role)">Add special permission</button>
+        </form>
       </li><br>
       <button ng-click="hidePatientsList()">Hide</button>
     </ul>
