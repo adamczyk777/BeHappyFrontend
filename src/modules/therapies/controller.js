@@ -26,7 +26,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log.log(newName);
     $http({
       method: 'POST',
-      url: api.endpoint + '/therapies' + $scope.therapyId, // TODO waiting for endpoint
+      url: api.endpoint + '/therapies' + $scope.therapyId, 
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
       $log.log("Therapy name changed");
@@ -39,14 +39,13 @@ function controller($scope, $stateParams, $http, $log, api) {
   $scope.deleteTherapy = function () {
     $log.log("Trying to delete therapy");
     $http({
-      method: 'POST',
-      url: "http://localhost:8080/api/therapies/#", // TODO waiting for endpoint
-      data: {id: $scope.therapyId}
+      method: 'DELETE',
+      url: api.endpoint + "/therapies/" + $scope.therapyId
     }).then(function successCallback(response) {
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
-      $log.log("Http error status code:" + response.status.toString());
+      $log.log(response);
     });
   };
 }
