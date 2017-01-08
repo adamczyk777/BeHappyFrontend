@@ -1,6 +1,9 @@
 module.exports = controller;
 
-function controller($scope, $stateParams, $http, $log, api) {
+function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
+  if (TokenStorage.retrieve() === null) {
+    $state.go('app.login');
+  }
   // var vm = this;
   // $scope.therapyId = $stateParams.therapyId;
   $http({
