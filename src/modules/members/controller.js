@@ -76,15 +76,13 @@ function controller($scope, $stateParams, $http, $log, api) {
       $log.log("Http error status code:" + response.status.toString());
     });
   };
-
-
   // TODO waiting for endpoint
-  $scope.canAdd = function() {
+  $scope.canAdd = function () {
     // return (user.role === "WARDEN");
     return true;
   };
   // TODO waiting for endpoint
-  $scope.canDelete = function() {
+  $scope.canDelete = function () {
     // return (user.role === "PATIENT");
     return true;
   };
