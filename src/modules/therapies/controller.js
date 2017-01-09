@@ -2,9 +2,9 @@ module.exports = controller;
 
 function controller($scope, $stateParams, $http, $log, api) {
   // var vm = this;
-  // $scope.therapyId = $stateParams.therapyId;
   $scope.therapyShow = 0;
   $scope.therapies = [];
+  $scope.therapyId = $stateParams.therapyId;
 
   $http({
     method: 'GET',
@@ -35,7 +35,6 @@ function controller($scope, $stateParams, $http, $log, api) {
   // $scope.getTherapies();
   $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
   $log.log($scope.therapies);
-  $scope.therapyId = $stateParams.therapyId;
 
   $scope.changeName = function (newName) {
     $log.log("Trying to change therapy name");
@@ -65,7 +64,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     });
   };
   // TODO waiting for endpoint
-  $scope.canEdit = function() {
+  $scope.canEdit = function () {
     // return (user.role  === "PATIENT");
     return true;
   };
