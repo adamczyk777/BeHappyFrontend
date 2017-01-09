@@ -90,8 +90,18 @@ function controller($scope, $stateParams, $http, $log, api) {
   $scope.isWarden = function (role) {
     return (role === "WARDEN");
   };
-  $scope.addPermission = function () {
-
+  $scope.addPermission = function (user) {
+    $log.log("Adding permission!");
+    $http({
+      method: 'POST',
+      url: api.endpoint + "/therapies/" + $scope.therapyId + "/members/permission",
+      data: user.email
+    }).then(function successCallback(response) {
+      $log.log("Submitted!");
+      $log.log(response);
+    }, function errorCallback(response) {
+      $log.log("Http error status code:" + response.status.toString());
+    });
   };
 
   $scope.hidePatientsList = function () {
