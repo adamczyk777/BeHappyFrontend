@@ -1,11 +1,7 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('./index.scss');
-require('chart.js');
-require('moment');
-require('angular-aria');
 require('angular-animate');
-require('angular-material');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
