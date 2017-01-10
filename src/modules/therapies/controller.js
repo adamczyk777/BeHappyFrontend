@@ -71,4 +71,15 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     // return ($scope.myRole  === "PATIENT");
     return true;
   };
+
+  $scope.findTherapyName = function () {
+    for (var therapy in $scope.therapies) {
+      if ($scope.therapyId === therapy.id) {
+        return therapy.name;
+      }
+    }
+  };
+
+  $scope.therapyName = $scope.findTherapyName();
+  $log.log("therapyName = " + $scope.therapyName);
 }
