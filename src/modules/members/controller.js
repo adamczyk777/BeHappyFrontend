@@ -25,13 +25,13 @@ function controller($scope, $stateParams, $http, $log, api) {
 
   $http({
     method: 'GET',
-    url: api.endpoint + "/therapies/" + $scope.therapyId + "/whoIam" // TODO waiting for endpoint
+    url: api.endpoint + "/therapies/" + $scope.therapyId + "/role" // TODO waiting for endpoint
   }).then(function successCallback(response) {
     if (response.data === null) {
       $log("Data is null");
     } else {
       $log(response.data[0].email);
-      $scope.test = 1;
+      $scope.myRole = response;
     }
     $scope.user = response.data;
     /* $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
@@ -78,12 +78,12 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    // return (user.role === "WARDEN");
+    // return ($scope.myRole === "WARDEN");
     return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    // return (user.role === "PATIENT");
+    // return ($scope.myRole === "PATIENT");
     return true;
   };
 
