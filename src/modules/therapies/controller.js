@@ -5,7 +5,6 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     $state.go('app.login');
   }
   // var vm = this;
-  // $scope.therapyId = $stateParams.therapyId;
   $http({
     method: 'GET',
     url: api.endpoint + '/therapies'

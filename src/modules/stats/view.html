@@ -1,87 +1,12 @@
-<div style="width:75%;">
-  <canvas id="moodChart"></canvas>
-  <canvas id="activityChart"></canvas>
+<div>
+  <h2>Your mood and anxiety:</h2>
+  <canvas id="mood" class="chart chart-line" chart-data="moodData"
+          chart-labels="moodLabels" chart-series="moodSeries" chart-options="moodOptions"
+          chart-dataset-override="moodDatasetOverride" chart-click="onClick">
+  </canvas>
+  <h2>Your activity and energy used:</h2>
+  <canvas id="activity" class="chart chart-line" chart-data="activityData"
+          chart-labels="activityLabels" chart-series="activitySeries" chart-options="activityOptions"
+          chart-dataset-override="activityDatasetOverride" chart-click="onClick">
+  </canvas>
 </div>
-<script>
-  var moodCanvas = document.getElementById("moodChart");
-
-  var moodChart = new Chart(moodCanvas, {
-    type: 'line',
-    data: {
-      labels: ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017"],
-      datasets: [{
-        label: 'Your mood',
-        data: [1,10,4,4,8,2],
-        fill: false,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)'
-        ],
-        borderWidth: 1
-      }, {
-        label: 'Your anxiety',
-        data: [4,5,3,2,1,5],
-        fill: false,
-        backgroundColor:  [
-          'rgba(54, 162, 235, 0.2)'
-        ],
-        borderColor: [
-          'rgba(54, 162, 235, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-
-  var activityCanvas = document.getElementById("activityChart");
-
-  var activityChart = new Chart(activityCanvas, {
-    type: 'line',
-    data: {
-      labels: ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017"],
-      datasets: [{
-        label: 'Your activity',
-        data: [3,10,14,12,1,4],
-        fill: false,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)'
-        ],
-        borderWidth: 1
-      }, {
-        label: 'Energy cost',
-        data: [3,20,14,8,1,6],
-        fill: false,
-        backgroundColor:  [
-          'rgba(54, 162, 235, 0.2)'
-        ],
-        borderColor: [
-          'rgba(54, 162, 235, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-</script>
