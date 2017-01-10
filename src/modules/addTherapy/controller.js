@@ -1,5 +1,5 @@
 module.exports = controller;
-
+var moment = require('moment');
 function controller($scope, TokenStorage, $http, $log, api, $state) {
   if (TokenStorage.retrieve() === null) {
     $state.go('app.login');
@@ -10,7 +10,7 @@ function controller($scope, TokenStorage, $http, $log, api, $state) {
 
   $scope.onSubmit = function () {
     $scope.localFormat = 'YYYY-MM-DD[T]HH:mm:ss';
-    // $scope.date = moment($scope.formModel.beginningDate).format($scope.localFormat);
+    $scope.date = moment($scope.formModel.beginningDate).format($scope.localFormat);
     $scope.toSend = {
       name: $scope.formModel.name,
       beginningDate: $scope.date,
