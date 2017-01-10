@@ -1,7 +1,7 @@
 module.exports = service;
 
 service.$inject = ['$window'];
-
+/* @ngInject */
 function service($window) {
   var storageKey = "auth_token";
   return {

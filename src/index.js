@@ -19,6 +19,7 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 
+/* @ngInject */
 angular
   .module('app', ['ui.router', 'chart.js'])
   .config(routesConfig)
