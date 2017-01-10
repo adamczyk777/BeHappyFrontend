@@ -1,6 +1,9 @@
 module.exports = controller;
-
-function controller($scope, $stateParams, $http, $log, api) {
+/* @ngInject */
+function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
+  if (TokenStorage.retrieve() === null) {
+    $state.go('app.login');
+  }
   // var vm = this;
   $scope.therapyShow = 0;
   $scope.therapies = [];
@@ -12,8 +15,8 @@ function controller($scope, $stateParams, $http, $log, api) {
   }).then(function successCallback(response) {
     $scope.therapies = response.data;
   }, function errorCallback(response) {
-    $log("Cannot get data from server.");
-    $log(response);
+    $log.log("Cannot get data from server.");
+    $log.log(response);
   });
 
   $http({

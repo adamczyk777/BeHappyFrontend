@@ -1,7 +1,7 @@
 module.exports = service;
 
 service.$inject = ['$q', 'TokenStorage'];
-
+/* @ngInject */
 function service($q, TokenStorage) {
   return {
     request: function (config) {

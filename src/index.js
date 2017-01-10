@@ -1,6 +1,7 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('./index.scss');
+require('angular-animate');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -16,6 +17,7 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 
+/* @ngInject */
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
