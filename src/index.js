@@ -2,6 +2,8 @@ var angular = require('angular');
 require('angular-ui-router');
 require('./index.scss');
 require('angular-animate');
+require('chart.js');
+require('angular-chart.js');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -19,7 +21,7 @@ var membersController = require('./modules/members/controller');
 
 /* @ngInject */
 angular
-  .module('app', ['ui.router'])
+  .module('app', ['ui.router', 'chart.js'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
