@@ -9,16 +9,6 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.therapies = [];
   $scope.therapyId = $stateParams.therapyId;
 
-  $scope.findTherapyName = function () {
-    for (var i = 0; i < $scope.therapies.length; i++) {
-      if ($scope.therapyId === $scope.therapies[i].name) {
-        return $scope.therapies[i].name;
-      }
-    }
-  };
-
-  $scope.therapyName = $scope.findTherapyName();
-
   $http({
     method: 'GET',
     url: api.endpoint + '/therapies'
@@ -48,6 +38,25 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   // $scope.getTherapies();
   $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
   $log.log($scope.therapies);
+
+  $log.log($scope.therapies);
+
+  $scope.findTherapyName = function () {
+    for (var i = 0; i < $scope.therapies.length; i++) {
+      $log.log($scope.therapyId + "===" + $scope.therapies[i].id);
+      $log.log("Bool: " + $scope.therapyId === $scope.therapies[i].id);
+      $log.log("therapyId type:" + typeof $scope.therapyId);
+      var temp = parseInt($scope.therapyId, 10);
+      $log.log("temp = " + temp);
+      if (temp === $scope.therapies[i].id) {
+        $log.log("therapy found!");
+        return $scope.therapies[i].name;
+      }
+    }
+  };
+
+  $scope.therapyName = $scope.findTherapyName();
+  $log.log($scope.therapyName);
 
   $scope.changeName = function (newName) {
     $log.log("Trying to change therapy name");
