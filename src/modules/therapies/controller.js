@@ -9,6 +9,16 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.therapies = [];
   $scope.therapyId = $stateParams.therapyId;
 
+  $scope.findTherapyName = function () {
+    for (var i = 0; i < $scope.therapies.length; i++) {
+      if ($scope.therapyId === $scope.therapies[i].name) {
+        return $scope.therapies[i].name;
+      }
+    }
+  };
+
+  $scope.therapyName = $scope.findTherapyName();
+
   $http({
     method: 'GET',
     url: api.endpoint + '/therapies'
@@ -71,15 +81,4 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     // return ($scope.myRole  === "PATIENT");
     return true;
   };
-
-  $scope.findTherapyName = function () {
-    for (var therapy in $scope.therapies) {
-      if ($scope.therapyId === therapy.id) {
-        return therapy.name;
-      }
-    }
-  };
-
-  $scope.therapyName = $scope.findTherapyName();
-  $log.log("therapyName = " + $scope.therapyName);
 }
