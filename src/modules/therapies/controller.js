@@ -1,5 +1,5 @@
 module.exports = controller;
-
+/* @ngInject */
 function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
   if (TokenStorage.retrieve() === null) {
     $state.go('app.login');
@@ -12,8 +12,8 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   }).then(function successCallback(response) {
     $scope.therapies = response.data;
   }, function errorCallback(response) {
-    $log("Cannot get data from server.");
-    $log(response);
+    $log.log("Cannot get data from server.");
+    $log.log(response);
   });
   // Hardcoded till authentication will work
   $scope.therapies = [{name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3}];

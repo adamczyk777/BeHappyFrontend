@@ -1,5 +1,5 @@
 module.exports = controller;
-
+/* @ngInject */
 function controller($scope, $stateParams, $http, $log, api) {
   $scope.therapyId = $stateParams.therapyId;
   $scope.isHidden = 0;

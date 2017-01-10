@@ -1,5 +1,5 @@
 module.exports = controller;
-
+/* @ngInject */
 function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
   if (TokenStorage.retrieve() === null) {
     $state.go('app.login');
