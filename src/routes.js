@@ -1,6 +1,5 @@
 module.exports = routesConfig;
-
-/** @ngInject */
+/* @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');
@@ -67,7 +66,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/stats/view.html')
     })
     .state('app.invite', {
-      url: '/invite/{ending}',
+      url: '/invite/{userId}',
       controller: 'InviteController',
       controllerAs: 'vm',
       template: require('./modules/invite/view.html')

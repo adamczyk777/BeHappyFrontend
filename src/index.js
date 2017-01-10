@@ -1,6 +1,7 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('./index.scss');
+require('angular-animate');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -12,14 +13,22 @@ var moodController = require('./modules/mood/controller');
 var activityController = require('./modules/activity/controller');
 var tokenStorageService = require('./services/tokenStorage.service');
 var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
-var loginService = require('./services/login.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 
+/* @ngInject */
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('TokenAuthInterceptor');
+  })
+  .factory('api', function () {
+    return {
+      endpoint: 'http://137.74.113.225:8081/api'
+    };
+  })
   .controller('RegisterController', registerController)
   .controller('LoginController', loginController)
   .controller('HomeController', homeController)
@@ -31,5 +40,4 @@ angular
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
   .factory('TokenStorage', tokenStorageService)
-  .factory('TokenAuthInterceptor', tokenAuthInterceptor)
-  .factory('LoginService', loginService);
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor);

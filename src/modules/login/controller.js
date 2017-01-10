@@ -1,6 +1,6 @@
 module.exports = controller;
-
-function controller($log, TokenStorage, $http, $state) {
+/* @ngInject */
+function controller($log, TokenStorage, $http, api, $state) {
   var vm = this;
 
   vm.loginForm = {
@@ -13,8 +13,8 @@ function controller($log, TokenStorage, $http, $state) {
     config.headers = {};
     config.headers.Authorization = vm.loginForm.email + ":" + vm.loginForm.password;
     $http.get(
-      "http://localhost:8080/api/user/login", // TODO: edit endpoint to make it usabvle with online server
-      {headers: {Authorization: btoa(vm.emailField + ":" + vm.passwordField)}}
+      api.endpoint + "/user/login",
+      {headers: {Authorization: btoa(vm.loginForm.email + ":" + vm.loginForm.password)}}
     ).then(
       function onSuccess(response) {
         $log.log(response.data.token);
@@ -22,7 +22,9 @@ function controller($log, TokenStorage, $http, $state) {
         $state.go('app.home');
       },
       function onFailure(response) {
+        // TODO: add a handlet that will redirect user to register page if he is unathorized + in the future add something like a popup with ur unregisteret or sth ~Kuba
         $log.log(response);
+        $log.log(vm.loginForm);
         $log.log(TokenStorage.retrieve());
       }
     );

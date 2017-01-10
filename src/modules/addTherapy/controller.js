@@ -1,13 +1,16 @@
 module.exports = controller;
-
-function controller($scope, $http, $log, moment) {
+/* @ngInject */
+function controller($scope, TokenStorage, $http, $log, api, $state) {
+  if (TokenStorage.retrieve() === null) {
+    $state.go('app.login');
+  }
   // vm = this;
   $scope.formModel = {};
   $scope.roleModel = {};
 
   $scope.onSubmit = function () {
     $scope.localFormat = 'YYYY-MM-DD[T]HH:mm:ss';
-    $scope.date = moment($scope.formModel.beginningDate).format($scope.localFormat);
+    // $scope.date = moment($scope.formModel.beginningDate).format($scope.localFormat);
     $scope.toSend = {
       name: $scope.formModel.name,
       beginningDate: $scope.date,
@@ -18,7 +21,7 @@ function controller($scope, $http, $log, moment) {
     $log($scope.toSend.role);
     $http({
       method: 'POST',
-      url: 'http://localhost:8080/api/therapies',
+      url: api.endpoint + '/therapies',
       data: $scope.toSend
     }).then(function successCallback() {
       $log("Submitted!");
