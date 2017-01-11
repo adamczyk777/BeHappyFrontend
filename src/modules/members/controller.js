@@ -15,9 +15,6 @@ function controller($scope, $stateParams, $http, $log, api) {
       $scope.test = 1;
     }
     $scope.patients = response.data;
-   /* $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
-    $scope.patients[$scope.patients.length] = {email: "eloelo@poczta.onet.pl", role: "THERAPIST"};
-    $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"}; */
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
@@ -33,16 +30,11 @@ function controller($scope, $stateParams, $http, $log, api) {
       $log(response.data[0].email);
     }
     $scope.myRole = response.data;
-    /* $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
-     $scope.patients[$scope.patients.length] = {email: "eloelo@poczta.onet.pl", role: "THERAPIST"};
-     $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"}; */
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
   });
 
-  $scope.patients = [{email: "1234@gmail.com", role: "WARDEN"}, {email: "eloelo@poczta.onet.pl", role: "THERAPIST"},
-    {email: "hello@interia.pl", role: "PATIENT"}];
   $log.log($scope.patients[1]);
 
   $scope.deleteUser = function (user) {
@@ -89,6 +81,8 @@ function controller($scope, $stateParams, $http, $log, api) {
   $scope.isWarden = function (role) {
     return (role === "WARDEN");
   };
+
+  // TODO waiting for endpoint
   $scope.addPermission = function (user) {
     $log.log("Adding permission!");
     $http({
