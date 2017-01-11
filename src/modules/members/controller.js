@@ -9,9 +9,9 @@ function controller($scope, $stateParams, $http, $log, api) {
     url: api.endpoint + "/therapies/" + $scope.therapyId + "/members"
   }).then(function successCallback(response) {
     if (response.data === null) {
-      $log("Data is null");
+      $log.log("Data is null");
     } else {
-      $log(response.data[0].email);
+      $log.log(response.data[0]);
       $scope.test = 1;
     }
     $scope.patients = response.data;
@@ -25,9 +25,9 @@ function controller($scope, $stateParams, $http, $log, api) {
     url: api.endpoint + "/therapies/" + $scope.therapyId + "/role" // TODO waiting for endpoint
   }).then(function successCallback(response) {
     if (response.data === null) {
-      $log("Data is null");
+      $log.log("Data is null");
     } else {
-      $log(response.data[0].email);
+      $log.log(response.data[0].email);
     }
     $scope.myRole = response.data;
   }, function errorCallback(response) {
@@ -35,7 +35,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log.log(response);
   });
 
-  $log.log($scope.patients[1]);
+  // $log.log($scope.patients[1]);
 
   $scope.deleteUser = function (user) {
     $log.log("Trying to delete user " + user.email + "!");
@@ -53,9 +53,8 @@ function controller($scope, $stateParams, $http, $log, api) {
 
   $scope.addUser = function (userEmail, role) {
     $log.log("Assigned!");
-    $scope.message = {role: role, email: userEmail};
-    $log.log($scope.message.role);
-    $log.log($scope.message.email);
+    $scope.message = {email: userEmail, role: role};
+    $log.log($scope.message);
     $http({
       method: 'POST',
       url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",
@@ -69,8 +68,8 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    return ($scope.myRole === "WARDEN");
-    // return true;
+    // return ($scope.myRole === "WARDEN");
+    return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
