@@ -3,7 +3,7 @@ module.exports = controller;
 function controller($scope, $stateParams, $http, $log, api) {
   $scope.therapyId = $stateParams.therapyId;
   $scope.isHidden = 0;
-
+  $scope.patients = [];
   $http({
     method: 'GET',
     url: api.endpoint + "/therapies/" + $scope.therapyId + "/members"
@@ -77,13 +77,13 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    return ($scope.myRole === "WARDEN");
-    // return true;
+    // return ($scope.myRole === "WARDEN");
+    return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    return ($scope.myRole === "PATIENT");
-    // return true;
+    // return ($scope.myRole === "PATIENT");
+    return true;
   };
 
   $scope.isWarden = function (role) {

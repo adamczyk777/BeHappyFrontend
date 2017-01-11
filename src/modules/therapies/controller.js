@@ -87,7 +87,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   };
   // TODO waiting for endpoint
   $scope.canEdit = function () {
-     return ($scope.myRole  === "PATIENT");
-    // return true;
+     // return ($scope.myRole  === "PATIENT");
+     return true;
   };
 }
