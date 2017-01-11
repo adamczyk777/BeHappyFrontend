@@ -7,7 +7,10 @@
     <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
       <li ng-repeat="patient in patients">{{patient.email}}   role: {{patient.role}}
         <form name="deleteUserForm" ng-submit="deleteUser(patient)">
-          <button class="btn btn-primary" type="submit">Delete</button>
+          <button class="btn btn-primary" type="submit" ng-show="canDelete()">Delete</button>
+        </form>
+        <form ng-submit="addPermission(patient)">
+          <button ng-show="canAddPermission()">Add special permission</button> <!-- ng-show="isWarden(patient.role)" -->
         </form>
       </li><br>
       <button ng-click="hidePatientsList()">Hide</button>
@@ -15,7 +18,7 @@
   </div>
   <!-- Szczęśliwego nowego roku!!!!!-->
   <div class="container">
-    <form name="addUserForm" ng-submit="addUser(userEmail, role)">
+    <form name="addUserForm" ng-submit="addUser(userEmail, role)" ng-show="canAdd()">
       <div class="form-group">
         <label for="userEmail" class="control-label">User email</label>
         <input placeholder="Enter user email" type="text"
