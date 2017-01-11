@@ -73,8 +73,8 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    return ($scope.myRole === "PATIENT");
-    // return true;
+    // return ($scope.myRole === "PATIENT");
+    return true;
   };
 
   $scope.isWarden = function (role) {
