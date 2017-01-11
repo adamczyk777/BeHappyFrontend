@@ -31,9 +31,8 @@ function controller($scope, $stateParams, $http, $log, api) {
       $log("Data is null");
     } else {
       $log(response.data[0].email);
-      $scope.myRole = response;
     }
-    $scope.user = response.data;
+    $scope.myRole = response.data;
     /* $scope.patients[$scope.patients.length] = {email: "1234@gmail.com", role: "WARDEN"};
      $scope.patients[$scope.patients.length] = {email: "eloelo@poczta.onet.pl", role: "THERAPIST"};
      $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"}; */
@@ -49,8 +48,8 @@ function controller($scope, $stateParams, $http, $log, api) {
   $scope.deleteUser = function (user) {
     $log.log("Trying to delete user " + user.email + "!");
     $http({
-      method: 'POST',
-      url: "http://localhost:8080/api/therapies/#",    /* TODO waiting for endpoint*/
+      method: 'DELETE',
+      url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",    /* TODO waiting for endpoint*/
       data: user
     }).then(function successCallback(response) {
       $log.log("User deleted!");
@@ -78,13 +77,13 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    // return ($scope.myRole === "WARDEN");
-    return true;
+    return ($scope.myRole === "WARDEN");
+    // return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    // return ($scope.myRole === "PATIENT");
-    return true;
+    return ($scope.myRole === "PATIENT");
+    // return true;
   };
 
   $scope.isWarden = function (role) {
