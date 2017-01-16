@@ -15,7 +15,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   /* .state('app', {
       url: '',
       abstract: true,
-      template: require('./modules/layout.html')
+      template: require('./modules/layogit sut.html')
     }) */
     .state('app.home', {
       url: '/',
