@@ -2,6 +2,7 @@ var angular = require('angular');
 require('angular-ui-router');
 require('./index.scss');
 require('angular-animate');
+require('angular-resource');
 require('chart.js');
 require('angular-chart.js');
 
@@ -18,10 +19,11 @@ var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
+var therapiesService = require('./services/therapiesService');
 
 /* @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js'])
+  .module('app', ['ui.router', 'chart.js', 'ngResource'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
@@ -42,4 +44,5 @@ angular
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
   .factory('TokenStorage', tokenStorageService)
-  .factory('TokenAuthInterceptor', tokenAuthInterceptor);
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor)
+  .factory('TherapiesService', therapiesService);

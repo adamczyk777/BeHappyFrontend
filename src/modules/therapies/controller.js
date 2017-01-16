@@ -1,9 +1,9 @@
 module.exports = controller;
 /* @ngInject */
-function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
-  }
+function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
+  // if (TokenStorage.retrieve() === null) {
+  //   $state.go('app.login');
+  // }
   // var vm = this;
   $scope.therapyShow = 0;
   $scope.therapies = [];
@@ -23,18 +23,21 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     }
   };
 
-  $http({
-    method: 'GET',
-    url: api.endpoint + '/therapies'
-  }).then(function successCallback(response) {
-    $scope.therapies = response.data;
-    $scope.therapyName = $scope.findTherapyName();
-    $log.log($scope.therapies);
-    $log.log($scope.therapyName);
-  }, function errorCallback(response) {
-    $log.log("Cannot get data from server.");
-    $log.log(response);
-  });
+  // $http({
+  //   method: 'GET',
+  //   url: api.endpoint + '/therapies'
+  // })
+  /* eslint-disable */
+  TherapiesService.getAll().$promise
+    .then(function successCallback(response) {
+      $scope.therapies = response.data;
+      $scope.therapyName = $scope.findTherapyName();
+      $log.log($scope.therapies);
+      $log.log($scope.therapyName);
+    }, function errorCallback(response) {
+      $log.log("Cannot get data from server.");
+      $log.log(response);
+    });
 
   $http({
     method: 'GET',
