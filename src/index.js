@@ -20,8 +20,10 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 var therapiesService = require('./services/therapiesService');
+var testService = require('./services/testService');
+var testController = require('./modules/testing/testController');
 
-/* @ngInject */
+/** @ngInject */
 angular
   .module('app', ['ui.router', 'chart.js', 'ngResource'])
   .config(routesConfig)
@@ -43,6 +45,8 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('TestController', testController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)
-  .factory('TherapiesService', therapiesService);
+  .factory('TherapiesService', therapiesService)
+  .factory('TestService', testService);

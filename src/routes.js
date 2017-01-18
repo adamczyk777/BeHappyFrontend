@@ -12,11 +12,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         controller: 'TherapiesController',
         controllerAs: 'vm'
       })
-  /* .state('app', {
-      url: '',
-      abstract: true,
-      template: require('./modules/layogit sut.html')
-    }) */
     .state('app.home', {
       url: '/',
       controller: 'HomeController',
@@ -82,5 +77,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'TherapiesController',
       controllerAs: 'vm',
       template: require('./modules/personalization/view.html')
+    })
+    .state('app.testing', {
+      url: '/testing',
+      controller: 'TestController',
+      controllerAs: 'vm',
+      template: require('./modules/testing/test.html')
     });
 }
