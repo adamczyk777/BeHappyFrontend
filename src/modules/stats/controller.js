@@ -1,19 +1,33 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller(TokenStorage, $state, $scope, $log) {
+function controller(TokenStorage, $state, $scope, $log, $http, api) {
   if (TokenStorage.retrieve() === null) { // to jest do przelozenia do service
     $state.go('app.login');
   }
-  $scope.startDate = moment().subtract(7, 'd').format('YYYY-MM-DD'); // te dwie linijki sa dla testow, beda do wywalenia.
-  $scope.endDate = moment().format("YYYY-MM-DD"); // ta to jest ta druga
-  // napisac tu funkcje do wyciagania z backu samopoczucia, lekow itd
+
+  $scope.formModel = { // domyslne wartosci do zapytania
+    startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
+    endDate: moment().format("YYYY-MM-DD"),
+    zones: 7
+  };
+
   $scope.changeChart = function () {
     $scope.toSend = {
-      startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
-      endDate: moment().format("YYYY-MM-DD"),
-      zones: 7
+      startDate: $scope.formModel.startDate,
+      endDate: $scope.formModel.endDate,
+      zones: $scope.formModel.zones
     };
+
+    $http({
+      method: 'GET',
+      url: api.endpoint + $scope.therapyId,
+      data: $scope.toSend
+    }).then(function successCallback(response) {
+      $log.log("We got DATA! " + response);
+    }, function errorCallback(response) {
+      $log.log("Http error status code:" + response.status.toString());
+    });
   };
 
   // mood chart:

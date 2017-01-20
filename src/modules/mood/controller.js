@@ -31,7 +31,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
 
     $http({
       method: 'POST',
-      url: api.endpoint + $scope.therapyId,
+      url: api.endpoint + '/' + $scope.therapyId,
       data: $scope.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
