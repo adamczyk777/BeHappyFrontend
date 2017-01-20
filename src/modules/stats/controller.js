@@ -1,9 +1,21 @@
 module.exports = controller;
-/* @ngInject */
+var moment = require('moment');
+/** @ngInject */
 function controller(TokenStorage, $state, $scope, $log) {
-  if (TokenStorage.retrieve() === null) {
+  if (TokenStorage.retrieve() === null) { // to jest do przelozenia do service
     $state.go('app.login');
   }
+  $scope.startDate = moment().subtract(7, 'd').format('YYYY-MM-DD'); // te dwie linijki sa dla testow, beda do wywalenia.
+  $scope.endDate = moment().format("YYYY-MM-DD"); // ta to jest ta druga
+  // napisac tu funkcje do wyciagania z backu samopoczucia, lekow itd
+  $scope.changeChart = function () {
+    $scope.toSend = {
+      startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
+      endDate: moment().format("YYYY-MM-DD"),
+      zones: 7
+    };
+  };
+
   // mood chart:
   $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.moodSeries = ['Your Mood', 'Your Anxiety'];
