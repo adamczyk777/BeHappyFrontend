@@ -11,7 +11,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     if (response.data === null) {
       $log("Data is null");
     } else {
-      $log(response.data[0].email);
+      $log.log(response.data[0].email);
       $scope.test = 1;
     }
     $scope.patients = response.data;
@@ -37,12 +37,12 @@ function controller($scope, $stateParams, $http, $log, api) {
      $scope.patients[$scope.patients.length] = {email: "eloelo@poczta.onet.pl", role: "THERAPIST"};
      $scope.patients[$scope.patients.length] = {email: "hello@interia.pl", role: "PATIENT"}; */
   }, function errorCallback(response) {
-    $log.log("Cannot display members of your therapy");
+    $log.log("Cannot display your role");
     $log.log(response);
   });
 
-  $scope.patients = [{email: "1234@gmail.com", role: "WARDEN"}, {email: "eloelo@poczta.onet.pl", role: "THERAPIST"},
-    {email: "hello@interia.pl", role: "PATIENT"}];
+  /* $scope.patients = [{email: "1234@gmail.com", role: "WARDEN"}, {email: "eloelo@poczta.onet.pl", role: "THERAPIST"},
+    {email: "hello@interia.pl", role: "PATIENT"}]; */
   $log.log($scope.patients[1]);
 
   $scope.deleteUser = function (user) {
