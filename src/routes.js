@@ -1,6 +1,5 @@
 module.exports = routesConfig;
-
-/** @ngInject */
+/* @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');
@@ -16,7 +15,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   /* .state('app', {
       url: '',
       abstract: true,
-      template: require('./modules/layout.html')
+      template: require('./modules/layogit sut.html')
     }) */
     .state('app.home', {
       url: '/',
@@ -24,13 +23,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/home/view.html')
     })
-    .state('app.login', {
-      url: '/',
+    .state('login', {
+      url: '/login',
       controller: 'LoginController',
       controllerAs: 'vm',
       template: require('./modules/login/view.html')
     })
-    .state('app.register', {
+    .state('register', {
       url: '/register',
       controller: 'RegisterController',
       controllerAs: 'vm',

@@ -1,5 +1,5 @@
 module.exports = controller;
-
+/* @ngInject */
 function controller($log, TokenStorage, $http, api, $state) {
   var vm = this;
 

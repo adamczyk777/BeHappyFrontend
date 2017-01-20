@@ -1,6 +1,7 @@
 module.exports = controller;
-
-function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) { //  moment)
+var moment = require('moment');
+/* @ngInject */
+function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
   if (TokenStorage.retrieve() === null) {
     $state.go('app.login');
   }
@@ -18,21 +19,21 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
     mark: null
   };
 
-  $scope.submitForm = function () {  // wysyła dane z formularza (nie wiem jak to ma do końca wyglądać)
+  $scope.submitForm = function () {
     $scope.toSend = {
       date: $scope.formModel.date,
       mark: parseInt($scope.formModel.mark, 10)
     };
-   // $scope.toSend.date = moment($scope.formModel.date).format($scope.localFormat);
-  // TODO linijka powyzej wykrzacza angulara. Ogarnac dependencies (moment.js)
+    $scope.toSend.date = moment($scope.formModel.date).format($scope.localFormat);
+
     $http({
       method: 'POST',
       url: api.endpoint + '/stats/' + $scope.therapyId,
       data: $scope.toSend
     }).then(function successCallback(response) {
-      $log("Submitted! " + response);
+      $log.log("Submitted! " + response);
     }, function errorCallback(response) {
-      $log("Http error status code:" + response.status.toString());
+      $log.log("Http error status code:" + response.status.toString());
     });
   };
 }
