@@ -20,6 +20,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
       floor: 1,
       ceil: 10,
       step: 1,
+      showTicksValues: 1,
       showSelectionBar: true
     }
   };

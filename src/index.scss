@@ -73,12 +73,16 @@ datepicker input {
 }
 
 /* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
-.anxietyQuestion {
+.anxietyAnswer {
   width: 64px;
   height: 64px;
   background: none;
   border-radius: 32px;
   border: 2px solid #000000;
+}
+
+.anxietyAnswer:first-of-type {
+  margin-right: 10px;
 }
 
 .saveMood {
@@ -91,6 +95,14 @@ datepicker input {
   width: 75%;
 }
 /* slider */
+
+.rzslider .rz-tick.rz-selected{
+  background: #333333;
+}
+
+.rz-bubble {
+  display: none !important;
+}
 
 .rzslider .rz-pointer { /* wskaznik lekow, kulka */
   background: #333333;
