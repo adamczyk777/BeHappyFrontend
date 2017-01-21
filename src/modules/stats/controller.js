@@ -1,9 +1,6 @@
 module.exports = controller;
 /* @ngInject */
-function controller(TokenStorage, $state, $scope, $log) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
-  }
+function controller($scope, $log) {
   // mood chart:
   $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.moodSeries = ['Your Mood', 'Your Anxiety'];

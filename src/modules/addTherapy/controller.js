@@ -1,10 +1,7 @@
 module.exports = controller;
 var moment = require('moment');
 /* @ngInject */
-function controller($scope, TokenStorage, $http, $log, api, $state) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
-  }
+function controller($scope, $http, $log, api) {
   // vm = this;
   $scope.formModel = {};
   $scope.roleModel = {};
