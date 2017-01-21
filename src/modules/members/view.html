@@ -10,7 +10,7 @@
           <button class="btn btn-primary" type="submit" ng-show="canDelete()">Delete</button>
         </form>
         <form ng-submit="addPermission(patient)">
-          <button ng-show="canAddPermission()">Add special permission</button> <!-- ng-show="isWarden(patient.role)" -->
+          <button ng-show="canAddPermission(patient.role)">Add special permission</button> <!-- ng-show="isWarden(patient.role)" -->
         </form>
       </li><br>
       <button ng-click="hidePatientsList()">Hide</button>
