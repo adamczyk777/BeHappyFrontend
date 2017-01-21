@@ -107,7 +107,7 @@ ul {
   font-size: 120%;
   //-moz-border-radius: 35px;
   //border-radius: 35px;
-  background-color: blue;
+  background-color: navy;
   color: silver;
   position: fixed;
   bottom: 0;
@@ -115,7 +115,9 @@ ul {
   //margin-left: auto;
   //margin-right: auto;
 }
-
+.figure figcaption{
+  color: silver;
+}
 
 .sidebar-nav li {
   text-indent: 0px;
