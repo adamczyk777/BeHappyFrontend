@@ -1,5 +1,5 @@
 module.exports = controller;
-/* @ngInject */
+/** @ngInject */
 function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api) {
   var vm = this;
   var uri = api.endpoint + "/users/register";
@@ -7,7 +7,7 @@ function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api
 
   if ($stateParams.userId !== angular.isUndefined) {
     uri = api.endpoint + '/users/invite/' + $stateParams.userId;
-    $scope.needEmail = 0;
+    $scope.needEmail = 1;
   }
   vm.registerForm = {
     email: '',
