@@ -5,10 +5,14 @@ function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api
   var uri = api.endpoint + "/users/register";
   $scope.needEmail = 1;
 
-  if ($stateParams.userId !== angular.isUndefined) {
+  $log.log($stateParams.userId);
+  $log.log(angular.isDefined($stateParams.userId));
+  if (angular.isDefined($stateParams.userId)) {
     uri = api.endpoint + '/users/invite/' + $stateParams.userId;
     $scope.needEmail = 1;
   }
+
+  $log.log(uri);
   vm.registerForm = {
     email: '',
     password: ''
