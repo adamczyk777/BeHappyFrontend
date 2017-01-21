@@ -2,7 +2,8 @@ module.exports = controller;
 /** @ngInject */
 function controller(TokenStorage, $state, $log, $http, api) {
   var vm = this;
-  if (TokenStorage.retrieve() === null) {
+
+  if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
 

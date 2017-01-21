@@ -11,10 +11,10 @@ function controller(TokenStorage, $log, $http, $state, api) {
   vm.register = function () {
     $http.post(api.endpoint + "/users", vm.registerForm) // TODO endpoint
       .then(
-        function successCallback(response) {
+        function successCallback() {
           $log.log("Request Sent");
-          TokenStorage.store(response.data.token);
-          $state.go('app.home');
+          // TokenStorage.store(response.data.token);
+          // $state.go('app.home');
         },
         function failureCallback(response) {
           $log.log("Error while sending");

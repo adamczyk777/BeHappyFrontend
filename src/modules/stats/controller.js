@@ -1,8 +1,12 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller($scope, $log) {
-  // ja chce tu enter, ale nie moge
+
+function controller(TokenStorage, $state, $scope, $log) {
+  if (!TokenStorage.isAuthenticated()) {
+    $state.go('login');
+  }
+
   $scope.formMood = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),
@@ -55,10 +59,10 @@ function controller($scope, $log) {
   };
 
   $scope.changeActivityChart = function () {
+    $log.log("kurwa");
     $log.log($scope.formActivity.zones);
     $scope.formActivity.zones = parseInt($scope.formActivity.zones, 10);
-
-    if ($scope.formActivity.zones === 7) { // tydzien, domyslnie
+    if ($scope.formActivity.zones === 7) {
       $scope.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
       $scope.activityData = [
         [6, 5, 8, 8, 5, 5, 4],

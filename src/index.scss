@@ -56,6 +56,9 @@ datepicker input {
 .rzslider .rz-pointer-min::after {
   display: none;
 }
+ul {
+  list-style-type: none;
+}
 
 /*  Sidebar CSS TODO: someone please convert it to SASS xD */
 
@@ -101,19 +104,59 @@ datepicker input {
   margin-right: -250px;
 }
 
+#newsField {
+  line-height: 40px;
+  width:  80%;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  border-style: dotted;
+  border-width: 5px;
+  border-radius: 20px;
+  //background-color: blue;
+  border-color: silver;
+  color: silver;
+  //position: top;
+  bottom: 0;
+  text-align: left;
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 250px;
-  margin: 0;
+  width: 180px;
+  margin-left: -20px;
   padding: 0;
   list-style: none;
+
 }
 
+#sidebarFooter
+{
+  line-height: 50px;
+  width:  180px;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  //border-radius: 35px;
+  background-color: blue;
+  color: silver;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
+
 .sidebar-nav li {
-  text-indent: 20px;
+  text-indent: 0px;
   line-height: 40px;
 }
 
@@ -148,7 +191,22 @@ datepicker input {
   color: #fff;
   background: none;
 }
-
+#mainMenu {
+  color: red;
+  display: inline;
+  width: 100%;
+}
+#mainMenu ul{
+  //display: inline-block;
+  width: 100%;
+  align-content: center;
+}
+#mainMenu li{
+  //display: table-cell;
+  width: 19%;
+  align-content: center;
+  //height: 100px;
+}
 @media(min-width: 768px) {
   #wrapper {
     padding-left: 250px;
@@ -159,7 +217,14 @@ datepicker input {
   }
 
   #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
+    background-color: black;
+  }
+
+  #sidebarItem {
+    color: silver;
+    font-style: oblique;
+    font-family: cursive;
   }
 
   #wrapper.toggled #sidebar-wrapper {

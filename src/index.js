@@ -20,6 +20,7 @@ var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
+var confirmationController = require('./modules/confirmation/controller');
 
 /** @ngInject */
 angular
@@ -30,7 +31,7 @@ angular
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://137.74.113.225:8081/api'
+      endpoint: 'http://localhost:8080/api'
     };
   })
   .controller('RegisterController', registerController)
@@ -43,5 +44,6 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('ConfirmationController', confirmationController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor);
