@@ -1,11 +1,6 @@
 module.exports = controller;
-/** @ngInject */
-
-function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage) {
-  if (!TokenStorage.isAuthenticated()) {
-    $state.go('login');
-  }
-
+/* @ngInject */
+function controller($scope, $stateParams, $http, $log, $state, api) {
   $scope.therapyId = $stateParams.therapyId;
   $scope.isHidden = 0;
 
@@ -33,10 +28,11 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
       $log.log("Data is null");
     } else {
       $log.log("Got my role");
-      $log.log(response.data[0].email);
+      $log.log(response.data);
     }
-    $scope.myRole = response.data;
-    $log.log($scope.myRole);
+    $log.log("WHO I AM?");
+    $scope.whoIAm = response.data;
+    $log.log($scope.whoIAm);
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
@@ -47,10 +43,11 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
   $scope.deleteUser = function (user) {
     $log.log("Trying to delete user " + user.email + "!");
     $http({
-      method: 'DELETE',
-      url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",    /* TODO waiting for endpoint*/
-      data: user.email
+      method: 'POST',
+      url: api.endpoint + "/therapies/" + $scope.therapyId + "/remove",    /* TODO waiting for endpoint*/
+      data: {email: user.email}
     }).then(function successCallback(response) {
+      $state.reload();
       $log.log("User deleted!");
       $log.log(response);
     }, function errorCallback(response) {
@@ -67,6 +64,7 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
       url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",
       data: $scope.message
     }).then(function successCallback(response) {
+      $state.reload();
       $log.log("Submitted!");
       $log.log(response);
     }, function errorCallback(response) {
@@ -75,13 +73,20 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    return !($scope.myRole === "WARDEN");
+    $log.log("CAN ADD???");
+    $log.log(((!($scope.whoIAm.role === "WARDEN")) || $scope.whoIAm.creator));
+    $log.log("myrole???");
+    $log.log($scope.whoIAm.role === "WARDEN");
+    return ((!($scope.whoIAm.role === "WARDEN")) || $scope.whoIAm.creator);
     // return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    return ($scope.myRole === "PATIENT");
+    return ($scope.whoIAm.creator || ($scope.whoIAm.role === "PATIENT"));
     // return true;
+  };
+  $scope.canAddPermission = function (patientRole) {
+    return ($scope.whoIAm.role === "PATIENT" && patientRole === "WARDEN");
   };
 
   $scope.isWarden = function (role) {
@@ -93,8 +98,8 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
     $log.log("Adding permission!");
     $http({
       method: 'POST',
-      url: api.endpoint + "/therapies/" + $scope.therapyId + "/members/permission",
-      data: user.email
+      url: api.endpoint + "/therapies/" + $scope.therapyId + "/assignSpecial",
+      data: {email: user.email}
     }).then(function successCallback(response) {
       $log.log("Submitted!");
       $log.log(response);
