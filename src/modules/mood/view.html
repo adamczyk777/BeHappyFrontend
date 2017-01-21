@@ -1,15 +1,22 @@
-therapyId: {{ therapyId }}
-mark: {{moodSlider.mark}}
-<div class="container main-content" style="width: 75%">
-  <div class="jumbotron">
+<div class="mainBox">
+    <h1 class="formName">Narzędzie do monitoringu samopoczucia terapii behawioralno-poznawczej</h1>
     <form name="wellBeing" ng-submit="sendMood()" class="form-inline">
-      <h2>Jak się czujesz?</h2>
-      <rzslider rz-slider-model="moodSlider.mark" rz-slider-options="moodSlider.options"></rzslider>
-      <h2>Kiedy się czujesz?</h2>
-        <div date-picker class="datePicker"></div>
-        <label>Czy odczuwałeś dziś lęk?</label>
-        <!--<button>Tak</button>
-        <button>Nie</button>-->
-      <button class="btn btn-primary">Zapisz</button>
+      <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ minDate }}" date-max-limit="{{ maxDate }}">
+        <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
+      </datepicker>
+      <div class="moodForm">
+        <h3 class="questionFrame">Jak się czujesz?</h3>
+        <rzslider rz-slider-model="moodSlider.mark" rz-slider-options="moodSlider.options"></rzslider>
+      </div>
+      <div class="anxietyForm" ng-show="showForm.anxietyQuestion">
+      <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
+        <button ng-click="showAnxiety()" class="btn anxietyQuestion" type="button">Tak</button>
+        <button ng-click="noAnxiety()" class="btn anxietyQuestion" type="button">Nie</button>
+      </div>
+      <div class="anxietySubForm" ng-show="showForm.anxietySlider">
+        <h3 class="questionFrame">Jaki to był lęk?</h3>
+        <rzslider rz-slider-model="anxietySlider.fear" rz-slider-options="anxietySlider.options"></rzslider>
+      </div>
+      <button ng-show="showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
     </form>
 </div>

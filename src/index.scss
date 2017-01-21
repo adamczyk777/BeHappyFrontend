@@ -1,16 +1,109 @@
 $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "../node_modules/angular-datepicker/dist/index.css";
+@import "../node_modules/angularjs-datepicker/dist/angular-datepicker.css";
 @import "../node_modules/angularjs-slider/dist/rzslider.scss";
 
 body {
   overflow-x: hidden;
 }
 
-/* date picker */
+h1 {
+  text-align:  center;
+}
 
-.datePicker {
+.mainBox {
+  width: 70%;
+}
 
+/* formularz */
+
+.formName {
+  font-size: 1.5em;
+}
+
+.questionFrame {
+  background: #F2EAE9;
+  border: 1px solid #B0A7A5;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px 30px;
+  width: 100%;
+}
+
+.moodForm {
+  padding-top: 45px;
+}
+
+/* datepicker */
+
+
+datepicker input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #B0A7A5;
+  padding: 15px 30px;
+}
+
+._720kb-datepicker-calendar-month, ._720kb-datepicker-calendar-header-left, ._720kb-datepicker-calendar-header-middle, ._720kb-datepicker-calendar-header-right {
+  background: #000000;
+}
+
+._720kb-datepicker-default-button {
+  color: #ffffff;
+}
+
+._720kb-datepicker-calendar-month span {
+  color: #ffffff;
+}
+
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: #ffffff;
+}
+
+._720kb-datepicker-calendar-days-header {
+  background: #333333;
+}
+
+._720kb-datepicker-calendar-days-header div {
+  color: #ffffff;
+}
+
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled, ._720kb-datepicker-calendar-day._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover {
+  color: #9C9695;
+}
+
+/* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
+.anxietyQuestion {
+  width: 64px;
+  height: 64px;
+  background: none;
+  border-radius: 32px;
+  border: 2px solid #000000;
+}
+
+.saveMood {
+  display: block;
+  background: none;
+  margin-top: 20px;
+}
+
+.main-content {
+  width: 75%;
+}
+/* slider */
+
+.rzslider .rz-pointer { /* wskaznik lekow, kulka */
+  background: #333333;
+}
+.rz-selection { /* suwak samopoczucia */
+  background: #333333 !important;
+}
+
+.rzslider .rz-pointer-min::after {
+  display: none;
+}
+ul {
+  list-style-type: none;
 }
 
 /*  Sidebar CSS TODO: someone please convert it to SASS xD */
@@ -57,19 +150,59 @@ body {
   margin-right: -250px;
 }
 
+#newsField {
+  line-height: 40px;
+  width:  80%;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  border-style: dotted;
+  border-width: 5px;
+  border-radius: 20px;
+  //background-color: blue;
+  border-color: silver;
+  color: silver;
+  //position: top;
+  bottom: 0;
+  text-align: left;
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 250px;
-  margin: 0;
+  width: 180px;
+  margin-left: -20px;
   padding: 0;
   list-style: none;
+
 }
 
+#sidebarFooter
+{
+  line-height: 50px;
+  width:  180px;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  //border-radius: 35px;
+  background-color: blue;
+  color: silver;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
+
 .sidebar-nav li {
-  text-indent: 20px;
+  text-indent: 0px;
   line-height: 40px;
 }
 
@@ -104,10 +237,25 @@ body {
   color: #fff;
   background: none;
 }
-
+#mainMenu {
+  color: red;
+  display: inline;
+  width: 100%;
+}
+#mainMenu ul{
+  //display: inline-block;
+  width: 100%;
+  align-content: center;
+}
+#mainMenu li{
+  //display: table-cell;
+  width: 19%;
+  align-content: center;
+  //height: 100px;
+}
 @media(min-width: 768px) {
   #wrapper {
-    padding-left: 250px;
+    padding-left: 200px;
   }
 
   #wrapper.toggled {
@@ -115,7 +263,14 @@ body {
   }
 
   #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
+    background-color: black;
+  }
+
+  #sidebarItem {
+    color: silver;
+    font-style: oblique;
+    font-family: cursive;
   }
 
   #wrapper.toggled #sidebar-wrapper {

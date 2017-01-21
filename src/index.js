@@ -5,7 +5,7 @@ require('angular-animate');
 require('chart.js');
 require('angular-chart.js');
 require('angularjs-slider');
-require('angular-datepicker');
+require('angularjs-datepicker');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -20,10 +20,11 @@ var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
+var confirmationController = require('./modules/confirmation/controller');
 
 /** @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js', 'rzModule', 'datePicker'])
+  .module('app', ['ui.router', 'chart.js', 'rzModule', '720kb.datepicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
@@ -43,5 +44,6 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('ConfirmationController', confirmationController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor);
