@@ -18,7 +18,7 @@ function controller(TokenStorage, $state, $log, $http, api) {
         $log.log('not working :o');
       });
   };
-  vm.edit = function () {
-    $state.go('app.myAccount');
+  vm.editData = function () {
+    $state.go('app.editData');
   };
 }

@@ -83,10 +83,10 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/personalization/view.html')
     })
-    .state('app.myAccount', {
-      url: '/myAccount',
-      controller: 'MyAccountController',
+    .state('app.editData', {
+      url: '/users/edit',
+      controller: 'EditDataController',
       controllerAs: 'vm',
-      template: require('./modules/myAccount/view.html')
+      template: require('./modules/editData/view.html')
     });
 }

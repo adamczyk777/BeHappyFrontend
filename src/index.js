@@ -20,6 +20,7 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 var therapiesService = require('./services/therapiesService');
+var editDataController = require('./modules/editData/controller');
 
 /* @ngInject */
 angular
@@ -43,6 +44,7 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('EditDataController', editDataController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor)
   .factory('TherapiesService', therapiesService);

@@ -70,7 +70,7 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
     });
   };
 
-  $scope.deleteTherapy = function () {
+  $scope.deleteUser = function () {
     $log.log("Trying to delete therapy");
     $http({
       method: 'DELETE',
@@ -79,12 +79,8 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
-      $log.log(response);
+      $log.log("Http error status code:" + response.status.toString());
     });
   };
-  // TODO waiting for endpoint
-  $scope.canEdit = function () {
-    // return ($scope.myRole === "PATIENT");
-    return true;
-  };
+
 }
