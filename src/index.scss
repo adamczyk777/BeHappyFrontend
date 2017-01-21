@@ -5,6 +5,10 @@ body {
   overflow-x: hidden;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /*  Sidebar CSS TODO: someone please convert it to SASS xD */
 
 #wrapper {
@@ -54,14 +58,32 @@ body {
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 250px;
-  margin: 0;
+  width: 180px;
+  margin-left: -20px;
   padding: 0;
   list-style: none;
+
+}
+
+#sidebarFooter
+{
+  width:  180px;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  //border-radius: 35px;
+  background-color: blue;
+  color: silver;
+  position: fixed;
+  bottom: 0;
+  text-align: left;
+  //margin-left: auto;
+  //margin-right: auto;
 }
 
 .sidebar-nav li {
-  text-indent: 20px;
+  text-indent: 0px;
   line-height: 40px;
 }
 
@@ -96,6 +118,10 @@ body {
   color: #fff;
   background: none;
 }
+#mainMenu {
+  background-color: aqua;
+  color: red;
+}
 
 @media(min-width: 768px) {
   #wrapper {
@@ -107,7 +133,14 @@ body {
   }
 
   #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
+    background-color: blue;
+  }
+
+  #sidebarItem {
+    color: silver;
+    font-style: oblique;
+    font-family: cursive;
   }
 
   #wrapper.toggled #sidebar-wrapper {
