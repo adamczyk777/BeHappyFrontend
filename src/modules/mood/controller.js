@@ -1,5 +1,5 @@
 module.exports = controller;
-// var moment = require('moment');
+var moment = require('moment');
 /** @ngInject */
 function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
   if (!TokenStorage.isAuthenticated()) {
@@ -25,19 +25,21 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   };
 
   $scope.anxietySlider = {
-    mark: 5,
+    fear: 5,
     options: {
       floor: 1,
       ceil: 10,
-      step: 1
+      step: 1,
+      showSelectionBar: true
     }
   };
 
   // Daty dla kalendarza:
   // moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
-  $scope.minDate = new Date(); // jakos odjac miesiac
-  $scope.minDate = $scope.minDate.toString();
-  $scope.maxDate = new Date().toString(); // moment().format("YYYY-MM-DD"); // dzisiejsza data
+  // moment().format("YYYY-MM-DD"); // dzisiejsza data
+  $scope.now = new Date();
+  $scope.minDate = new Date($scope.now.getFullYear(), $scope.now.getMonth(), $scope.now.getDate() - 31).toString(); // TODO: do zmiany, na razie 31 dni wstecz, pozniej ma byc od poczatku terapii
+  $scope.maxDate = new Date($scope.now.getFullYear(), $scope.now.getMonth(), $scope.now.getDate()).toString();
 
   // leki:
   $scope.showAnxiety = function () { // funkcja wyswietla dodatkowy formularz
@@ -66,7 +68,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
       mark: parseInt($scope.moodSlider.mark, 10),
       fears: $scope.formModel.fears
     };
-
+    $scope.toSend.date = moment($scope.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
     $http({
       method: 'POST',
       url: api.endpoint + '/stats/' + $scope.therapyId,

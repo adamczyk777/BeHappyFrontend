@@ -11,6 +11,13 @@ h1 {
   text-align:  center;
 }
 
+/* formularz */
+
+.anxietyForm {
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
 /* datepicker */
 
 datepicker input {
@@ -29,6 +36,22 @@ datepicker input {
   color: #ffffff;
 }
 
+._720kb-datepicker-calendar-header:nth-child(even) {
+  background: #ffffff;
+}
+
+._720kb-datepicker-calendar-days-header {
+  background: #333333;
+}
+
+._720kb-datepicker-calendar-days-header div {
+  color: #ffffff;
+}
+
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled, ._720kb-datepicker-calendar-day._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover {
+  color: #9C9695;
+}
+
 /* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
 .anxietyQuestion {
   width: 64px;
@@ -39,7 +62,9 @@ datepicker input {
 }
 
 .saveMood {
-
+  display: block;
+  background: none;
+  margin-top: 10px;
 }
 
 .main-content {
@@ -47,12 +72,13 @@ datepicker input {
 }
 /* slider */
 
-.rzslider .rz-pointer {
-  background: #333;
+.rzslider .rz-pointer { /* wskaznik lekow, kulka */
+  background: #333333;
 }
-.rzslider .rz-selection {
-  background: #333;
+.rz-selection { /* suwak samopoczucia */
+  background: #333333 !important;
 }
+
 .rzslider .rz-pointer-min::after {
   display: none;
 }
