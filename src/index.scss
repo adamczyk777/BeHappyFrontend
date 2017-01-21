@@ -13,6 +13,18 @@ body {
 
 }
 
+/* slider */
+
+.rzslider .rz-pointer {
+  background: #333;
+}
+.rzslider .rz-selection {
+  background: #333;
+}
+.rzslider .rz-pointer-min::after {
+  display: none;
+}
+
 /*  Sidebar CSS TODO: someone please convert it to SASS xD */
 
 #wrapper {

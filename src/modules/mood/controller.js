@@ -13,7 +13,8 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
     options: {
       floor: 1,
       ceil: 10,
-      step: 1
+      step: 1,
+      showSelectionBar: true
     }
   };
 
