@@ -1,6 +1,6 @@
 $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "../node_modules/angular-datepicker/dist/index.css";
+@import "../node_modules/angularjs-datepicker/dist/angular-datepicker.css";
 @import "../node_modules/angularjs-slider/dist/rzslider.scss";
 
 body {
@@ -11,9 +11,34 @@ h1 {
   text-align:  center;
 }
 
-/* date picker */
+/* datepicker */
 
-.datePicker {
+datepicker input {
+  width: 100%;
+}
+
+._720kb-datepicker-calendar-month, ._720kb-datepicker-calendar-header-left, ._720kb-datepicker-calendar-header-middle, ._720kb-datepicker-calendar-header-right {
+  background: #000000;
+}
+
+._720kb-datepicker-default-button {
+  color: #ffffff;
+}
+
+._720kb-datepicker-calendar-month span {
+  color: #ffffff;
+}
+
+/* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
+.anxietyQuestion {
+  width: 64px;
+  height: 64px;
+  background: none;
+  border-radius: 32px;
+  border: 2px solid #000000;
+}
+
+.saveMood {
 
 }
 

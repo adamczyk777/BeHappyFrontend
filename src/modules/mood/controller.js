@@ -1,5 +1,5 @@
 module.exports = controller;
-var moment = require('moment');
+// var moment = require('moment');
 /** @ngInject */
 function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
   if (TokenStorage.retrieve() === null) {
@@ -34,8 +34,10 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   };
 
   // Daty dla kalendarza:
-  $scope.minDate = moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
-  $scope.maxDate = moment().format("YYYY-MM-DD"); // dzisiejsza data
+  // moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
+  $scope.minDate = new Date(); // jakos odjac miesiac
+  $scope.minDate = $scope.minDate.toString();
+  $scope.maxDate = new Date().toString(); // moment().format("YYYY-MM-DD"); // dzisiejsza data
 
   // leki:
   $scope.showAnxiety = function () { // funkcja wyswietla dodatkowy formularz
