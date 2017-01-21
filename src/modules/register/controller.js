@@ -1,15 +1,21 @@
 module.exports = controller;
 /* @ngInject */
-function controller(TokenStorage, $log, $http, $state, api) {
+function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api) {
   var vm = this;
+  var uri = api.endpoint + "/users/register";
+  $scope.needEmail = 1;
 
+  if ($stateParams.userId !== angular.isUndefined) {
+    uri = api.endpoint + '/users/invite/' + $stateParams.userId;
+    $scope.needEmail = 0;
+  }
   vm.registerForm = {
     email: '',
     password: ''
   };
 
   vm.register = function () {
-    $http.post(api.endpoint + "/users", vm.registerForm) // TODO endpoint
+    $http.post(uri, vm.registerForm) // TODO endpoint
       .then(
         function successCallback() {
           $log.log("Request Sent");
