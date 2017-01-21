@@ -28,7 +28,7 @@ function controller(TokenStorage, $state, $log, $http, api) {
       $log.log("Http error status code:" + response.status.toString());
     });
   };
-
+/*
  vm.deleteUser = function () {
     $log.log("Trying to delete user");
     $http({
@@ -41,5 +41,5 @@ function controller(TokenStorage, $state, $log, $http, api) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
-  };
+  };*/
 }
