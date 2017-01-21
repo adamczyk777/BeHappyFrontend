@@ -1,45 +1,13 @@
 module.exports = controller;
 /* @ngInject */
-function controller($scope, $stateParams, $http, $log, api) {
-  // if (TokenStorage.retrieve() === null) {
-  //   $state.go('app.login');
-  // }
+function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
+  if (TokenStorage.retrieve() === null) {
+    $state.go('app.login');
+  }
   // var vm = this;
   $scope.therapyShow = 0;
   $scope.therapies = [];
   $scope.therapyId = $stateParams.therapyId;
-
-  $http({
-    method: 'GET',
-    url: api.endpoint + '/therapies'
-  }).then(function successCallback(response) {
-    $scope.therapies = response.data;
-  }, function errorCallback(response) {
-    $log.log("Cannot get data from server.");
-    $log.log(response);
-  });
-
-  $http({
-    method: 'GET',
-    url: api.endpoint + "/therapies/" + $scope.therapyId + "/role" // TODO waiting for endpoint
-  }).then(function successCallback(response) {
-    if (response.data === null) {
-      $log("Data is null");
-    } else {
-      $log(response.data[0].email);
-      $scope.myRole = response;
-    }
-    $scope.user = response.data;
-  }, function errorCallback(response) {
-    $log.log("Cannot display members of your therapy");
-    $log.log(response);
-  });
-  // Hardcoded till authentication will work
-  // $scope.getTherapies();
-  // $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
-  $log.log($scope.therapies);
-
-  $log.log($scope.therapies);
 
   $scope.findTherapyName = function () {
     for (var i = 0; i < $scope.therapies.length; i++) {
@@ -54,9 +22,38 @@ function controller($scope, $stateParams, $http, $log, api) {
       }
     }
   };
+  $scope.getTherapies = function () {
+    $http({
+      method: 'GET',
+      url: api.endpoint + '/therapies'
+    }).then(function successCallback(response) {
+      $scope.therapies = response.data;
+      $scope.therapyName = $scope.findTherapyName();
+      $log.log($scope.therapies);
+      $log.log($scope.therapyName);
+    }, function errorCallback(response) {
+      $log.log("Cannot get data from server.");
+      $log.log(response);
+    });
+  };
 
-  $scope.therapyName = $scope.findTherapyName();
-  $log.log($scope.therapyName);
+  $scope.getTherapies();
+
+  $http({
+    method: 'GET',
+    url: api.endpoint + "/therapies/" + $scope.therapyId + "/role" // TODO waiting for endpoint
+  }).then(function successCallback(response) {
+    if (response.data === null) {
+      $log.log("Data is null");
+    } else {
+      $log.log(response.data[0].email);
+      $scope.myRole = response;
+    }
+    $scope.user = response.data;
+  }, function errorCallback(response) {
+    $log.log("Cannot display members of your therapy");
+    $log.log(response);
+  });
 
   $scope.changeName = function (newName) {
     $log.log("Trying to change therapy name");
@@ -66,6 +63,8 @@ function controller($scope, $stateParams, $http, $log, api) {
       url: api.endpoint + '/therapies/' + $scope.therapyId,
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
+      $scope.getTherapies();
+      $log.log($scope.therapies);
       $log.log("Therapy name changed");
       $log.log(response);
     }, function errorCallback(response) {
@@ -79,6 +78,7 @@ function controller($scope, $stateParams, $http, $log, api) {
       method: 'DELETE',
       url: api.endpoint + "/therapies/" + $scope.therapyId
     }).then(function successCallback(response) {
+      $scope.getTherapies();
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
@@ -87,8 +87,7 @@ function controller($scope, $stateParams, $http, $log, api) {
   };
   // TODO waiting for endpoint
   $scope.canEdit = function () {
-     // return ($scope.myRole  === "PATIENT");
-
+    // return ($scope.myRole === "PATIENT");
     return true;
   };
 }
