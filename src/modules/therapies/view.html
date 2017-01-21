@@ -1,4 +1,4 @@
-Id terapii: {{therapyId}}
+Isadjasdjoasijd terapii: {{therapyId}}
 <nav><!-- menu z obrazkami -->
   <ul class="list-inline">
     <li><a ui-sref="app.mood({therapyId: {{therapyId}}})">How are you?</a></li>
@@ -8,5 +8,7 @@ Id terapii: {{therapyId}}
     <li><a ui-sref="app.members({therapyId: {{therapyId}}})">Members in therapy</a></li>
   </ul>
 </nav>
-<div id="NEWS"></div> <!-- Radek to robi, paginacja sie tu zalicza -->
+<div id="NEWS">
+  <ng-include src="../therapyNews/view.html"></ng-include>
+</div>
 <div id="RIGHT_SIDEBAR"></div> <!-- Prawy sidebar z wykresem i uczestnikami terapii -->
