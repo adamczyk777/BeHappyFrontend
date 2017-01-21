@@ -63,7 +63,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
       url: api.endpoint + '/therapies/' + $scope.therapyId,
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
-      $scope.getTherapies();
+      $state.reload();
       $log.log($scope.therapies);
       $log.log("Therapy name changed");
       $log.log(response);
