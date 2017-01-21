@@ -2,8 +2,8 @@ module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
 function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
+  if (!TokenStorage.isAuthenticated()) {
+    $state.go('login');
   }
   $scope.therapyId = $stateParams.therapyId;
 

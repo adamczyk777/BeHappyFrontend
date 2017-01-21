@@ -1,7 +1,12 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller($scope, $log) {
+function controller($state, $scope, $log) {
+
+  if (!TokenStorage.isAuthenticated()) {
+    $state.go('login');
+  }
+
   $scope.formMood = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),

@@ -1,6 +1,11 @@
 module.exports = controller;
-/* @ngInject */
-function controller($scope, $stateParams, $http, $log, api) {
+/** @ngInject */
+function controller($state, $scope, $stateParams, $http, $log, api) {
+
+  if (!TokenStorage.isAuthenticated()) {
+    $state.go('login');
+  }
+
   $scope.therapyId = $stateParams.therapyId;
   $scope.isHidden = 0;
 
