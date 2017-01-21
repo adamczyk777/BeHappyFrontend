@@ -1,11 +1,10 @@
 /* eslint-disable */
 module.exports = controller;
 /* @ngInject */
-  /* .constant("dataUrl", "http://localhost:8080/therapy/news")
-  .constant("newsListPageCount", 5)*/
+  /*.constant("newsListPageCount", 5)*/
 function controller ($scope /* , $http, $filter, dataUrl*/) {
     $scope.data = {};
-    $http.get(dataUrl)
+    $http.get("http://localhost:8080/therapy/news")
     //.then(function (data) {
     //    $scope.data.products = data;
       .then(function (response) {
