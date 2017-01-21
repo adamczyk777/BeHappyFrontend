@@ -2,13 +2,13 @@ module.exports = controller;
 /* @ngInject */
   /* .constant("newsListPageCount", 5)*/
 function controller($scope, $http, $log, api) {
-  $scope.data = {};
+  $scope.news = {};
   $scope.getNews = function () {
     $http({
       method: 'GET',
       url: api.endpoint + '/therapy/news'
     }).then(function successCallback(response) {
-      $scope.data.news = response.data;
+      $scope.news = response.data;
       $scope.therapyName = $scope.findTherapyName();
       $log.log($scope.news);
     }, function errorCallback() {
