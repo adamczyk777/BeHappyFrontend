@@ -1,8 +1,7 @@
 module.exports = controller;
-/* @ngInject */
 var moment = require('moment');
 /** @ngInject */
-function controller($scope, $log, $http, api) {
+function controller($scope, $log) {
   $scope.formModel = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),
@@ -10,12 +9,31 @@ function controller($scope, $log, $http, api) {
   };
 
   $scope.changeChart = function () {
-    $scope.toSend = {
+    if ($scope.formModel.zones === 7) {
+      $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+      $scope.moodData = [
+        [6, 5, 8, 8, 5, 5, 4],
+        [2, 4, 4, 1, 8, 2, 9]
+      ];
+    } else if ($scope.formModel.zones === 31) { // miesiac
+      $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+      $scope.moodData = [
+        [6, 5, 8, 8, 5, 5, 4],
+        [2, 4, 4, 1, 8, 2, 9]
+      ];
+    } else if ($scope.formModel.zones === 12) { // rok
+      $scope.moodLabels = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"];
+      $scope.moodData = [
+        [6, 5, 8, 8, 5, 5, 4, 2, 1, 1, 2, 3],
+        [2, 4, 4, 1, 8, 2, 9, 1, 1, 2, 3, 2]
+      ];
+    }
+    $scope.toSend = {  // to bedzie dzialac kiedys i pobierac dane z bazy, na razie powyzej jest hard-coded
       startDate: $scope.formModel.startDate,
       endDate: $scope.formModel.endDate,
       zones: $scope.formModel.zones
     };
-
+    /*
     $http({
       method: 'GET',
       url: api.endpoint + $scope.therapyId,
@@ -25,11 +43,12 @@ function controller($scope, $log, $http, api) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
+    */
   };
 
   // mood chart:
-  $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.moodSeries = ['Your Mood', 'Your Anxiety'];
+  $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.moodData = [
     [6, 5, 8, 8, 5, 5, 4],
     [2, 4, 4, 1, 8, 2, 9]

@@ -1,8 +1,16 @@
 $icon-font-path: "../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../node_modules/angular-datepicker/dist/index.css";
+@import "../node_modules/angularjs-slider/dist/rzslider.scss";
 
 body {
   overflow-x: hidden;
+}
+
+/* date picker */
+
+.datePicker {
+
 }
 
 /*  Sidebar CSS TODO: someone please convert it to SASS xD */

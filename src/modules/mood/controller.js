@@ -8,8 +8,13 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   $scope.therapyId = $stateParams.therapyId;
 
   // slider:
-  $scope.slider = {
-    value: 10
+  $scope.moodSlider = {
+    mark: 5,
+    options: {
+      floor: 1,
+      ceil: 10,
+      step: 1
+    }
   };
 
   // Daty dla kalendarza:
@@ -26,12 +31,13 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   $scope.sendMood = function () {
     $scope.toSend = {
       date: $scope.formModel.date,
-      mark: parseInt($scope.formModel.mark, 10)
+      mark: parseInt($scope.moodSlider.mark, 10),
+      fears: $scope.formModel.fears
     };
 
     $http({
       method: 'POST',
-      url: api.endpoint + '/' + $scope.therapyId,
+      url: api.endpoint + '/stats/' + $scope.therapyId,
       data: $scope.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
