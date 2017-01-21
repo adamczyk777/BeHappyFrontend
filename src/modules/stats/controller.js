@@ -1,9 +1,32 @@
 module.exports = controller;
 /* @ngInject */
-function controller(TokenStorage, $state, $scope, $log) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
-  }
+var moment = require('moment');
+/** @ngInject */
+function controller($scope, $log, $http, api) {
+  $scope.formModel = { // domyslne wartosci do zapytania
+    startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
+    endDate: moment().format("YYYY-MM-DD"),
+    zones: 7
+  };
+
+  $scope.changeChart = function () {
+    $scope.toSend = {
+      startDate: $scope.formModel.startDate,
+      endDate: $scope.formModel.endDate,
+      zones: $scope.formModel.zones
+    };
+
+    $http({
+      method: 'GET',
+      url: api.endpoint + $scope.therapyId,
+      data: $scope.toSend
+    }).then(function successCallback(response) {
+      $log.log("We got DATA! " + response);
+    }, function errorCallback(response) {
+      $log.log("Http error status code:" + response.status.toString());
+    });
+  };
+
   // mood chart:
   $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.moodSeries = ['Your Mood', 'Your Anxiety'];
