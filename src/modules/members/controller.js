@@ -32,9 +32,11 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
     if (response.data === null) {
       $log.log("Data is null");
     } else {
+      $log.log("Got my role");
       $log.log(response.data[0].email);
     }
     $scope.myRole = response.data;
+    $log.log($scope.myRole);
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
@@ -73,13 +75,13 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
   };
   // TODO waiting for endpoint
   $scope.canAdd = function () {
-    // return ($scope.myRole === "WARDEN");
-    return true;
+    return !($scope.myRole === "WARDEN");
+    // return true;
   };
   // TODO waiting for endpoint
   $scope.canDelete = function () {
-    // return ($scope.myRole === "PATIENT");
-    return true;
+    return ($scope.myRole === "PATIENT");
+    // return true;
   };
 
   $scope.isWarden = function (role) {
