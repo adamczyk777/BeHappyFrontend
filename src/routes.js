@@ -72,6 +72,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/members/view.html')
     })
+    .state('confirmation', {
+      url: '/users/confirm/{id}',
+      controller: 'ConfirmationController',
+      controllerAs: 'vm',
+      template: require('./')
+    })
     .state('app.personalization', {
       url: '/therapies/{therapyId}/personalization',
       controller: 'TherapiesController',
