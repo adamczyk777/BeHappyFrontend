@@ -1,5 +1,5 @@
 module.exports = controller;
-var moment = require('moment');
+// var moment = require('moment');
 /** @ngInject */
 function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
   if (!TokenStorage.isAuthenticated()) {
@@ -7,8 +7,24 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   }
   $scope.therapyId = $stateParams.therapyId;
 
+  $scope.showForm = {
+    buttonSave: false,
+    anxietyQuestion: true,
+    anxietySlider: false
+  };
+
   // slider:
   $scope.moodSlider = {
+    mark: 5,
+    options: {
+      floor: 1,
+      ceil: 10,
+      step: 1,
+      showSelectionBar: true
+    }
+  };
+
+  $scope.anxietySlider = {
     mark: 5,
     options: {
       floor: 1,
@@ -18,8 +34,24 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   };
 
   // Daty dla kalendarza:
-  $scope.minDate = moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
-  $scope.maxDate = moment().format("YYYY-MM-DD"); // dzisiejsza data
+  // moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
+  $scope.minDate = new Date(); // jakos odjac miesiac
+  $scope.minDate = $scope.minDate.toString();
+  $scope.maxDate = new Date().toString(); // moment().format("YYYY-MM-DD"); // dzisiejsza data
+
+  // leki:
+  $scope.showAnxiety = function () { // funkcja wyswietla dodatkowy formularz
+    $scope.showForm.anxietySlider = true;
+    $scope.showForm.anxietyQuestion = false;
+    $scope.showForm.buttonSave = true;
+  };
+
+  $scope.noAnxiety = function () { // hiding question if there were no fears and display send button
+    $scope.showForm.buttonSave = true;
+    $scope.showForm.anxietyQuestion = false;
+  };
+
+  // show save
 
  // obiekt, do którego widok przyczepia dane do wysłania:
   $scope.formModel = {

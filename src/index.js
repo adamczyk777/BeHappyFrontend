@@ -5,7 +5,7 @@ require('angular-animate');
 require('chart.js');
 require('angular-chart.js');
 require('angularjs-slider');
-require('angular-datepicker');
+require('angularjs-datepicker');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -24,7 +24,7 @@ var confirmationController = require('./modules/confirmation/controller');
 
 /** @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js', 'rzModule', 'datePicker'])
+  .module('app', ['ui.router', 'chart.js', 'rzModule', '720kb.datepicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
