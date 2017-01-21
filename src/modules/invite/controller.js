@@ -3,6 +3,10 @@ module.exports = controller;
 function controller(TokenStorage, $log, $http, api, $stateParams, $state) {
   var vm = this;
 
+  if (!TokenStorage.isAuthenticated()) {
+    $state.go('login');
+  }
+
   vm.extract = function () {
     vm.userId = $stateParams.userId;
     return atob(vm.userId);

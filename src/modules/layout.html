@@ -3,11 +3,21 @@
   <div id="sidebar-wrapper">
     <nav class="sidebar-nav">
       <ul>
-        <li><a ui-sref="app.home">My account</a></li>
-        <li ng-repeat="therapy in therapies"><a ui-sref="app.therapies({therapyId: {{therapy.id}} })">{{therapy.name}}</a></li>
-        <li><a ui-sref="app.addTherapy">Add new one</a></li>
+        <li><a id="sidebarItem" ui-sref="app.home"><img src="../images/myAccount.svg" height="22" width="22">   My account</a></li>
+        <li ng-repeat="therapy in therapies">
+          <a id="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}} })">
+            <img src="../images/tick.svg" height="22" width="22">
+            {{therapy.name}}
+          </a>
+        </li>
+        <li><a id="sidebarItem" ui-sref="app.addTherapy"><img src="../images/plus.svg" height="22" width="22">   Add new one</a></li>
       </ul>
     </nav>
+    <div id="sidebarFooter">
+      <img src="../images/goMobile.svg" align="left" height="45", width="45">
+      <!--<p>Go Mobile</p>-->
+      Go Mobile
+    </div>
   </div>
   <!-- Page Content -->
   <div id="page-content-wrapper">
