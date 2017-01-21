@@ -119,10 +119,18 @@ ul {
   background: none;
 }
 #mainMenu {
-  background-color: aqua;
   color: red;
+  display: inline;
+  width: 100%;
 }
-
+#mainMenu ul{
+  //display: inline-block;
+  width: 100%;
+}
+#mainMenu li{
+  display: table-cell;
+  width: 21%;
+}
 @media(min-width: 768px) {
   #wrapper {
     padding-left: 250px;
@@ -134,7 +142,7 @@ ul {
 
   #sidebar-wrapper {
     width: 180px;
-    background-color: blue;
+    background-color: black;
   }
 
   #sidebarItem {

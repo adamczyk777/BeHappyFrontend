@@ -36,7 +36,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   });
   // Hardcoded till authentication will work
   // $scope.getTherapies();
-  // $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
+  $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
   $log.log($scope.therapies);
 
   $log.log($scope.therapies);
