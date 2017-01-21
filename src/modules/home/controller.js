@@ -3,7 +3,7 @@ module.exports = controller;
 function controller(TokenStorage, $state, $log, $http, api) {
   var vm = this;
 
-  if (TokenStorage.isAuthenticated()) {
+  if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
 

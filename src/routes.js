@@ -5,18 +5,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-      .state('app', {
-        url: '',
-        abstract: true,
-        template: require('./modules/layout.html'),
-        controller: 'TherapiesController',
-        controllerAs: 'vm'
-      })
-  /* .state('app', {
+    .state('app', {
       url: '',
       abstract: true,
-      template: require('./modules/layout.html')
-    }) */
+      template: require('./modules/layout.html'),
+      controller: 'TherapiesController',
+      controllerAs: 'vm'
+    })
     .state('app.home', {
       url: '/',
       controller: 'HomeController',
