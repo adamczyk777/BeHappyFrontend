@@ -5,7 +5,7 @@ module.exports = controller;
   .constant("newsListPageCount", 5)*/
 function controller ($scope /* , $http, $filter, dataUrl*/) {
     $scope.data = {};
-   /* $http.get(dataUrl)
+    $http.get(dataUrl)
     //.then(function (data) {
     //    $scope.data.products = data;
       .then(function (response) {
@@ -14,7 +14,7 @@ function controller ($scope /* , $http, $filter, dataUrl*/) {
         function (error) {
           $scope.data.error = error;
         });
-    $scope.selectedPage=1;
+   /* $scope.selectedPage=1;
     $scope.pageSize = newsListPageCount;
     $scope.selectPage = function(newPage)
     {
