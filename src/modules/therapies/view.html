@@ -47,14 +47,48 @@
 
 <div class="container">
   <div class="col-sm-6">
-      <div ng-repeat="x in [1,2,3,4,5]" id="newsField">
-        Lorem {{x}} ipsum
+
+      <div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/okNews.svg" height="10" width="10">      Lorem {{x}} ipsum
       </div>
+      <div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/wrongNews.svg" height="10" width="10">      Lorem {{x}} ipsum
+      </div>
+    <ul class="pagination">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+    </ul>
   </div>
-  <div class="col-sm-5">
-      sdfg
+  <div id="rightSidebar">
+    <div class="col-sm-5">
+      <img src="../../images/mockStats.svg" width="150" height="150">
+      MOCK STATS
+      <div id="lineUnderStats"></div>
+      <p></p>
+      <p style="font-family: 'DejaVu Sans';">Therapy member list
+        <img src="../../images/therapyMemberList.svg" width="40" height="40"></p>
+
+
+
+      <div class="row">
+        <div class="col-md-2" ng-repeat="remainder in [0,1]">
+          <ul>
+            <li id="people" ng-repeat="item in [1,2,3,4,5,6]" ng-if="$index % 2 == remainder">
+              <figure  class="figure">
+              <img height="35" width="35" src="../../images/unknownPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption">Lorem <br>(ipsum)</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </div>
   </div>
 </div>
 
-
-<div id="RIGHT_SIDEBAR"></div> <!-- Prawy sidebar z wykresem i uczestnikami terapii -->
