@@ -67,6 +67,7 @@ ul {
 
 #sidebarFooter
 {
+  line-height: 50px;
   width:  180px;
   height: 50px;
   padding: 1px;
@@ -77,10 +78,11 @@ ul {
   color: silver;
   position: fixed;
   bottom: 0;
-  text-align: left;
+  text-align: center;
   //margin-left: auto;
   //margin-right: auto;
 }
+
 
 .sidebar-nav li {
   text-indent: 0px;
@@ -126,10 +128,13 @@ ul {
 #mainMenu ul{
   //display: inline-block;
   width: 100%;
+  align-content: center;
 }
 #mainMenu li{
-  display: table-cell;
-  width: 21%;
+  //display: table-cell;
+  width: 19%;
+  align-content: center;
+  //height: 100px;
 }
 @media(min-width: 768px) {
   #wrapper {
