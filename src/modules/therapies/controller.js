@@ -22,19 +22,22 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
       }
     }
   };
+  $scope.getTherapies = function () {
+    $http({
+      method: 'GET',
+      url: api.endpoint + '/therapies'
+    }).then(function successCallback(response) {
+      $scope.therapies = response.data;
+      $scope.therapyName = $scope.findTherapyName();
+      $log.log($scope.therapies);
+      $log.log($scope.therapyName);
+    }, function errorCallback(response) {
+      $log.log("Cannot get data from server.");
+      $log.log(response);
+    });
+  };
 
-  $http({
-    method: 'GET',
-    url: api.endpoint + '/therapies'
-  }).then(function successCallback(response) {
-    $scope.therapies = response.data;
-    $scope.therapyName = $scope.findTherapyName();
-    $log.log($scope.therapies);
-    $log.log($scope.therapyName);
-  }, function errorCallback(response) {
-    $log.log("Cannot get data from server.");
-    $log.log(response);
-  });
+  $scope.getTherapies();
 
   $http({
     method: 'GET',
@@ -60,6 +63,8 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
       url: api.endpoint + '/therapies/' + $scope.therapyId,
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
+      $scope.getTherapies();
+      $log.log($scope.therapies);
       $log.log("Therapy name changed");
       $log.log(response);
     }, function errorCallback(response) {
@@ -73,6 +78,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
       method: 'DELETE',
       url: api.endpoint + "/therapies/" + $scope.therapyId
     }).then(function successCallback(response) {
+      $scope.getTherapies();
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
