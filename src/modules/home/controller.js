@@ -5,7 +5,7 @@ function controller(TokenStorage, $state, $log, $http, api) {
 
   vm.logout = function () {
     TokenStorage.clear();
-    $state.go('app.login');
+    $state.go('login');
   };
   vm.checkInterceptor = function () {
     $http.get(api.endpoint + '/test/secure')
