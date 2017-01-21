@@ -16,7 +16,7 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
     if (response.data === null) {
       $log.log("Data is null");
     } else {
-      $log.log(response.data[0]);
+      $log.log(response.data);
       $scope.test = 1;
     }
     $scope.patients = response.data;
@@ -49,7 +49,7 @@ function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage
     $http({
       method: 'DELETE',
       url: api.endpoint + "/therapies/" + $scope.therapyId + "/members",    /* TODO waiting for endpoint*/
-      data: user
+      data: user.email
     }).then(function successCallback(response) {
       $log.log("User deleted!");
       $log.log(response);
