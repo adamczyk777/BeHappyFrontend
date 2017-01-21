@@ -1,35 +1,30 @@
 module.exports = routesConfig;
-/* @ngInject */
+/** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-      .state('app', {
-        url: '',
-        abstract: true,
-        template: require('./modules/layout.html'),
-        controller: 'TherapiesController',
-        controllerAs: 'vm'
-      })
-  /* .state('app', {
+    .state('app', {
       url: '',
       abstract: true,
-      template: require('./modules/layout.html')
-    }) */
+      template: require('./modules/layout.html'),
+      controller: 'TherapiesController',
+      controllerAs: 'vm'
+    })
     .state('app.home', {
       url: '/',
       controller: 'HomeController',
       controllerAs: 'vm',
       template: require('./modules/home/view.html')
     })
-    .state('app.login', {
-      url: '/',
+    .state('login', {
+      url: '/login',
       controller: 'LoginController',
       controllerAs: 'vm',
       template: require('./modules/login/view.html')
     })
-    .state('app.register', {
+    .state('register', {
       url: '/register',
       controller: 'RegisterController',
       controllerAs: 'vm',
@@ -76,6 +71,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'MembersController',
       controllerAs: 'vm',
       template: require('./modules/members/view.html')
+    })
+    .state('confirmation', {
+      url: '/users/confirm/{id}',
+      controller: 'ConfirmationController',
+      controllerAs: 'vm',
+      template: require('./')
     })
     .state('app.personalization', {
       url: '/therapies/{therapyId}/personalization',
