@@ -1,8 +1,8 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller($state, $scope, $log) {
 
+function controller(TokenStorage, $state, $scope, $log) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }

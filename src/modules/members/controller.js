@@ -1,7 +1,7 @@
 module.exports = controller;
 /** @ngInject */
-function controller($state, $scope, $stateParams, $http, $log, api) {
 
+function controller($state, $scope, $stateParams, $http, $log, api, TokenStorage) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
