@@ -73,12 +73,16 @@ datepicker input {
 }
 
 /* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
-.anxietyQuestion {
+.anxietyAnswer {
   width: 64px;
   height: 64px;
   background: none;
   border-radius: 32px;
   border: 2px solid #000000;
+}
+
+.anxietyAnswer:first-of-type {
+  margin-right: 10px;
 }
 
 .saveMood {
@@ -91,6 +95,14 @@ datepicker input {
   width: 75%;
 }
 /* slider */
+
+.rzslider .rz-tick.rz-selected{
+  background: #333333;
+}
+
+.rz-bubble {
+  display: none !important;
+}
 
 .rzslider .rz-pointer { /* wskaznik lekow, kulka */
   background: #333333;
@@ -150,25 +162,38 @@ ul {
   margin-right: -250px;
 }
 
+#lineUnderStats{
+  border-style: dotted;
+  height: 7px;
+  width: 250px;
+}
+
 #newsField {
   line-height: 40px;
-  width:  80%;
+  width:  85%;
   height: 50px;
   padding: 1px;
   font-size: 120%;
   //-moz-border-radius: 35px;
-  border-style: dotted;
-  border-width: 5px;
-  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  //border-radius: 20px;
   //background-color: blue;
-  border-color: silver;
+  border-color: black;
   color: silver;
   //position: top;
   bottom: 0;
   text-align: left;
+  margin: 15px 15px;
   //margin-left: auto;
   //margin-right: auto;
 }
+
+/*#people {
+  align-content: center;
+  width: 50px;
+  align-items: left;
+}*/
 
 /* Sidebar Styles */
 
@@ -191,7 +216,7 @@ ul {
   font-size: 120%;
   //-moz-border-radius: 35px;
   //border-radius: 35px;
-  background-color: blue;
+  background-color: navy;
   color: silver;
   position: fixed;
   bottom: 0;
@@ -199,7 +224,9 @@ ul {
   //margin-left: auto;
   //margin-right: auto;
 }
-
+.figure figcaption{
+  color: silver;
+}
 
 .sidebar-nav li {
   text-indent: 0px;

@@ -20,6 +20,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
       floor: 1,
       ceil: 10,
       step: 1,
+      showTicksValues: 1,
       showSelectionBar: true
     }
   };
@@ -30,6 +31,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
       floor: 1,
       ceil: 10,
       step: 1,
+      showTicksValues: 1,
       showSelectionBar: true
     }
   };
@@ -53,28 +55,28 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
     $scope.showForm.anxietyQuestion = false;
   };
 
-  // show save
+  // show save a
 
  // obiekt, do którego widok przyczepia dane do wysłania:
   $scope.formModel = {
     date: $scope.maxDate, // jesli nie wybrano daty domyslna to dzisiejsza
     mark: null,
-    fears: null
+    fear: null
   };
 
   $scope.sendMood = function () {
     $scope.toSend = {
       date: $scope.formModel.date,
       mark: parseInt($scope.moodSlider.mark, 10),
-      fears: parseInt($scope.anxietySlider.fear, 10)
+      fear: parseInt($scope.anxietySlider.fear, 10)
     };
     $scope.toSend.date = moment($scope.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
     $log.log("date: " + $scope.toSend.date);
     $log.log("mark: " + $scope.toSend.mark);
-    $log.log("fears: " + $scope.toSend.fears);
+    $log.log("fear: " + $scope.toSend.fear);
     $http({
       method: 'POST',
-      url: api.endpoint + '/stats/' + $scope.therapyId,
+      url: api.endpoint + '/mood/' + $scope.therapyId + '/add',
       data: $scope.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
