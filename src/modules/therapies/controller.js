@@ -1,9 +1,9 @@
 module.exports = controller;
 /* @ngInject */
-function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
-  // if (TokenStorage.retrieve() === null) {
-  //   $state.go('app.login');
-  // }
+function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state) {
+  if (TokenStorage.retrieve() === null) {
+    $state.go('app.login');
+  }
   // var vm = this;
   $scope.therapyShow = 0;
   $scope.therapies = [];
@@ -22,14 +22,11 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
       }
     }
   };
-
-  // $http({
-  //   method: 'GET',
-  //   url: api.endpoint + '/therapies'
-  // })
-  /* eslint-disable */
-  TherapiesService.getAll().$promise
-    .then(function successCallback(response) {
+  $scope.getTherapies = function () {
+    $http({
+      method: 'GET',
+      url: api.endpoint + '/therapies'
+    }).then(function successCallback(response) {
       $scope.therapies = response.data;
       $scope.therapyName = $scope.findTherapyName();
       $log.log($scope.therapies);
@@ -38,6 +35,9 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
       $log.log("Cannot get data from server.");
       $log.log(response);
     });
+  };
+
+  $scope.getTherapies();
 
   $http({
     method: 'GET',
@@ -63,6 +63,8 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
       url: api.endpoint + '/therapies/' + $scope.therapyId,
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
+      $scope.getTherapies();
+      $log.log($scope.therapies);
       $log.log("Therapy name changed");
       $log.log(response);
     }, function errorCallback(response) {
@@ -70,17 +72,22 @@ function controller($scope, $stateParams, $http, $log, api, TherapiesService) {
     });
   };
 
-  $scope.deleteUser = function () {
+  $scope.deleteTherapy = function () {
     $log.log("Trying to delete therapy");
     $http({
       method: 'DELETE',
       url: api.endpoint + "/therapies/" + $scope.therapyId
     }).then(function successCallback(response) {
+      $scope.getTherapies();
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
-      $log.log("Http error status code:" + response.status.toString());
+      $log.log(response);
     });
   };
-
+  // TODO waiting for endpoint
+  $scope.canEdit = function () {
+    // return ($scope.myRole === "PATIENT");
+    return true;
+  };
 }

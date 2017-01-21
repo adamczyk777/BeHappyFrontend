@@ -1,10 +1,32 @@
 <div>
-  <h2>Your mood and anxiety:</h2>
+  <h3>Select mood chart:</h3>
+  <form ng-submit="changeMoodChart()" class="form-inline">
+    <div class="form-group">
+    <select ng-model="formMood.zones" class="form-control">
+      <option value="7" selected="selected">Last week</option>
+      <option value ="31">Last month</option>
+      <option value="12">Last year</option>
+    </select>
+    </div>
+    <button class="btn btn-primary">Show</button>
+  </form>
+  <h2>Mood chart:</h2>
   <canvas id="mood" class="chart chart-line" chart-data="moodData"
           chart-labels="moodLabels" chart-series="moodSeries" chart-options="moodOptions"
           chart-dataset-override="moodDatasetOverride" chart-click="onClick">
   </canvas>
-  <h2>Your activity and energy used:</h2>
+  <h3>Select activity chart:</h3>
+  <form ng-submit="changeActivityChart()" class="form-inline">
+    <div class="form-group">
+      <select ng-model="formActivity.zones" class="form-control">
+        <option value="7" selected="selected">Last week</option>
+        <option value ="31">Last month</option>
+        <option value="12">Last year</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">Show</button>
+  </form>
+  <h2>Activity chart:</h2>
   <canvas id="activity" class="chart chart-line" chart-data="activityData"
           chart-labels="activityLabels" chart-series="activitySeries" chart-options="activityOptions"
           chart-dataset-override="activityDatasetOverride" chart-click="onClick">
