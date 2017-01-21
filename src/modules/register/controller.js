@@ -2,7 +2,7 @@ module.exports = controller;
 /** @ngInject */
 function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api) {
   var vm = this;
-  var uri = api.endpoint + "/users/register";
+  var uri = api.endpoint + "/users";
   $scope.needEmail = 1;
 
   $log.log($stateParams.userId);
@@ -19,7 +19,8 @@ function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api
   };
 
   vm.register = function () {
-    $http.post(uri, vm.registerForm) // TODO endpoint
+    $log.log(vm.registerForm);
+    $http.post(uri, vm.registerForm)// TODO endpoint
       .then(
         function successCallback() {
           $log.log("Request Sent");
