@@ -20,7 +20,7 @@ var tokenAuthInterceptor = require('./services/tokenAuthInterceptor.service');
 var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
-
+var newsController = requite('./modules/therapyNews/controller')
 /** @ngInject */
 angular
   .module('app', ['ui.router', 'chart.js', 'rzModule', 'datePicker'])
@@ -43,5 +43,6 @@ angular
   .controller('ActivityController', activityController)
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
+  .controller('newsController', newsController)
   .factory('TokenStorage', tokenStorageService)
-  .factory('TokenAuthInterceptor', tokenAuthInterceptor);
+  .factory('TokenAuthInterceptor', tokenAuthInterceptor)
