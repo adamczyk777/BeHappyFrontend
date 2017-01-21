@@ -36,7 +36,7 @@ function controller($scope, $stateParams, $http, $log, api) {
   });
   // Hardcoded till authentication will work
   // $scope.getTherapies();
-  $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
+  // $scope.therapies.push({name: "Therapy 1", id: 1}, {name: "Therapy 2", id: 2}, {name: "Therapy 3", id: 3});
   $log.log($scope.therapies);
 
   $log.log($scope.therapies);
@@ -63,7 +63,7 @@ function controller($scope, $stateParams, $http, $log, api) {
     $log.log(newName);
     $http({
       method: 'POST',
-      url: api.endpoint + '/therapies' + $scope.therapyId,
+      url: api.endpoint + '/therapies/' + $scope.therapyId,
       data: {name: newName, beginningDate: null, role: null}
     }).then(function successCallback(response) {
       $log.log("Therapy name changed");

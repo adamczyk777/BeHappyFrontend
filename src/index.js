@@ -4,6 +4,8 @@ require('./index.scss');
 require('angular-animate');
 require('chart.js');
 require('angular-chart.js');
+require('angularjs-slider');
+require('angular-datepicker');
 
 var routesConfig = require('./routes');
 var registerController = require('./modules/register/controller');
@@ -21,14 +23,14 @@ var membersController = require('./modules/members/controller');
 
 /* @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js'])
+  .module('app', ['ui.router', 'chart.js', 'rzModule', 'datePicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://137.74.113.225:8081/api'
+      endpoint: 'http://localhost:8080/api'
     };
   })
   .controller('RegisterController', registerController)
