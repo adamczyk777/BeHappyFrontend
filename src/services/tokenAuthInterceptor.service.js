@@ -1,8 +1,8 @@
 module.exports = service;
 
-service.$inject = ['$q', 'TokenStorage'];
+service.$inject = ['$q', 'TokenStorage', '$state'];
 /* @ngInject */
-function service($q, TokenStorage) {
+function service($q, TokenStorage, $state) {
   return {
     request: function (config) {
       var authToken = TokenStorage.retrieve();
@@ -14,6 +14,7 @@ function service($q, TokenStorage) {
     responseError: function (error) {
       if (error.status === 401 || error.status === 403) {
         TokenStorage.clear();
+        $state.go('login');
       }
       return $q.reject(error);
     }

@@ -23,13 +23,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controllerAs: 'vm',
       template: require('./modules/home/view.html')
     })
-    .state('app.login', {
-      url: '/',
+    .state('login', {
+      url: '/login',
       controller: 'LoginController',
       controllerAs: 'vm',
       template: require('./modules/login/view.html')
     })
-    .state('app.register', {
+    .state('register', {
       url: '/register',
       controller: 'RegisterController',
       controllerAs: 'vm',

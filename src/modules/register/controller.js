@@ -12,12 +12,12 @@ function controller(TokenStorage, $log, $http, $state, api) {
     $http.post(api.endpoint + "/users", vm.registerForm) // TODO endpoint
       .then(
         function successCallback(response) {
-          $log.log("Poszło, Uff... xD");
+          $log.log("Request Sent");
           TokenStorage.store(response.data.token);
           $state.go('app.home');
         },
         function failureCallback(response) {
-          $log.log("Mamy błąd :/");
+          $log.log("Error while sending");
           $log.log(response);
           $log.log(vm.registerForm);
         });
