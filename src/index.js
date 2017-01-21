@@ -21,7 +21,7 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 
-/* @ngInject */
+/** @ngInject */
 angular
   .module('app', ['ui.router', 'chart.js', 'rzModule', 'datePicker'])
   .config(routesConfig)
@@ -30,7 +30,7 @@ angular
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://localhost:8080/api'
+      endpoint: 'http://137.74.113.225:8081/api'
     };
   })
   .controller('RegisterController', registerController)

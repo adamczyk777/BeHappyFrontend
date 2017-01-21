@@ -1,13 +1,12 @@
 <div>
-  {{ startDate }}
-  {{ endDate }}
+  test zones: {{ formModel.zones }}
   <h3>Select chart:</h3>
   <form ng-submit="changeChart()" class="form-inline">
     <div class="form-group">
-    <select class="form-control">
-      <option value="week">Last week</option>
-      <option value ="month">Last month</option>
-      <option value="year">Last year</option>
+    <select ng-model="formModel.zones" class="form-control">
+      <option value="7" selected="selected">Last week</option>
+      <option value ="31">Last month</option>
+      <option value="12">Last year</option>
     </select>
     </div>
     <button class="btn btn-primary">Show</button>
