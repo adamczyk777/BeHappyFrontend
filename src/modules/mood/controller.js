@@ -66,9 +66,12 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
     $scope.toSend = {
       date: $scope.formModel.date,
       mark: parseInt($scope.moodSlider.mark, 10),
-      fears: $scope.formModel.fears
+      fears: parseInt($scope.anxietySlider.fear, 10)
     };
     $scope.toSend.date = moment($scope.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
+    $log.log("date: " + $scope.toSend.date);
+    $log.log("mark: " + $scope.toSend.mark);
+    $log.log("fears: " + $scope.toSend.fears);
     $http({
       method: 'POST',
       url: api.endpoint + '/stats/' + $scope.therapyId,
