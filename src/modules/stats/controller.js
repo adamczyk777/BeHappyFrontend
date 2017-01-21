@@ -1,7 +1,7 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller($scope, $log, $http, api) {
+function controller($scope, $log) {
   $scope.formModel = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),
