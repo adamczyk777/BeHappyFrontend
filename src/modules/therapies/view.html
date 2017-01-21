@@ -1,16 +1,58 @@
-Id terapii: {{therapyId}}
-<nav id="mainMenu"><!-- menu z obrazkami -->
-  <ul class="list-inline">
-    <li><a ui-sref="app.mood({therapyId: {{therapyId}}})"><img src="/home/administrator/n=40.png" /></a></li>
-    <li><a ui-sref="app.activity({therapyId: {{therapyId}}})">Daily Activity</a></li>
-    <li><a ui-sref="app.stats({therapyId: {{therapyId}}})">All stats</a></li>
-    <li><a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">Personalization</a></li>
-    <li><a ui-sref="app.members({therapyId: {{therapyId}}})">Members in therapy</a></li>
-  </ul>
-</nav>
-<div id="NEWS"  >
-  <p ng-repeat="x in [1,2,3,4,5]">
-    NEWS HERE {{x}} <!--TODO-->
-  </p>
-</div> <!-- Radek to robi, paginacja sie tu zalicza -->
+<div >
+  <nav id="mainMenu" ><!-- menu z obrazkami -->
+    <ul class="list-inline">
+      <li>
+        <a ui-sref="app.mood({therapyId: {{therapyId}}})">
+          <figure class="figure">
+        <img height="75" width="75" src="../../images/howAreYou.svg" class="figure-img img-fluid rounded" alt="Image not found">
+        <figcaption class="figure-caption">How are you</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="app.activity({therapyId: {{therapyId}}})">
+            <figure class="figure">
+              <img height="75" width="75" src="../../images/dailyActivity.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption">Daily Activity</figcaption>
+            </figure>
+          </a>
+      </li>
+      <li>
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
+            <figure class="figure">
+              <img height="75" width="75" src="../../images/allStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption">All stats</figcaption>
+            </figure>
+          </a>
+      </li>
+      <li>
+        <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
+            <figure class="figure">
+              <img height="75" width="75" src="../../images/personalization.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption">Personalization</figcaption>
+            </figure>
+          </a>
+      </li>
+      <li>
+        <a ui-sref="app.members({therapyId: {{therapyId}}})">
+            <figure class="figure">
+              <img height="75" width="75" src="../../images/about.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption"><p>About</p></figcaption>
+            </figure>
+          </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="col-sm-6">
+      sdfg
+  </div>
+  <div class="col-sm-5">
+      sdfg
+  </div>
+</div>
+
+
 <div id="RIGHT_SIDEBAR"></div> <!-- Prawy sidebar z wykresem i uczestnikami terapii -->
