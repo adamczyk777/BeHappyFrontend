@@ -1,10 +1,7 @@
 module.exports = controller;
 var moment = require('moment');
 /* @ngInject */
-function controller($scope, TokenStorage, $http, $log, api, $state) {
-  if (TokenStorage.retrieve() === null) {
-    $state.go('app.login');
-  }
+function controller($scope, $http, $log, $state, api) {
   // vm = this;
   $scope.formModel = {};
   $scope.roleModel = {};
@@ -25,6 +22,7 @@ function controller($scope, TokenStorage, $http, $log, api, $state) {
       url: api.endpoint + '/therapies',
       data: $scope.toSend
     }).then(function successCallback() {
+      $state.reload();
       $log.log("Submitted!");
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());

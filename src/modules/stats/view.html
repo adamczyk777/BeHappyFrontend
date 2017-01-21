@@ -1,14 +1,12 @@
 <div>
-  {{ startDate }}
-  {{ endDate }}
-  <h3>Select chart:</h3>
-  <form ng-submit="changeChart()" class="form-inline">
+  <h3>Select mood chart:</h3>
+  <form ng-submit="changeMoodChart()" class="form-inline">
     <div class="form-group">
-    <select class="form-control">
-      <option value="week">Last week</option>
-      <option value ="month">Last month</option>
-      <option value="year">Last year</option>
-    </select>
+      <select ng-model="formMood.zones" class="form-control" >
+        <option ng-selected="formMood.zones === 7" value="7">Last week</option>
+        <option ng-selected="formMood.zones === 31" value ="31">Last month</option>
+        <option ng-selected="formMood.zones === 12" value="12">Last year</option>
+      </select>
     </div>
     <button class="btn btn-primary">Show</button>
   </form>
@@ -17,6 +15,17 @@
           chart-labels="moodLabels" chart-series="moodSeries" chart-options="moodOptions"
           chart-dataset-override="moodDatasetOverride" chart-click="onClick">
   </canvas>
+  <h3>Select activity chart:</h3>
+  <form ng-submit="changeActivityChart()" class="form-inline">
+    <div class="form-group">
+      <select ng-model="formActivity.zones" class="form-control" >
+        <option ng-selected="formActivity.zones === 7" value="7">Last week</option>
+        <option ng-selected="formActivity.zones === 31" value ="31">Last month</option>
+        <option ng-selected="formActivity.zones === 12" value="12">Last year</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">Show</button>
+  </form>
   <h2>Activity chart:</h2>
   <canvas id="activity" class="chart chart-line" chart-data="activityData"
           chart-labels="activityLabels" chart-series="activitySeries" chart-options="activityOptions"
