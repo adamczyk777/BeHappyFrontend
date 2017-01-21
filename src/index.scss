@@ -53,6 +53,26 @@ ul {
   margin-right: -250px;
 }
 
+#newsField {
+  line-height: 40px;
+  width:  80%;
+  height: 50px;
+  padding: 1px;
+  font-size: 120%;
+  //-moz-border-radius: 35px;
+  border-style: dotted;
+  border-width: 5px;
+  border-radius: 20px;
+  //background-color: blue;
+  border-color: silver;
+  color: silver;
+  //position: top;
+  bottom: 0;
+  text-align: left;
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {
