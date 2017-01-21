@@ -8,7 +8,7 @@ Id terapii: {{therapyId}}
     <li><a ui-sref="app.members({therapyId: {{therapyId}}})">Members in therapy</a></li>
   </ul>
 </nav>
-<div id="NEWS" ng-controller="newsCtrl">
+<div id="NEWS" ng-controller="therapiesController">
     <div class="well" ng-repeat="info in news">
       <p>
         {{info.description}}
