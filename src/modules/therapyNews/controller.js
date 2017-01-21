@@ -15,6 +15,7 @@ function controller($scope, $http, $log, api) {
       $log.log("Cannot get data from server.");
     });
   };
+  getNews();
     /* $ http.get("http://localhost:8080/therapy/news")
     //.then(function (data) {
     //    $scope.data.products = data;

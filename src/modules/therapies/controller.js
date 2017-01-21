@@ -39,6 +39,21 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
 
   $scope.getTherapies();
 
+  $scope.news = {};
+  $scope.getNews = function () {
+    $http({
+      method: 'GET',
+      url: api.endpoint + '/therapy/news'
+    }).then(function successCallback(response) {
+      $scope.news = response.data;
+      $scope.therapyName = $scope.findTherapyName();
+      $log.log($scope.news);
+    }, function errorCallback() {
+      $log.log("Cannot get data from server.");
+    });
+  };
+  $scope.getNews();
+
   $http({
     method: 'GET',
     url: api.endpoint + "/therapies/" + $scope.therapyId + "/role" // TODO waiting for endpoint
