@@ -1,6 +1,6 @@
 module.exports = controller;
 /** @ngInject */
-function controller(TokenStorage, $log, $http, $state, $stateParams, $scope, api) {
+function controller($log, $http, $stateParams, $scope, api) {
   var vm = this;
   var uri = api.endpoint + "/users";
   $scope.needEmail = 1;
