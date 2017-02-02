@@ -59,7 +59,6 @@ function controller(TokenStorage, $state, $scope, $log) {
   };
 
   $scope.changeActivityChart = function () {
-    $log.log("kurwa");
     $log.log($scope.formActivity.zones);
     $scope.formActivity.zones = parseInt($scope.formActivity.zones, 10);
     if ($scope.formActivity.zones === 7) {
@@ -98,7 +97,6 @@ function controller(TokenStorage, $state, $scope, $log) {
        });
        */
   };
-
   // mood chart:
   $scope.moodSeries = ['Your Mood', 'Your Anxiety'];
   $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
@@ -140,7 +138,7 @@ function controller(TokenStorage, $state, $scope, $log) {
   $scope.activitySeries = ['Your Activity', 'Energy used'];
   $scope.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
   $scope.activityData = [
-    [6, 5, 4, 5, 5, 5, 4],
+    [6, 5, 8, 8, 5, 5, 4],
     [2, 1, 3, 1, 8, 2, 9]
   ];
   $scope.onClick = function (points, evt) {
