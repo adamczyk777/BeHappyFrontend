@@ -2,35 +2,37 @@ module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
 
-function controller(TokenStorage, $state, $scope, $log) {
+function controller(TokenStorage, $state, $log) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
 
-  $scope.formMood = { // domyslne wartosci do zapytania
+  var vm = this;
+
+  vm.formMood = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),
     zones: 7
   };
 
-  $scope.changeMoodChart = function () {
-    $log.log($scope.formMood.zones);
-    $scope.formMood.zones = parseInt($scope.formMood.zones, 10);
-    if ($scope.formMood.zones === 7) {
-      $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
-      $scope.moodData = [
+  vm.changeMoodChart = function () {
+    $log.log(vm.formMood.zones);
+    vm.formMood.zones = parseInt(vm.formMood.zones, 10);
+    if (vm.formMood.zones === 7) {
+      vm.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+      vm.moodData = [
         [6, 5, 8, 8, 5, 5, 4],
         [2, 4, 4, 1, 8, 2, 9]
       ];
-    } else if ($scope.formMood.zones === 31) { // miesiac
-      $scope.moodLabels = ["week 1", "week 2", "week 3", "week 4"];
-      $scope.moodData = [
+    } else if (vm.formMood.zones === 31) { // miesiac
+      vm.moodLabels = ["week 1", "week 2", "week 3", "week 4"];
+      vm.moodData = [
         [6, 5, 8, 8],
         [2, 4, 4, 1]
       ];
-    } else if ($scope.formMood.zones === 12) { // rok
-      $scope.moodLabels = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"];
-      $scope.moodData = [
+    } else if (vm.formMood.zones === 12) { // rok
+      vm.moodLabels = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"];
+      vm.moodData = [
         [6, 5, 8, 8, 5, 5, 4, 2, 1, 1, 2, 3],
         [2, 4, 4, 1, 8, 2, 9, 1, 1, 2, 3, 2]
       ];
@@ -52,30 +54,30 @@ function controller(TokenStorage, $state, $scope, $log) {
      });
      */
   };
-  $scope.formActivity = { // domyslne wartosci do zapytania
+  vm.formActivity = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
     endDate: moment().format("YYYY-MM-DD"),
     zones: 7
   };
 
-  $scope.changeActivityChart = function () {
-    $log.log($scope.formActivity.zones);
-    $scope.formActivity.zones = parseInt($scope.formActivity.zones, 10);
-    if ($scope.formActivity.zones === 7) {
-      $scope.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
-      $scope.activityData = [
+  vm.changeActivityChart = function () {
+    $log.log(vm.formActivity.zones);
+    vm.formActivity.zones = parseInt(vm.formActivity.zones, 10);
+    if (vm.formActivity.zones === 7) {
+      vm.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+      vm.activityData = [
         [6, 5, 8, 8, 5, 5, 4],
         [2, 4, 4, 1, 8, 2, 9]
       ];
-    } else if ($scope.formActivity.zones === 31) { // miesiac
-      $scope.activityLabels = ["week 1", "week 2", "week 3", "week 4"];
-      $scope.activityData = [
+    } else if (vm.formActivity.zones === 31) { // miesiac
+      vm.activityLabels = ["week 1", "week 2", "week 3", "week 4"];
+      vm.activityData = [
         [6, 5, 8, 8],
         [2, 4, 4, 1]
       ];
-    } else if ($scope.formActivity.zones === 12) { // rok
-      $scope.activityLabels = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"];
-      $scope.activityData = [
+    } else if (vm.formActivity.zones === 12) { // rok
+      vm.activityLabels = ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paz", "Lis", "Gru"];
+      vm.activityData = [
          [6, 5, 8, 8, 5, 5, 4, 2, 1, 1, 2, 3],
          [2, 4, 4, 1, 8, 2, 9, 1, 1, 2, 3, 2]
       ];
@@ -98,18 +100,18 @@ function controller(TokenStorage, $state, $scope, $log) {
        */
   };
   // mood chart:
-  $scope.moodSeries = ['Your Mood', 'Your Anxiety'];
-  $scope.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
-  $scope.moodData = [
+  vm.moodSeries = ['Your Mood', 'Your Anxiety'];
+  vm.moodLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+  vm.moodData = [
     [6, 5, 8, 8, 5, 5, 4],
     [2, 4, 4, 1, 8, 2, 9]
   ];
-  $scope.onClick = function (points, evt) {
+  vm.onClick = function (points, evt) {
     $log.log(points, evt);
   };
 
-  $scope.moodDatasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
-  $scope.moodOptions = {
+  vm.moodDatasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
+  vm.moodOptions = {
     scales: {
       yAxes: [
         {
@@ -135,17 +137,17 @@ function controller(TokenStorage, $state, $scope, $log) {
   };
 
   // activity chart:
-  $scope.activitySeries = ['Your Activity', 'Energy used'];
-  $scope.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
-  $scope.activityData = [
+  vm.activitySeries = ['Your Activity', 'Energy used'];
+  vm.activityLabels = ["01.01.2017", "02.01.2017", "03.01.2017", "04.01.2017", "05.01.2017", "06.01.2017", "07.01.2017"];
+  vm.activityData = [
     [6, 5, 8, 8, 5, 5, 4],
     [2, 1, 3, 1, 8, 2, 9]
   ];
-  $scope.onClick = function (points, evt) {
+  vm.onClick = function (points, evt) {
     $log.log(points, evt);
   };
-  $scope.activityDatasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
-  $scope.activityOptions = {
+  vm.activityDatasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
+  vm.activityOptions = {
     scales: {
       yAxes: [
         {
@@ -169,6 +171,4 @@ function controller(TokenStorage, $state, $scope, $log) {
       ]
     }
   };
-
-  // var vm = this;
 }
