@@ -79,7 +79,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/members/view.html')
     })
     .state('confirmation', {
-      url: ':8081/api/users/confirm/{id}',
+      url: '/confirm/{id}',
       controller: 'ConfirmationController',
       controllerAs: 'vm',
       template: require('./')
