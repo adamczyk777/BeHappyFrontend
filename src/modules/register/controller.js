@@ -25,8 +25,6 @@ function controller($log, $http, $stateParams, api) {
       .then(
         function successCallback() {
           $log.log("Request Sent");
-          // TokenStorage.store(response.data.token);
-          // $state.go('app.home');
         },
         function failureCallback(response) {
           $log.log("Error while sending");
