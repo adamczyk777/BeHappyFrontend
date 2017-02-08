@@ -82,7 +82,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/confirm/{id}',
       controller: 'ConfirmationController',
       controllerAs: 'vm',
-      template: require('./')
+      template: require('./modules/confirmation/view.html')
     })
     .state('app.personalization', {
       url: '/therapies/{therapyId}/personalization',
