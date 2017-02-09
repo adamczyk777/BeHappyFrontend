@@ -34,7 +34,7 @@
           </a>
       </li>
       <li>
-        <a ui-sref="app.members({therapyId: {{therapyId}}})">
+        <a>
             <figure class="figure">
               <img height="75" width="75" src="../../images/about.svg" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption"><p>About</p></figcaption>
@@ -80,17 +80,17 @@
       <div id="lineUnderStats"></div>
       <p></p>
       <p style="font-family: 'DejaVu Sans';">Therapy member list
-        <img src="../../images/therapyMemberList.svg" width="40" height="40"></p>
+        <a ui-sref="app.members({therapyId: {{therapyId}}})"><img src="../../images/therapyMemberList.svg" width="40" height="40"></a></p>
 
 
 
       <div class="row">
         <div class="col-md-2" ng-repeat="remainder in [0,1]">
           <ul>
-            <li id="people" ng-repeat="item in [1,2,3,4,5,6]" ng-if="$index % 2 == remainder">
+            <li id="people" ng-repeat="patient in patients" ng-if="$index % 2 == remainder">
               <figure  class="figure">
               <img height="35" width="35" src="../../images/unknownPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">Lorem <br>(ipsum)</figcaption>
+              <figcaption class="figure-caption">{{patient.email}} <br>{{patient.role}}</figcaption>
               </figure>
             </li>
           </ul>

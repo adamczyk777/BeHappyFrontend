@@ -1,22 +1,23 @@
 module.exports = controller;
 /** @ngInject */
-function controller($log, $http, $stateParams, $scope, api) {
+function controller($log, $http, $stateParams, api) {
   var vm = this;
   var uri = api.endpoint + "/users";
-  $scope.needEmail = 1;
+  vm.needEmail = 1;
+  vm.registerForm = {
+    email: '',
+    password: ''
+  };
 
   $log.log($stateParams.userId);
   $log.log(angular.isDefined($stateParams.userId));
   if (angular.isDefined($stateParams.userId)) {
     uri = api.endpoint + '/users/invite/' + $stateParams.userId;
-    $scope.needEmail = 1;
+    vm.registerForm.email = 'eloelo@onet.pl';
+    vm.needEmail = 0;
   }
 
   $log.log(uri);
-  vm.registerForm = {
-    email: '',
-    password: ''
-  };
 
   vm.register = function () {
     $log.log(vm.registerForm);
@@ -24,8 +25,6 @@ function controller($log, $http, $stateParams, $scope, api) {
       .then(
         function successCallback() {
           $log.log("Request Sent");
-          // TokenStorage.store(response.data.token);
-          // $state.go('app.home');
         },
         function failureCallback(response) {
           $log.log("Error while sending");

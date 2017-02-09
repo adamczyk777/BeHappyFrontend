@@ -1,20 +1,21 @@
 module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
-function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage) {
+function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
-  $scope.therapyId = $stateParams.therapyId;
+  var vm = this;
+  vm.therapyId = $stateParams.therapyId;
 
-  $scope.showForm = {
+  vm.showForm = {
     buttonSave: false,
     anxietyQuestion: true,
     anxietySlider: false
   };
 
   // slider:
-  $scope.moodSlider = {
+  vm.moodSlider = {
     mark: 5,
     options: {
       floor: 1,
@@ -25,7 +26,7 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
     }
   };
 
-  $scope.anxietySlider = {
+  vm.anxietySlider = {
     fear: 5,
     options: {
       floor: 1,
@@ -39,45 +40,43 @@ function controller($scope, $stateParams, $log, $http, api, $state, TokenStorage
   // Daty dla kalendarza:
   // moment().subtract(7, 'd').format('YYYY-MM-DD'); // data 7 dni wczesniej
   // moment().format("YYYY-MM-DD"); // dzisiejsza data
-  $scope.now = new Date();
-  $scope.minDate = new Date($scope.now.getFullYear(), $scope.now.getMonth(), $scope.now.getDate() - 31).toString(); // TODO: do zmiany, na razie 31 dni wstecz, pozniej ma byc od poczatku terapii
-  $scope.maxDate = new Date($scope.now.getFullYear(), $scope.now.getMonth(), $scope.now.getDate()).toString();
+  vm.now = new Date();
+  vm.minDate = new Date(vm.now.getFullYear(), vm.now.getMonth(), vm.now.getDate() - 31).toString(); // TODO: do zmiany, na razie 31 dni wstecz, pozniej ma byc od poczatku terapii
+  vm.maxDate = new Date(vm.now.getFullYear(), vm.now.getMonth(), vm.now.getDate()).toString();
 
   // leki:
-  $scope.showAnxiety = function () { // funkcja wyswietla dodatkowy formularz
-    $scope.showForm.anxietySlider = true;
-    $scope.showForm.anxietyQuestion = false;
-    $scope.showForm.buttonSave = true;
+  vm.showAnxiety = function () { // funkcja wyswietla dodatkowy formularz
+    vm.showForm.anxietySlider = true;
+    vm.showForm.anxietyQuestion = false;
+    vm.showForm.buttonSave = true;
   };
 
-  $scope.noAnxiety = function () { // hiding question if there were no fears and display send button
-    $scope.showForm.buttonSave = true;
-    $scope.showForm.anxietyQuestion = false;
+  vm.noAnxiety = function () { // hiding question if there were no fears and display send button
+    vm.showForm.buttonSave = true;
+    vm.showForm.anxietyQuestion = false;
   };
-
-  // show save a
 
  // obiekt, do którego widok przyczepia dane do wysłania:
-  $scope.formModel = {
-    date: $scope.maxDate, // jesli nie wybrano daty domyslna to dzisiejsza
+  vm.formModel = {
+    date: vm.maxDate, // jesli nie wybrano daty domyslna to dzisiejsza
     mark: null,
     fear: null
   };
 
-  $scope.sendMood = function () {
-    $scope.toSend = {
-      date: $scope.formModel.date,
-      mark: parseInt($scope.moodSlider.mark, 10),
-      fear: parseInt($scope.anxietySlider.fear, 10)
+  vm.sendMood = function () {
+    vm.toSend = {
+      date: vm.formModel.date,
+      mark: parseInt(vm.moodSlider.mark, 10),
+      fear: parseInt(vm.anxietySlider.fear, 10)
     };
-    $scope.toSend.date = moment($scope.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
-    $log.log("date: " + $scope.toSend.date);
-    $log.log("mark: " + $scope.toSend.mark);
-    $log.log("fear: " + $scope.toSend.fear);
+    vm.toSend.date = moment(vm.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
+    $log.log("date: " + vm.toSend.date);
+    $log.log("mark: " + vm.toSend.mark);
+    $log.log("fear: " + vm.toSend.fear);
     $http({
       method: 'POST',
-      url: api.endpoint + '/mood/' + $scope.therapyId + '/add',
-      data: $scope.toSend
+      url: api.endpoint + '/mood/' + vm.therapyId + '/add',
+      data: vm.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
     }, function errorCallback(response) {

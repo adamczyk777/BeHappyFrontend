@@ -72,6 +72,22 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     $log.log(response);
   });
 
+  $http({
+    method: 'GET',
+    url: api.endpoint + "/therapies/" + $scope.therapyId + "/members"
+  }).then(function successCallback(response) {
+    if (response.data === null) {
+      $log.log("Data is null");
+    } else {
+      $log.log(response.data);
+      $scope.test = 1;
+    }
+    $scope.patients = response.data;
+  }, function errorCallback(response) {
+    $log.log("Cannot display members of your therapy");
+    $log.log(response);
+  });
+
   $scope.changeName = function (newName) {
     $log.log("Trying to change therapy name");
     $log.log(newName);

@@ -1,22 +1,22 @@
 <div class="mainBox">
     <h1 class="formName">Narzędzie do monitoringu samopoczucia terapii behawioralno-poznawczej</h1>
-    <form name="wellBeing" ng-submit="sendMood()" class="form-inline">
-      <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ minDate }}" date-max-limit="{{ maxDate }}">
+    <form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
+      <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
         <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
       </datepicker>
       <div class="moodForm">
         <h3 class="questionFrame">Jak się czujesz?</h3>
-        <rzslider rz-slider-model="moodSlider.mark" rz-slider-options="moodSlider.options"></rzslider>
+        <rzslider rz-slider-model="vm.moodSlider.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
       </div>
-      <div class="anxietyForm" ng-show="showForm.anxietyQuestion">
+      <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
       <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
-        <button ng-click="showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
-        <button ng-click="noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
+        <button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
+        <button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
       </div>
-      <div class="anxietySubForm" ng-show="showForm.anxietySlider">
+      <div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">
         <h3 class="questionFrame">Jaki to był lęk?</h3>
-        <rzslider rz-slider-model="anxietySlider.fear" rz-slider-options="anxietySlider.options"></rzslider>
+        <rzslider rz-slider-model="vm.anxietySlider.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
       </div>
-      <button ng-show="showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
+      <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
     </form>
 </div>
