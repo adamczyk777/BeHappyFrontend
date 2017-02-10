@@ -2,9 +2,9 @@
   <div class="row">
     <div class="center-block" id="loginForm">
       <div id="loginFormLogo">
-        <center><img src="../../images/mini-logo.svg" height="48px" width="50px"></center>
+        <center><img src="../../images/mini_logo.png"></center> <!--FIXME remove center tag-->
       </div>
-      <h1><b>BeHappy</b></h1>
+      <h1><b>BeHappy</b></h1> <!--TODO add this element CSS (as soon as it is included in layout)-->
       <form ng-submit="vm.login()">
         <div class="form-group">
           <!--<label for="email" class="control-label">Email</label>-->
@@ -25,7 +25,7 @@
         </div>
         <!--<p>Nie Posiadasz konta? <a ui-sref="register">Zarejestruj się!</a></p>-->
         <div class="form-group" style="height: 40px">
-          <center><button class="btn btn-primary" id="loginButton">Login</button></center>
+          <center><button class="btn btn-primary" id="loginButton">Login</button></center> <!--FIXME remove center tag-->
         </div>
       </form>
       <p id="lostPassword">lost password</p>

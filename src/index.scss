@@ -200,11 +200,11 @@ ul {
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 180px;
-  margin-left: -20px;
+  width: 260px;
+  margin-left: 0px;
+  text-indent: 0px;
   padding: 0;
   list-style: none;
-
 }
 
 #sidebarFooter
@@ -213,14 +213,16 @@ ul {
   width:  180px;
   height: 50px;
   padding: 1px;
-  font-size: 120%;
   //-moz-border-radius: 35px;
   //border-radius: 35px;
-  background-color: navy;
-  color: silver;
   position: fixed;
   bottom: 0;
   text-align: center;
+  font-family: "Museo Sans Cyrl Semi-light";
+  font-size: 23px;
+  color: #dfe8e0;
+  margin-left: 20px;
+  margin-bottom: 22px;
   //margin-left: auto;
   //margin-right: auto;
 }
@@ -229,20 +231,27 @@ ul {
 }
 
 .sidebar-nav li {
-  text-indent: 20px;
-  line-height: 40px;
+  margin-left: 0px;
+  line-height: 48px;
 }
 
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999;
+  font-family: "Museo Sans Cyrl Semi-light";
+  font-size: 23px;
+  color: #dfe8e0;
+}
+.sidebar-nav li a img{
+  margin-top: 40px;
+  margin-bottom: 65px;
 }
 
 .sidebar-nav li a:hover {
   text-decoration: none;
-  color: #fff;
+  color: #f8faf8;
   background: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
 }
 
 .sidebar-nav li a:active,
@@ -344,7 +353,7 @@ ul {
   color: #000000;
   font-size: 12px;
 }
-
+/* end of login page CSS*/
 #mainMenu {
   color: red;
   display: inline;
@@ -371,11 +380,11 @@ ul {
   }
 
   #sidebar-wrapper {
-    width: 180px;
-    background-color: black;
+    width: 260px;
+    background-color: #628c67;
   }
 
-  #sidebarItem {
+  .sidebarItem {
     color: silver;
     font-style: oblique;
     font-family: cursive;
