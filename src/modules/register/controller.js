@@ -22,18 +22,6 @@ function controller($log, $http, $stateParams, api) {
     if (vm.needEmail) {
       uri = api.endpoint + "/users";
       vm.sendForm = {email: vm.registerForm.email, password: vm.registerForm.password};
-
-      $http({
-        method: 'GET',
-        url: uri
-      }).then(function successCallback(response) {
-        $log.log("GET POSZEDŁ");
-        $log.log(response.data);
-      }, function errorCallback(response) {
-        $log.log("chuj kurwa nie poszedl");
-        $log.log(response);
-      });
-
       $http.post(uri, vm.sendForm)// TODO endpoint
         .then(
           function successCallback() {
@@ -45,11 +33,11 @@ function controller($log, $http, $stateParams, api) {
             $log.log(vm.sendForm);
           });
     } else {
-      uri = api.endpoint + '/users/invites/' + $stateParams.userId;
+      uri = api.endpoint + '/users/invite/' + $stateParams.userId;
       vm.sendForm = {password: vm.registerForm.password};
       $log.log("sendForm:");
       $log.log(vm.sendForm);
-      $http.put(uri, vm.sendForm)// TODO endpoint
+      $http.post(uri, vm.sendForm)// TODO endpoint
         .then(
           function successCallback() {
             $log.log("Request Sent");
