@@ -34,7 +34,7 @@
           </a>
       </li>
       <li>
-        <a ui-sref="app.members({therapyId: {{therapyId}}})">
+        <a>
             <figure class="figure">
               <img height="75" width="75" src="../../images/about.svg" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption"><p>About</p></figcaption>
@@ -46,24 +46,60 @@
 </div>
 
 <div class="container">
-  <div class="col-sm-6">
-  </div>
-  <div class="col-sm-5">
-  </div>
-</div>
-
-<div class="col-sm-6" id="NEWS">
-  <div class="well" ng-repeat="info in news">
-    <p>
-      {{info.description}}
-    </p>
-  </div>
-  <!--<div class="pull-right btn-group">
+  <div class="col-sm-6" id="NEWS">
+    <div class="well" ng-repeat="info in news">
+      <p>
+        {{info.description}}
+      </p>
+    </div>
+      <!--<div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/okNews.svg" height="10" width="10">      Lorem {{x}} ipsum
+      </div>
+      <div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/wrongNews.svg" height="10" width="10">      Lorem {{x}} ipsum
+      </div>-->
+    <!--<div class="pull-right btn-group">
     <a ng-repeat="page in data.therapyinfo | filter:therapyFilterFn |
                 pageCunt:pageSize" ng-click="selectPage($index + 1)"
        class="btn btn-default" ng-class="getPageClass($index+1)">
       {{$index+1}}
     </a>
   </div>-->
+    <ul class="pagination">
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+    </ul>
+  </div>
+  <div id="rightSidebar">
+    <div class="col-sm-5">
+      <img src="../../images/mockStats.svg" width="150" height="150">
+      MOCK STATS
+      <div id="lineUnderStats"></div>
+      <p></p>
+      <p style="font-family: 'DejaVu Sans';">Therapy member list
+        <a ui-sref="app.members({therapyId: {{therapyId}}})"><img src="../../images/therapyMemberList.svg" width="40" height="40"></a></p>
+
+
+
+      <div class="row">
+        <div class="col-md-2" ng-repeat="remainder in [0,1]">
+          <ul>
+            <li id="people" ng-repeat="patient in patients" ng-if="$index % 2 == remainder">
+              <figure  class="figure">
+              <img height="35" width="35" src="../../images/unknownPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption class="figure-caption">{{patient.email}} <br>{{patient.role}}</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
 </div>
-<div id="RIGHT_SIDEBAR"></div> <!-- Prawy sidebar z wykresem i uczestnikami terapii -->
+

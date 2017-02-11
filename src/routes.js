@@ -5,18 +5,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-      .state('app', {
-        url: '',
-        abstract: true,
-        template: require('./modules/layout.html'),
-        controller: 'TherapiesController',
-        controllerAs: 'vm'
-      })
-  /* .state('app', {
+    .state('app', {
       url: '',
       abstract: true,
-      template: require('./modules/layogit sut.html')
-    }) */
+      template: require('./modules/layout.html'),
+      controller: 'TherapiesController',
+      controllerAs: 'vm'
+    })
     .state('app.home', {
       url: '/',
       controller: 'HomeController',
@@ -28,6 +23,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'LoginController',
       controllerAs: 'vm',
       template: require('./modules/login/view.html')
+    })
+    .state('invitation', {
+      url: '/register/invite/{userId}',
+      controller: 'RegisterController',
+      controllerAs: 'vm',
+      template: require('./modules/register/view.html')
     })
     .state('register', {
       url: '/register',
@@ -76,6 +77,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'MembersController',
       controllerAs: 'vm',
       template: require('./modules/members/view.html')
+    })
+    .state('confirmation', {
+      url: '/confirm/{id}',
+      controller: 'ConfirmationController',
+      controllerAs: 'vm',
+      template: require('./modules/confirmation/view.html')
     })
     .state('app.personalization', {
       url: '/therapies/{therapyId}/personalization',

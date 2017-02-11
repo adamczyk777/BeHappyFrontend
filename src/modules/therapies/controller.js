@@ -61,10 +61,28 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
     if (response.data === null) {
       $log.log("Data is null");
     } else {
-      $log.log(response.data[0].email);
-      $scope.myRole = response;
+      $log.log(response.data);
+      $log.log("GOT MY ROLE!!!");
+      $scope.whoIAm = response.data;
+      $log.log($scope.whoIAm.role);
     }
     $scope.user = response.data;
+  }, function errorCallback(response) {
+    $log.log("Cannot display members of your therapy");
+    $log.log(response);
+  });
+
+  $http({
+    method: 'GET',
+    url: api.endpoint + "/therapies/" + $scope.therapyId + "/members"
+  }).then(function successCallback(response) {
+    if (response.data === null) {
+      $log.log("Data is null");
+    } else {
+      $log.log(response.data);
+      $scope.test = 1;
+    }
+    $scope.patients = response.data;
   }, function errorCallback(response) {
     $log.log("Cannot display members of your therapy");
     $log.log(response);
@@ -93,7 +111,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
       method: 'DELETE',
       url: api.endpoint + "/therapies/" + $scope.therapyId
     }).then(function successCallback(response) {
-      $scope.getTherapies();
+      $state.reload();
       $log.log("Therapy deleted");
       $log.log(response);
     }, function errorCallback(response) {
@@ -102,7 +120,9 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   };
   // TODO waiting for endpoint
   $scope.canEdit = function () {
-    // return ($scope.myRole === "PATIENT");
-    return true;
+    $log.log("AM I PATIENT?");
+    $log.log($scope.whoIAm.role === "PATIENT");
+    $log.log($scope.whoIAm.role);
+    return ($scope.whoIAm.role === "PATIENT");
   };
 }

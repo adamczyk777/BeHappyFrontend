@@ -13,7 +13,7 @@ function controller($log, TokenStorage, $http, api, $state) {
     config.headers = {};
     config.headers.Authorization = vm.loginForm.email + ":" + vm.loginForm.password;
     $http.get(
-      api.endpoint + "/users/login",
+       api.endpoint + "/users/login",
       {headers: {Authorization: btoa(vm.loginForm.email + ":" + vm.loginForm.password)}}
     ).then(
       function onSuccess(response) {

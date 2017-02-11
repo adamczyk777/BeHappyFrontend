@@ -1,6 +1,7 @@
 module.exports = controller;
 /** @ngInject */
-function controller($scope, $stateParams) {
-  $scope.therapyId = $stateParams.therapyId;
+function controller($stateParams) {
+  var vm = this;
+  vm.therapyId = $stateParams.therapyId;
 }
 
