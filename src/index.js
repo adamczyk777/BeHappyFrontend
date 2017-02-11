@@ -21,6 +21,7 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 var confirmationController = require('./modules/confirmation/controller');
+var invitationController = require('./modules/invitation/controller');
 
 /** @ngInject */
 angular
@@ -45,5 +46,6 @@ angular
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
   .controller('ConfirmationController', confirmationController)
+  .controller('InvitationController', invitationController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor);

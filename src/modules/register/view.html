@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-6">
       <h1>Register</h1>
-      <form ng-submit="vm.register()">
+      <form ng-submit="vm.register()" novalidate>
         <div class="form-group" ng-show="vm.needEmail">
           <label for="email" class="control-label">Email</label>
           <input type="email"

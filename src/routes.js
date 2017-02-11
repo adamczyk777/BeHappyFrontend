@@ -25,6 +25,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/login/view.html')
     })
     .state('invitation', {
+      url: '/invitation/{id}',
+      controller: 'InvitationController',
+      controllerAs: 'vm',
+      template: require('./modules/invitation/view.html')
+    })
+    .state('invite', {
       url: '/register/invite/{userId}',
       controller: 'RegisterController',
       controllerAs: 'vm',
