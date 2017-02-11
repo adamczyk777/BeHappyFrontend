@@ -18,15 +18,17 @@ function controller($stateParams, $http, $log, $state, api) {
     });
   };
 
-  /* vm.refuseInvitation = function () {
-    $http.delete(uri, null)
-      .then(
-      function successCallback() {
-        $log.log("Request Sent");
-      },
-      function failureCallback(response) {
-        $log.log("Error while sending");
-        $log.log(response);
-      });
-  }; */
+  vm.refuseInvitation = function () {
+    $log.log("DELETE IN PROCESS");
+    $http({
+      method: 'DELETE',
+      url: uri
+    }).then(function successCallback(response) {
+      $state.reload();
+      $log.log("USER NOT ADDED");
+      $log.log(response);
+    }, function errorCallback(response) {
+      $log.log(response);
+    });
+  };
 }
