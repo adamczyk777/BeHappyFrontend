@@ -1,1 +1,8 @@
-therapyId: {{ vm.therapyId }}
+<div class="mainBox">
+  <h1 class="formName">Dziennik aktywności Terapii Behawioralno-Poznawczej</h1>
+  <form>
+    <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
+      <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
+    </datepicker>
+  </form>
+</div>
