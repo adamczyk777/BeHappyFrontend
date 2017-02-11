@@ -5,7 +5,7 @@ function controller($log, $state, $http, $stateParams, $timeout) {
   vm.hideCounter = true;
   vm.message = "";
   vm.id = $stateParams.id;
-  $http.get('http://localhost:8080/api/users/confirm/' + vm.id)
+  $http.get('http://behappy.io:8081/api/users/confirm/' + vm.id)
     .then(
       function successCallback() {
         vm.hideCounter = false;
