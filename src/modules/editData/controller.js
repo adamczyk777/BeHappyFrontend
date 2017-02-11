@@ -8,7 +8,7 @@ function controller(TokenStorage, $state, $log, $http, api) {
   }
 
   vm.dataForm = {
-    email: '',
+    newEmail: '',
     currentPassword: '',
     newPassword: '',
     newPasswordConfirmed: ''
@@ -26,6 +26,7 @@ function controller(TokenStorage, $state, $log, $http, api) {
       TokenStorage.store(response.data.token);
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
+      $log.log("Something went wrong");
     });
   };
 /*
