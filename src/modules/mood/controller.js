@@ -27,7 +27,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   };
 
   vm.anxietySlider = {
-    fear: 5,
+    fear: 0,
     options: {
       floor: 1,
       ceil: 10,
