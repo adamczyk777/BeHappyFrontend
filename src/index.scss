@@ -355,7 +355,7 @@ ul {
 }
 /* end of login page CSS*/
 
-/* home page CSS*/
+/* therapy page CSS*/
 #mainMenu {
   display: inline;
   float: left;
@@ -421,6 +421,21 @@ ul {
   margin-right: 0px;
   float: right;
 }
+
+.notifications{
+  width: 610px;
+}
+
+.well{
+  height: 107px;
+  border-left: 2px solid #b5b1b2;/* other colors: #628c67 and #ff5e5b for other notifications*/
+  margin-bottom: 10px;
+}
+
+#notificationImage{
+  margin-bottom: 30px;
+}
+
 @media(min-width: 768px) {
   #wrapper {
     // padding-left: 260px;
