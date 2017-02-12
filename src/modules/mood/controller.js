@@ -82,6 +82,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
       data: vm.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
+      $state.go('app.therapies', {therapyId: vm.therapyId});
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
