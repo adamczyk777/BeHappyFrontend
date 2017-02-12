@@ -354,25 +354,76 @@ ul {
   font-size: 12px;
 }
 /* end of login page CSS*/
+
+/* home page CSS*/
 #mainMenu {
-  color: red;
   display: inline;
-  width: 100%;
+  float: left;
+  max-width: 1280px;
+  position: relative;
+  /* left: 62px;*/
 }
 #mainMenu ul{
   //display: inline-block;
-  width: 100%;
   align-content: center;
 }
-#mainMenu li{
+.mainMenuLi{
   //display: table-cell;
-  width: 19%;
   align-content: center;
-  //height: 100px;
+  margin-top: 40px;
+  margin-right: 65px;
+}
+
+#mainMenu li figure figcaption{
+  margin-top: 24px;
+  margin-bottom: 62px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+}
+
+#logoutButton{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-top: 16px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
+}
+#helloUser{
+  float: right;
+  margin-top: 95px;
+  text-align: center;
+}
+#helloUser_Hello{
+  display: inline;
+  font-family: DejaVu Serif Italic;
+  font-size: 19px;
+  color: #000000;
+}
+
+#helloUser_Name{
+  display: inline;
+  font-family: DejaVu Serif Italic;
+  font-size: 19px;
+  color: #628c67;
+}
+
+#avatar{
+  margin-top: 45px;
+  margin-bottom: 50px;
+  margin-left: 35px;
+  margin-right: 0px;
+  float: right;
 }
 @media(min-width: 768px) {
   #wrapper {
-    padding-left: 200px;
+    // padding-left: 260px;
   }
 
   #wrapper.toggled {
@@ -395,8 +446,11 @@ ul {
   }
 
   #page-content-wrapper {
-    padding: 20px;
+    /* padding: 20px;*/
     position: relative;
+    margin-left: 260px;
+    left: 62px;
+    max-width: 1280px;
   }
 
   #wrapper.toggled #page-content-wrapper {

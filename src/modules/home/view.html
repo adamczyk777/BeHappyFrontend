@@ -2,13 +2,13 @@
 <button class="btn btn-danger" ng-click="vm.logout()">Logout</button>
 <button class="btn" ng-click="vm.checkInterceptor()">check secure</button>-->
 
-<div >
+<div>
   <nav id="mainMenu" ><!-- menu z obrazkami -->
     <ul class="list-inline">
       <li>
         <a ui-sref="app.addTherapy">
           <figure class="figure">
-            <img height="75" width="75" src="../../images/addTherapy.svg" class="figure-img img-fluid rounded" alt="Image not found">
+            <img src="../../images/addTherapy.svg" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption class="figure-caption">Add Therapy</figcaption>
           </figure>
         </a>
@@ -16,7 +16,7 @@
       <li>
         <a href="#">
           <figure class="figure">
-            <img height="75" width="75" src="../../images/goForTutorial.svg" class="figure-img img-fluid rounded" alt="Image not found">
+            <img src="../../images/goForTutorial.svg" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption class="figure-caption">Go for Tutorial</figcaption>
           </figure>
         </a>
@@ -24,7 +24,7 @@
       <li>
         <a ui-sref="app.home">  <!--TODO no such route-->
           <figure class="figure">
-            <img height="75" width="75" src="../../images/checkTheStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
+            <img src="../../images/checkTheStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption class="figure-caption"> Check the Stats</figcaption>
           </figure>
         </a>
@@ -32,7 +32,7 @@
       <li>
         <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
           <figure class="figure">
-            <img height="75" width="75" src="" class="figure-img img-fluid rounded" alt="">
+            <img src="" class="figure-img img-fluid rounded" alt="">
             <figcaption class="figure-caption"></figcaption>
           </figure>
         </a>
@@ -40,7 +40,7 @@
       <li>
         <a ui-sref="app.editData">
           <figure class="figure">
-            <img height="75" width="75" src="../../images/dataEditPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
+            <img src="../../images/dataEditPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption class="figure-caption"><p>Lorem (edit)</p></figcaption>
           </figure>
         </a>
@@ -83,4 +83,4 @@
     </div>
   </div>
 </div>
-<button ng-click="vm.logout">Logout</button>
+<!--<button ng-click="vm.logout">Logout</button>-->

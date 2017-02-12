@@ -1,47 +1,56 @@
-<div >
+<div> <!--FIXME responsive?-->
   <nav id="mainMenu" ><!-- menu z obrazkami -->
     <ul class="list-inline">
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.mood({therapyId: {{therapyId}}})">
           <figure class="figure">
-        <img height="75" width="75" src="../../images/howAreYou.svg" class="figure-img img-fluid rounded" alt="Image not found">
-        <figcaption class="figure-caption">How are you</figcaption>
+            <img src="../../images/home/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption class="figure-caption">How are you</figcaption>
           </figure>
         </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.activity({therapyId: {{therapyId}}})">
             <figure class="figure">
-              <img height="75" width="75" src="../../images/dailyActivity.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <img src="../../images/home/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption">Daily Activity</figcaption>
             </figure>
           </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.stats({therapyId: {{therapyId}}})">
             <figure class="figure">
-              <img height="75" width="75" src="../../images/allStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <img src="../../images/home/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption">All stats</figcaption>
             </figure>
           </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
             <figure class="figure">
-              <img height="75" width="75" src="../../images/personalization.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <img src="../../images/home/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption">Personalization</figcaption>
             </figure>
           </a>
       </li>
-      <li>
+      <li style="align-content: center; margin-top: 40px;">
         <a>
             <figure class="figure">
-              <img height="75" width="75" src="../../images/about.svg" class="figure-img img-fluid rounded" alt="Image not found">
+              <img src="../../images/home/about.png" class="figure-img img-fluid rounded" alt="Image not found">
               <figcaption class="figure-caption"><p>About</p></figcaption>
             </figure>
           </a>
       </li>
+      <li id="avatar"><!--id="avatar"-->
+        <img  src="../../images/home/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+      </li>
+      <li id="helloUser">
+        <p><div id="helloUser_Hello">Hello</div><div id="helloUser_Name"> Michael</div></p>
+        <p><button id="logoutButton" ng-click="vm.logout">logout</button></p>
+      </li>
+
     </ul>
+    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">
   </nav>
 </div>
 
