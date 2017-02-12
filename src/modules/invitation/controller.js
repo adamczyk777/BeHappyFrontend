@@ -16,6 +16,7 @@ function controller($stateParams, $http, $log, $state, api) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
+    $state.go('app.home');
   };
 
   vm.refuseInvitation = function () {
@@ -30,5 +31,6 @@ function controller($stateParams, $http, $log, $state, api) {
     }, function errorCallback(response) {
       $log.log(response);
     });
+    $state.go('app.home');
   };
 }
