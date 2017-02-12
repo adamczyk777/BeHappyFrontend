@@ -1,12 +1,26 @@
 <div class="mainBox">
   <h1 class="formName">Dziennik aktywności Terapii Behawioralno-Poznawczej</h1>
-  <!--<form>-->
-    <!--<datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">-->
-      <!--<input ng-model="vm.activityDataObject.date" type="text" placeholder="Kliknij, aby wybrać datę">-->
-    <!--</datepicker>-->
-    <!--<div class="form-group" ng-repeat="activity in vm.activityDataObject.activities">-->
-      <!--<input type="text" ng-model="vm.activityDataObject.activity">-->
-
-    <!--</div>-->
-  <!--</form>-->
+  <form>
+    <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
+      <input ng-model="vm.activityDataObject.date" type="text" placeholder="Kliknij, aby wybrać datę">
+    </datepicker>
+    <div ng-repeat="activity in vm.activityDataObject.activities">
+      <div class="form-group">
+        <label for="activity">Activity:</label>
+        <input class="form-control" id="activity" type="text" ng-model="">
+      </div>
+      <div class="form-group">
+        <label for="startTime">Time when started:</label>
+        <input type="time" class="form-control" id="startTime" ng-model="vm.activityDataObject.activities">
+      </div>
+      <div class="form-group">
+        <label for="endTime">Time when started:</label>
+        <input type="time" class="form-control" id="endTime" ng-model="vm.activityDataObject.activities">
+      </div>
+      <div class="form-group">
+        <label for="mark">Time when started:</label>
+        <input type="time" class="form-control" id="mark" ng-model="vm.activityDataObject.activities">
+      </div>
+    </div>
+  </form>
 </div>
