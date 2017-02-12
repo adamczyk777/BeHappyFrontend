@@ -73,7 +73,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
     };
    //  vm.toSend.date = moment(vm.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
     $log.log("date: " + vm.toSend.date);
-    $log.log("mark: " + vm.toSend.mark);
+    $log.log("mark: " + vm.torankSend.mark);
     $log.log("fear: " + vm.toSend.fear);
     $log.log(vm.toSend);
     $http({
