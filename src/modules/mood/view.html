@@ -6,7 +6,7 @@
       </datepicker>
       <div class="moodForm">
         <h3 class="questionFrame">Jak się czujesz?</h3>
-        <rzslider rz-slider-model="vm.moodSlider.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
+        <rzslider rz-slider-model="vm.formModel.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
       </div>
       <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
       <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
@@ -15,7 +15,7 @@
       </div>
       <div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">
         <h3 class="questionFrame">Jaki to był lęk?</h3>
-        <rzslider rz-slider-model="vm.anxietySlider.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
+        <rzslider rz-slider-model="vm.formModel.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
       </div>
       <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
     </form>
