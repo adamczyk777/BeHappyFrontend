@@ -64,6 +64,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   };
 
   vm.sendMood = function () {
+    // quickfix
     vm.formModel.date = vm.date;
     vm.toSend = {
       date: moment(vm.formModel.date).format("YYYY-MM-DD"), // vm.formModel.date,
