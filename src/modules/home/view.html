@@ -52,11 +52,11 @@
 <div class="container">
   <div class="col-sm-6">
 
-    <div ng-repeat="x in [1,2,3]" id="newsField">
-      <img src="../../images/okNews.svg" height="10" width="10">      Lorem {{x}} ipsum
-    </div>
-    <div ng-repeat="x in [1,2,3]" id="newsField">
-      <img src="../../images/wrongNews.svg" height="10" width="10">      Lorem {{x}} ipsum
+    <div class="well" ng-repeat="info in news">
+      <p>
+        {{info.time}}
+        {{info.description}}
+      </p>
     </div>
     <ul class="pagination">
       <li><a href="#">1</a></li>
