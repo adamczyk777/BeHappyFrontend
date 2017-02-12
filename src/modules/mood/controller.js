@@ -64,6 +64,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   };
 
   vm.sendMood = function () {
+    vm.formModel.date = vm.date;
     vm.toSend = {
       date: vm.formModel.date,
       mark: parseInt(vm.moodSlider.mark, 10),
@@ -73,6 +74,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
     $log.log("date: " + vm.toSend.date);
     $log.log("mark: " + vm.toSend.mark);
     $log.log("fear: " + vm.toSend.fear);
+    $log.log(vm.toSend);
     $http({
       method: 'POST',
       url: api.endpoint + '/mood/' + vm.therapyId + '/add',
