@@ -56,40 +56,30 @@
 
 <div>
   <div class="col-sm-6" style="margin-right: 100px">
-    <p style="margin-top: 60px; margin-bottom: 40px" >Recent activity</p>
+    <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
     <div class="notifications">
-      <div class="well" ng-repeat="x in [1,2,3]"><!--ng-repeat="info in news"-->
-        <div id="notificationImage">
-          <img src="../../images/therapy/notification1.png" alt="image not found">
+      <div class="well" ng-repeat="info in news">
+        <ul class="list-inline">
+          <li id="notificationImage">
+            <img src="../../images/therapy/notification1.png" alt="image not found">
+          </li>
+          <li id="notificationText">
+            {{info.description}}
+              <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
+          </li>
+        </ul>
+      </div>K
+      <div class="text-center">
+        <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
+          <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
         </div>
-        <p>
-          <!--{{info.description}}-->
-        </p>
       </div>
-    </div>
-
-      <!--<div ng-repeat="x in [1,2,3]" id="newsField">
-        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
-      </div>
-      <div ng-repeat="x in [1,2,3]" id="newsField">
-        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
-      </div>-->
-    <!--<div class="pull-right btn-group">
-    <a ng-repeat="page in data.therapyinfo | filter:therapyFilterFn |
-                pageCunt:pageSize" ng-click="selectPage($index + 1)"
-       class="btn btn-default" ng-class="getPageClass($index+1)">
-      {{$index+1}}
-    </a>
-  </div>-->
-    <ul class="pagination">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-    </ul>
   </div>
-  <div id="rightSidebar">
+</div>
+
+</div>
+
+<div id="rightSidebar">
     <div class="col-sm-5">
       <img src="../../images/mockStats.svg" width="150" height="150">
       MOCK STATS
@@ -119,3 +109,23 @@
   </div>
 </div>
 
+<!--<div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+      </div>
+      <div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+      </div>-->
+<!--<div class="pull-right btn-group">
+<a ng-repeat="page in data.therapyinfo | filter:therapyFilterFn |
+            pageCunt:pageSize" ng-click="selectPage($index + 1)"
+   class="btn btn-default" ng-class="getPageClass($index+1)">
+  {{$index+1}}
+</a>
+</div>-->
+<!--<ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>-->

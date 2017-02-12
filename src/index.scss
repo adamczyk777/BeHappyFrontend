@@ -427,13 +427,45 @@ ul {
 }
 
 .well{
-  height: 107px;
+  height: 94px;
   border-left: 2px solid #b5b1b2;/* other colors: #628c67 and #ff5e5b for other notifications*/
   margin-bottom: 10px;
+  padding-top: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  align-content: center;
 }
 
 #notificationImage{
   margin-bottom: 30px;
+  position: absolute;
+  display: block;
+}
+
+#notificationText{
+  position: absolute;
+  margin-left: 116px;
+  display: block;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  padding-right: 60px;
+  padding-top: 28px;
+  font-family: Sans;
+  font-size: 16px;
+  color: #628c67;
+}
+
+#notificationPages{
+  background-color: transparent;
+  color: black;
+  border-color: silver
+}
+
+.btn-group{
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 @media(min-width: 768px) {
