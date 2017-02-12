@@ -29,14 +29,15 @@
           </figure>
         </a>
       </li>
-      <li>
+      <!-- TODO fix img to display properly and build in logout button-->
+      <!--<li>
         <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
           <figure class="figure">
             <img height="75" width="75" src="" class="figure-img img-fluid rounded" alt="">
             <figcaption class="figure-caption"></figcaption>
           </figure>
         </a>
-      </li>
+      </li> -->
       <li>
         <a ui-sref="app.editData">
           <figure class="figure">
@@ -44,6 +45,9 @@
             <figcaption class="figure-caption"><p>Lorem (edit)</p></figcaption>
           </figure>
         </a>
+      </li>
+      <li>
+        <button ng-click="vm.logout()">Logout</button>
       </li>
     </ul>
   </nav>
@@ -54,7 +58,7 @@
 
     <div class="well" ng-repeat="info in news">
       <p>
-        {{info.time}}
+        {{info.time | date:'MMM dd, yyyy HH:mm'}}
         {{info.description}}
       </p>
     </div>
@@ -83,4 +87,3 @@
     </div>
   </div>
 </div>
-<button ng-click="vm.logout()">Logout</button>
