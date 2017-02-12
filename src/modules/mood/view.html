@@ -2,7 +2,7 @@
     <h1 class="formName">Narzędzie do monitoringu samopoczucia terapii behawioralno-poznawczej</h1>
     <form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
       <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
-        <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
+        <input ng-model="vm.date" type="text" placeholder="Kliknij, aby wybrać datę">
       </datepicker>
       <div class="moodForm">
         <h3 class="questionFrame">Jak się czujesz?</h3>
