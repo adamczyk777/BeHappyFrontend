@@ -7,7 +7,7 @@ function controller($scope, $http, $log, $state, api) {
   $scope.roleModel = {};
 
   $scope.onSubmit = function () {
-    $scope.localFormat = 'YYYY-MM-DD';
+    $scope.localFormat = 'YYYY-MM-DD[T]HH:mm:ss';
     $scope.date = moment($scope.formModel.beginningDate).format($scope.localFormat);
     $scope.toSend = {
       name: $scope.formModel.name,
