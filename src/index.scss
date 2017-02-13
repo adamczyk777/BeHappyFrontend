@@ -424,6 +424,7 @@ ul {
 
 .notifications{
   width: 610px;
+  height: 100%;
 }
 
 .well{
@@ -443,7 +444,7 @@ ul {
   display: block;
 }
 
-#notificationText{
+.notificationText{
   position: absolute;
   margin-left: 116px;
   display: block;
@@ -457,6 +458,19 @@ ul {
   color: #628c67;
 }
 
+#therapyMemberList{
+  position: relative;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  font-family: Sans;
+  font-size: 16px;
+  color: #628c67;
+}
+
+#therapyMemberListAvatar{
+  position: relative;
+}
 #notificationPages{
   background-color: transparent;
   color: black;
@@ -467,6 +481,35 @@ ul {
   text-align: center;
   margin-bottom: 15px;
 }
+
+#rightSidebar{
+  display: block;
+  vertical-align: top;
+}
+
+#statsHeader{
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: "DejaVu Serif";
+  font-size: 16px;
+  color: #000000;
+
+}
+
+#injectedStats{
+  width: 570px;
+  height: 430px;
+}
+
+#therapyMemberListHeader{
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: "DejaVu Serif";
+  font-size: 16px;
+  color: #000000;
+}
+/* end of therapy page CSS*/
+
 
 @media(min-width: 768px) {
   #wrapper {

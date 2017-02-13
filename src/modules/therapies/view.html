@@ -55,7 +55,7 @@
 </div>
 
 <div>
-  <div class="col-sm-6" style="margin-right: 100px">
+  <div class="col-sm-6" style="margin-right: 100px;">
     <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
     <div class="notifications">
       <div class="well" ng-repeat="info in news">
@@ -63,12 +63,12 @@
           <li id="notificationImage">
             <img src="../../images/therapy/notification1.png" alt="image not found">
           </li>
-          <li id="notificationText">
+          <li class="notificationText">
             {{info.description}}
               <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
           </li>
         </ul>
-      </div>K
+      </div>
       <div class="text-center">
         <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
           <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
@@ -79,25 +79,31 @@
 
 </div>
 
-<div id="rightSidebar">
-    <div class="col-sm-5">
-      <img src="../../images/mockStats.svg" width="150" height="150">
-      MOCK STATS
-      <div id="lineUnderStats"></div>
-      <p></p>
-      <p style="font-family: 'DejaVu Sans';">Therapy member list
-        <a ui-sref="app.members({therapyId: {{therapyId}}})"><img src="../../images/therapyMemberList.svg" width="40" height="40"></a></p>
+<div class="col-md-5" id="rightSidebar">
+    <div>
+      <p id="statsHeader">Statistics</p>
+      <div id="injectedStats">
+
+      </div>
+      <p id="therapyMemberListHeader">
+        <a ui-sref="app.members({therapyId: {{therapyId}}})">Therapy member list</a>
+      </p>
 
 
 
-      <div class="row">
-        <div class="col-md-2" ng-repeat="remainder in [0,1]">
-          <ul>
-            <li id="people" ng-repeat="patient in patients" ng-if="$index % 2 == remainder">
-              <figure  class="figure">
-              <img height="35" width="35" src="../../images/unknownPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">{{patient.email}} <br>{{patient.role}}</figcaption>
-              </figure>
+      <div> <!--class="row"-->
+        <div > <!--ng-repeat="remainder in [0,1]"-->
+          <ul class="list-inline">
+            <li style="width: 50%; float: left;" ng-repeat="x in [1,2,3,4,5,6,7]"> <!--ng-if="$index % 2 == remainder">--><!--ng-repeat="patient in patients"-->
+              <ul class="list-inline">
+                <li id="therapyMemberListAvatar">
+                  <img class="figure-img img-fluid rounded" src="../../images/therapy/tlist1.png" alt="Image not found">
+                </li>
+                <li id="therapyMemberList">
+                  {{patient.email}} {{patient.role}} Dolor Loremowicz Ipsum (warden) <!--FIXME - text wrapping bug-->
+                </li>
+              </ul>
+
             </li>
           </ul>
         </div>
@@ -106,14 +112,13 @@
 
 
     </div>
-  </div>
 </div>
 
 <!--<div ng-repeat="x in [1,2,3]" id="newsField">
-        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+        <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
       </div>
       <div ng-repeat="x in [1,2,3]" id="newsField">
-        <img src="../../images/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+        <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
       </div>-->
 <!--<div class="pull-right btn-group">
 <a ng-repeat="page in data.therapyinfo | filter:therapyFilterFn |
