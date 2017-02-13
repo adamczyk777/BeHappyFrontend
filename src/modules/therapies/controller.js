@@ -8,6 +8,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.therapyShow = 0;
   $scope.therapies = [];
   $scope.therapyId = $stateParams.therapyId;
+  $scope.page = $stateParams.page;
 
   $scope.findTherapyName = function () {
     for (var i = 0; i < $scope.therapies.length; i++) {
@@ -39,55 +40,34 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
 
   $scope.getTherapies();
 
-  $scope.chosenPage = 1;
-  $scope.count = 1;
-  $scope.news = [];
-  $scope.number = 1;
+  $scope.count = 0;
+  $scope.news = {};
   $scope.firstTime = true;
+  $scope.pages = [];
 
   $scope.getNews = function (k) {
     $http({
       method: 'GET',
-      url: api.endpoint + '/news/' + $scope.therapyId + '/' + k
+      url: api.endpoint + '/news/' + k
     }).then(function successCallback(response) {
-      $scope.news[k - 1] = {};
-      $scope.news[k - 1] = response.data;
-      $scope.news[k - 1].number = k;
-      $log.log($scope.news[0].description);
-      $log.log("$scope.news[k-1]");
-      $log.log($scope.news[k - 1]);
-      $log.log("NEWS COUNT");
-      $log.log($scope.news[k - 1]);
+      $log.log("GOT NEWS");
+      $scope.news = response.data;
       $scope.count = Math.floor(response.data[0].count / 5) + 1;
       if (!(response.data[0].count % 5)) {
         --$scope.count;
       }
-      $log.log("RESPONSE DATA COUNT");
-      $log.log(response.data[0].count);
-      $log.log("COUNT");
-      $log.log($scope.count);
       if ($scope.firstTime) {
-        $scope.setPage($scope.news[0]);
-        for (var j = 2; j <= $scope.count; j++) {
-          $scope.getNews(j);
+        for (var j = 1; j <= $scope.count; j++) {
+          $scope.pages.push(j);
         }
       }
-      $log.log("NEWS");
-      $log.log($scope.news.count);
       $scope.firstTime = false;
     }, function errorCallback() {
       $log.log("Cannot get data from server.");
     });
   };
-  $scope.getNews(1);
 
-  $scope.setPage = function (i) {
-    $scope.chosenPage = i;
-  };
-
-  $scope.isChosen = function (i) {
-    return ($scope.chosenPage === i);
-  };
+  $scope.getNews($scope.page);
 
   $http({
     method: 'GET',

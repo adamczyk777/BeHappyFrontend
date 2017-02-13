@@ -55,13 +55,13 @@
 
 <div class="container">
   <div class="col-sm-6">
-    <div ng-repeat="page in news">
-      <div class="well" ng-repeat="info in page" ng-show="isChosen(page)">
-          {{info.time | date:'MMM dd, yyyy HH:mm'}}
-          {{info.description}}
-        </p>
+
+      <div class="well" ng-repeat="info in news">
+          <p>
+            {{info.time | date:'MMM dd, yyyy HH:mm'}}
+            {{info.description}}
+          </p>
       </div>
-    </div>
    <!-- <div class="well" ng-repeat="info in news[0]" ng-show="isChosen(2)">
       <p>
         {{info.time | date:'MMM dd, yyyy HH:mm'}}
@@ -70,7 +70,7 @@
     </div> -->
     <ul class="pagination">
       <!-- TODO: ADD Number OF PAGE-->
-      <li ng-repeat="page in news"><a href="#" ng-click="setPage(page)">{{page.number}}</a></li>
+      <li ng-repeat="page in pages"><a ui-sref="app.home({page: {{page}}})">{{page}}</a></li>
      <!-- <li><a href="#" ng-click="setPage(news[1])">2</a></li>
       <li><a href="#">3</a></li>
       <li><a href="#">4</a></li>
