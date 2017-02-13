@@ -5,27 +5,29 @@
       <input ng-model="vm.activityDataObject.date" type="text" placeholder="Kliknij, aby wybrać datę">
     </datepicker>
     <div ng-repeat="position in vm.activityList">
-      <div class="form-group">
-        <label for="activity">Activity:</label>
-        <input class="form-control" id="activity" type="text" ng-model="activity">
-      </div>
-      <div class="form-group">
-        <label for="startTime">Time when started:</label>
-        <input type="time" class="form-control" id="startTime" ng-model="startTime">
-      </div>
-      <div class="form-group">
-        <label for="endTime">Time when started:</label>
-        <input type="time" class="form-control" id="endTime" ng-model="endTime">
-      </div>
-      <div class="form-group">
-        <select class="form-control" id="exampleSelect1" ng-model-options="mark">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      </div>
+      <form>
+        <div class="form-group">
+          <label for="activity">Activity:</label>
+          <input class="form-control" id="activity" type="text" ng-model="position.activity">
+        </div>
+        <div class="form-group">
+          <label for="startTime">Time when started:</label>
+          <input type="time" class="form-control" id="startTime" ng-model="position.startTime">
+        </div>
+        <div class="form-group">
+          <label for="endTime">Time when finished:</label>
+          <input type="time" class="form-control" id="endTime" ng-model="position.endTime">
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="exampleSelect1" ng-model-options="position.mark">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </form>
     </div>
     <button class="btn btn-default" ng-click="vm.addActivity()">Add Activity...</button></br></br>
     <button class="btn btn-success" ng-click="vm.sendActivityData()">Submit</button>
