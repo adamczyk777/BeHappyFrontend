@@ -12,7 +12,9 @@
                  class="form-control"
                  ng-model="vm.loginForm.email"
                  id="email"
-                 required="required">
+                 required="required"
+                 placeholder="email"
+          >
         </div>
         <div class="form-group">
           <!--<label for="password" class="control-label">Password</label>-->
@@ -21,11 +23,13 @@
                  ng-model="vm.loginForm.password"
                  id="password"
                  required="required"
-                 ng-minlength="6">
+                 ng-minlength="6"
+                 placeholder="password"
+          >
         </div>
         <!--<p>Nie Posiadasz konta? <a ui-sref="register">Zarejestruj się!</a></p>-->
         <div class="form-group" style="height: 40px">
-          <center><button class="btn btn-primary" id="loginButton">Login</button></center> <!--FIXME remove center tag-->
+          <center><button class="btn btn-primary" id="loginButton" type="submit">Login</button></center> <!--FIXME remove center tag-->
         </div>
       </form>
       <p id="lostPassword">lost password</p>
