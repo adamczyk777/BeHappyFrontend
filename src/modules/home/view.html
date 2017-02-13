@@ -1,87 +1,82 @@
-<!--<h1>Some view</h1> Left if was ever to be necessary
-<button class="btn btn-danger" ng-click="vm.logout()">Logout</button>
-<button class="btn" ng-click="vm.checkInterceptor()">check secure</button>-->
+<div class="nav nav-tabs"> <!--FIXME responsive?-->
+  <div class="mainMenu" ><!-- menu z obrazkami -->
+    <ul class="list-inline">
+      <li class="mainMenuLi">
+        <a ui-sref="app.addTherapy">
+          <figure >
+            <img src="../../images/home/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Add therapy</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="mainMenuLi">
+        <a href="http://www.tutorialspoint.com/spring/">
+          <figure >
+            <img src="../../images/home/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Go for tutorial</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="mainMenuLi">
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
+          <figure >
+            <img src="../../images/home/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Check the stats</figcaption>
+          </figure>
+        </a>
+    </ul>
+
+    <figure class="avatar">
+      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
+    <div class="helloUser">
+      <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
+      <p>
+         <span>
+           <a ui-sref="app.personalization">
+              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+           </a>
+         </span>
+         <span>
+           <button class="logoutButton" ng-click="vm.logout">logout</button>
+         </span>
+      </p>
+    </div>
+
+    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+  </div>
+</div>
 
 <div>
-  <nav class="mainMenu" ><!-- menu z obrazkami -->
-    <ul class="list-inline">
-      <li>
-        <a ui-sref="app.addTherapy">
-          <figure class="figure">
-            <img src="../../images/addTherapy.svg" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption class="figure-caption">Add Therapy</figcaption>
-          </figure>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <figure class="figure">
-            <img src="../../images/goForTutorial.svg" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption class="figure-caption">Go for Tutorial</figcaption>
-          </figure>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="app.home">  <!--TODO no such route-->
-          <figure class="figure">
-            <img src="../../images/checkTheStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption class="figure-caption"> Check the Stats</figcaption>
-          </figure>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
-          <figure class="figure">
-            <img src="" class="figure-img img-fluid rounded" alt="">
-            <figcaption class="figure-caption"></figcaption>
-          </figure>
-        </a>
-      </li>
-      <li>
-        <a ui-sref="app.editData">
-          <figure class="figure">
-            <img src="../../images/dataEditPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption class="figure-caption"><p>Lorem (edit)</p></figcaption>
-          </figure>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="col-sm-6" style="margin-right: 100px;">
+    <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
+    <div class="notifications">
+      <div class="well" ng-repeat="info in news">
+        <ul class="list-inline">
+          <li id="notificationImage">
+            <img src="../../images/therapy/notification1.png" alt="image not found">
+          </li>
+          <li class="notificationText">
+            {{info.description}}
+            <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
+          </li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
+          <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="container">
-  <div class="col-sm-6">
-
-    <div ng-repeat="x in [1,2,3]" id="newsField">
-      <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
-    </div>
-    <div ng-repeat="x in [1,2,3]" id="newsField">
-      <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
-    </div>
-    <ul class="pagination">
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-    </ul>
-  </div>
-  <div id="rightSidebar">
-    <div class="col-sm-5">
-      <img src="../../images/login/mini_logo.png" width="150" height="150">  <!--temporary cause browserSync doesn't reload
-                                                                                  when image not found-->
-      <p>MOCK STATS</p>
-
-      <select>
-        <option value="">--wybierz--</option>
-        <option value="Lorem">Lorem</option>
-        <option value="ipsum">ipsum</option>
-        <option value="dolor">dolor</option>
-      </select>
-
-
-
+<div class="col-md-5" id="rightSidebar">
+  <div>
+    <p id="statsHeader">Statistics</p>
+    <div id="injectedStats">
+      <!--HERE INSERT STATS-->
     </div>
   </div>
 </div>
-<button ng-click="vm.logout">Logout</button>
