@@ -48,7 +48,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.getNews = function (k) {
     $http({
       method: 'GET',
-      url: api.endpoint + '/news/' + k
+      url: api.endpoint + '/news/' + $scope.therapyId + '/' + k
     }).then(function successCallback(response) {
       $log.log("GOT NEWS");
       $scope.news = response.data;
