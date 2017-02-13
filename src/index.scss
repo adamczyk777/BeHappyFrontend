@@ -227,7 +227,12 @@ ul {
   //margin-right: auto;
 }
 .figure figcaption{
-  color: silver;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 62px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
 }
 
 .sidebar-nav li {
@@ -355,26 +360,30 @@ ul {
 }
 /* end of login page CSS*/
 
-/* therapy page CSS*/
-#mainMenu {
-  display: inline;
-  float: left;
+/* menu gorne  CSS*/
+
+.mainMenu {
+
+  margin-bottom: 0px;
+
+}
+
+.mainMenu ul{
+  display: inline-block;
+  align-content: center;
+ // float: left; //to wyjebuje calkowicie
   max-width: 1280px;
   position: relative;
-  /* left: 62px;*/
-}
-#mainMenu ul{
-  //display: inline-block;
-  align-content: center;
+ // margin-left: 62px;
 }
 .mainMenuLi{
   //display: table-cell;
-  align-content: center;
+ // align-content: center;
   margin-top: 40px;
   margin-right: 65px;
 }
 
-#mainMenu li figure figcaption{
+.mainMenu figcaption{
   margin-top: 24px;
   margin-bottom: 62px;
   font-family: "DejaVu Serif Italic";
@@ -383,7 +392,13 @@ ul {
   text-align: center;
 }
 
-#logoutButton{
+.mainMenu li {
+  margin-top: 40px;
+  margin-right: 65px;
+}
+
+
+.logoutButton{
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
@@ -394,32 +409,37 @@ ul {
   font-family: "DejaVu Serif Italic";
   font-size: 16px;
   color: #000000;
-}
-#helloUser{
-  float: right;
-  margin-top: 95px;
   text-align: center;
 }
-#helloUser_Hello{
+.helloUser{
+
+  margin-top: 35px;
+  float: right;
+  //display: inline;
+
+}
+.helloUser_Hello{
   display: inline;
   font-family: DejaVu Serif Italic;
   font-size: 19px;
   color: #000000;
+  text-align: center;
 }
 
-#helloUser_Name{
+.helloUser_Name{
   display: inline;
   font-family: DejaVu Serif Italic;
   font-size: 19px;
   color: #628c67;
+  text-align: center;
 }
 
-#avatar{
-  margin-top: 45px;
-  margin-bottom: 50px;
+.avatar{
+  margin-top: 25px;
   margin-left: 35px;
   margin-right: 0px;
   float: right;
+
 }
 
 .notifications{
@@ -512,3 +532,6 @@ ul {
     -ms-user-select: none;
   }
 }
+
+
+

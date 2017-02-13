@@ -5,6 +5,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
+
   var vm = this;
   vm.therapyId = $stateParams.therapyId;
 
@@ -12,6 +13,11 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
     buttonSave: false,
     anxietyQuestion: true,
     anxietySlider: false
+  };
+
+  vm.logout = function () {
+    TokenStorage.clear();
+    $state.go('login');
   };
 
   // slider:

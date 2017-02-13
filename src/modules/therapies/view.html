@@ -1,57 +1,58 @@
 <div class="nav nav-tabs"> <!--FIXME responsive?-->
-  <nav id="mainMenu" ><!-- menu z obrazkami -->
+  <div class="mainMenu" ><!-- menu z obrazkami -->
     <ul class="list-inline">
       <li class="mainMenuLi">
         <a ui-sref="app.mood({therapyId: {{therapyId}}})">
-          <figure class="figure">
+          <figure >
             <img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption class="figure-caption">How are you</figcaption>
+            <figcaption >How are you</figcaption>
           </figure>
         </a>
       </li>
       <li class="mainMenuLi">
         <a ui-sref="app.activity({therapyId: {{therapyId}}})">
-            <figure class="figure">
+            <figure >
               <img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">Daily Activity</figcaption>
+              <figcaption >Daily Activity</figcaption>
             </figure>
           </a>
       </li>
       <li class="mainMenuLi">
         <a ui-sref="app.stats({therapyId: {{therapyId}}})">
-            <figure class="figure">
+            <figure >
               <img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">All stats</figcaption>
+              <figcaption >All stats</figcaption>
             </figure>
           </a>
       </li>
       <li class="mainMenuLi">
         <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
-            <figure class="figure">
+            <figure>
               <img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">Personalization</figcaption>
+              <figcaption >Personalization</figcaption>
             </figure>
-          </a>
+        </a>
       </li>
       <li style="align-content: center; margin-top: 40px;">
         <a>
-            <figure class="figure">
+            <figure >
               <img src="../../images/therapy/about.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption"><p>About</p></figcaption>
+              <figcaption><p>About</p></figcaption>
             </figure>
           </a>
       </li>
-      <li id="avatar"><!--id="avatar"-->
-        <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-      </li>
-      <li id="helloUser">
-        <p><div id="helloUser_Hello">Hello</div><div id="helloUser_Name"> Michael</div></p>
-        <p><button id="logoutButton" ng-click="vm.logout">logout</button></p>
-      </li>
-
     </ul>
-<!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
-  </nav>
+
+    <figure class="avatar">
+      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
+    <div class="helloUser">
+      <p><div class="helloUser_Hello">Hello</div><div class="helloUser_Name"> Michael</div></p>
+      <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
+    </div>
+
+    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+  </div>
 </div>
 
 <div>
@@ -68,7 +69,7 @@
               <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
           </li>
         </ul>
-      </div>K
+      </div>
       <div class="text-center">
         <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
           <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
