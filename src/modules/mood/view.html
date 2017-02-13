@@ -33,14 +33,14 @@
       </figure>
 
       <div class="helloUser">
-        <p class="helloUser_Hello">Czołem <span class="helloUser_Name">łysy chuju!</span></p>
+        <p class="helloUser_Hello">Hi <span class="helloUser_Name">Name</span></p> <!--TODO hardcoded-->
         <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
       </div>
 
     </div>
 </div>
 
-<h1 class="formName">Monitor czegośtam LCD chyba</h1>
+<h1 class="formName">Monitoring samopoczucia</h1>
 <form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
   <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
     <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
