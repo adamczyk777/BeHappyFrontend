@@ -40,6 +40,9 @@ function controller($scope, TokenStorage, $state, $log, $http, api) {
       $log.log("NEWS COUNT");
       $log.log($scope.news[k - 1]);
       $scope.count = Math.floor(response.data[0].count / 5) + 1;
+      if (!(response.data[0].count % 5)) {
+        --$scope.count;
+      }
       $log.log("RESPONSE DATA COUNT");
       $log.log(response.data[0].count);
       $log.log("COUNT");
