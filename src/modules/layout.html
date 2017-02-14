@@ -3,21 +3,22 @@
   <div id="sidebar-wrapper">
     <nav class="sidebar-nav">
       <ul>
-        <li><a id="sidebarItem" ui-sref="app.home"><img src="../images/myAccount.svg" height="22" width="22">   My account</a></li>
+        <li><a ui-sref="app.home"><img src="../images/leftSidebar/logo.png"></a></li>
+        <li><a class="sidebarItem" ui-sref="app.addTherapy">My account</a></li>
         <li ng-repeat="therapy in therapies">
-          <a id="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}} })">
-            <img src="../images/tick.svg" height="22" width="22">
+          <a class="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}} })">
             {{therapy.name}}
           </a>
         </li>
-        <li><a id="sidebarItem" ui-sref="app.addTherapy"><img src="../images/plus.svg" height="22" width="22">   Add new one</a></li>
+        <li><a class="sidebarItem" ui-sref="app.addTherapy">+ Add new one</a></li>
       </ul>
+      <div id="sidebarFooter">
+        <img src="../images/leftSidebar/goMobile.png">
+        <!--<p>Go Mobile</p>-->
+        Go Mobile
+      </div>
     </nav>
-    <div id="sidebarFooter">
-      <img src="../images/goMobile.svg" align="left" height="45", width="45">
-      <!--<p>Go Mobile</p>-->
-      Go Mobile
-    </div>
+
   </div>
   <!-- Page Content -->
   <div id="page-content-wrapper">
