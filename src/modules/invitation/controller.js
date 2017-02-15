@@ -16,7 +16,7 @@ function controller($stateParams, $http, $log, $state, api) {
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });
-    $state.go('app.home');
+    $state.go('app.home({{page: {{1}}})');
   };
 
   vm.refuseInvitation = function () {
