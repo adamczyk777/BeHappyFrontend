@@ -8,6 +8,7 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.therapyShow = 0;
   $scope.therapies = [];
   $scope.therapyId = $stateParams.therapyId;
+  $scope.page = $stateParams.page;
 
   $scope.findTherapyName = function () {
     for (var i = 0; i < $scope.therapies.length; i++) {
@@ -39,20 +40,34 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
 
   $scope.getTherapies();
 
+  $scope.count = 0;
   $scope.news = {};
-  $scope.getNews = function () {
+  $scope.firstTime = true;
+  $scope.pages = [];
+
+  $scope.getNews = function (k) {
     $http({
       method: 'GET',
-      url: api.endpoint + '/news/' + $scope.therapyId
+      url: api.endpoint + '/news/' + $scope.therapyId + '/' + k
     }).then(function successCallback(response) {
+      $log.log("GOT NEWS");
       $scope.news = response.data;
-      $scope.therapyName = $scope.findTherapyName();
-      $log.log($scope.news);
+      $scope.count = Math.floor(response.data[0].count / 5) + 1;
+      if (!(response.data[0].count % 5)) {
+        --$scope.count;
+      }
+      if ($scope.firstTime) {
+        for (var j = 1; j <= $scope.count; j++) {
+          $scope.pages.push(j);
+        }
+      }
+      $scope.firstTime = false;
     }, function errorCallback() {
       $log.log("Cannot get data from server.");
     });
   };
-  $scope.getNews();
+
+  $scope.getNews($scope.page);
 
   $http({
     method: 'GET',

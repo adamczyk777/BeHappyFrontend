@@ -3,9 +3,9 @@
   <div id="sidebar-wrapper">
     <nav class="sidebar-nav">
       <ul>
-        <li><a id="sidebarItem" ui-sref="app.home"><img src="../images/myAccount.svg" height="22" width="22">   My account</a></li>
+        <li><a id="sidebarItem" ui-sref="app.home({page: {{1}}})"><img src="../images/myAccount.svg" height="22" width="22">   My account</a></li>
         <li ng-repeat="therapy in therapies">
-          <a id="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}} })">
+          <a id="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}}, page: {{1}} })">
             <img src="../images/tick.svg" height="22" width="22">
             {{therapy.name}}
           </a>
