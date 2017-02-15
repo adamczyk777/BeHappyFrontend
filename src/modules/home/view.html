@@ -39,7 +39,7 @@
            </a>
          </span>
          <span>
-           <button class="logoutButton" ng-click="vm.logout">logout</button>
+           <button class="logoutButton" ng-click="vm.logout()">logout</button>
          </span>
       </p>
     </div>
@@ -65,9 +65,9 @@
         </ul>
       </div>
       <div class="text-center">
-        <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
-          <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
-        </div>
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.home({page: {{page}}})">{{page}}</a></li>
+        </ul>
       </div>
     </div>
   </div>

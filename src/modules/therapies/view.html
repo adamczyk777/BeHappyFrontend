@@ -65,15 +65,16 @@
             <img src="../../images/therapy/notification1.png" alt="image not found">
           </li>
           <li class="notificationText">
+            {{info.time | date:'MMM dd, yyyy HH:mm'}}
             {{info.description}}
               <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
           </li>
         </ul>
       </div>
       <div class="text-center">
-        <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
-          <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
-        </div>
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.therapies({therapyId: {{therapyId}},page: {{page}}})">{{page}}</a></li>
+        </ul>
       </div>
   </div>
 </div>
@@ -95,13 +96,13 @@
       <div> <!--class="row"-->
         <div > <!--ng-repeat="remainder in [0,1]"-->
           <ul class="list-inline">
-            <li style="width: 50%; float: left;" ng-repeat="x in [1,2,3,4,5,6,7]"> <!--ng-if="$index % 2 == remainder">--><!--ng-repeat="patient in patients"-->
+            <li style="width: 50%; float: left;"> <!--ng-if="$index % 2 == remainder">--><!--ng-repeat="patient in patients"-->
               <ul class="list-inline">
                 <li id="therapyMemberListAvatar">
                   <img class="figure-img img-fluid rounded" src="../../images/therapy/tlist1.png" alt="Image not found">
                 </li>
-                <li id="therapyMemberList">
-                  {{patient.email}} {{patient.role}} Dolor Loremowicz Ipsum (warden) <!--FIXME - text wrapping bug-->
+                <li id="therapyMemberList" ng-repeat="patient in patients">
+                  {{patient.email}} {{patient.role}} <!--FIXME - text wrapping bug-->
                 </li>
               </ul>
 

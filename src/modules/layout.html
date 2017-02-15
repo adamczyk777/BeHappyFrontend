@@ -3,10 +3,10 @@
   <div id="sidebar-wrapper">
     <nav class="sidebar-nav">
       <ul>
-        <li><a ui-sref="app.home"><img src="../images/leftSidebar/logo.png"></a></li>
+        <li><a ui-sref="app.home({page: {{1}}})"><img src="../images/leftSidebar/logo.png"></a></li>
         <li><a class="sidebarItem" ui-sref="app.addTherapy">My account</a></li>
         <li ng-repeat="therapy in therapies">
-          <a class="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}} })">
+          <a class="sidebarItem" ui-sref="app.therapies({therapyId: {{therapy.id}}, page: {{1}} })">
             {{therapy.name}}
           </a>
         </li>

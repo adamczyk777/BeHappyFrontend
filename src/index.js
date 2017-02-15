@@ -32,7 +32,7 @@ angular
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://localhost:8082/api'
+      endpoint: 'http://localhost:8080/api'
     };
   })
   .controller('RegisterController', registerController)
