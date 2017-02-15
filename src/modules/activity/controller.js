@@ -2,6 +2,7 @@ module.exports = controller;
 /** @ngInject */
 function controller($stateParams, $http, api) {
   var vm = this;
+  vm.test = "test1234";
   vm.therapyId = $stateParams.therapyId;
   vm.activityList = [
     {
