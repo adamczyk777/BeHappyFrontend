@@ -1,92 +1,111 @@
-<div >
-  <nav id="mainMenu" ><!-- menu z obrazkami -->
+<div class="nav nav-tabs"> <!--FIXME responsive?-->
+  <div class="mainMenu" ><!-- menu z obrazkami -->
     <ul class="list-inline">
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.mood({therapyId: {{therapyId}}})">
-          <figure class="figure">
-        <img height="75" width="75" src="../../images/howAreYou.svg" class="figure-img img-fluid rounded" alt="Image not found">
-        <figcaption class="figure-caption">How are you</figcaption>
+          <figure >
+            <img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >How are you</figcaption>
           </figure>
         </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.activity({therapyId: {{therapyId}}})">
-            <figure class="figure">
-              <img height="75" width="75" src="../../images/dailyActivity.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">Daily Activity</figcaption>
+            <figure >
+              <img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption >Daily Activity</figcaption>
             </figure>
           </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.stats({therapyId: {{therapyId}}})">
-            <figure class="figure">
-              <img height="75" width="75" src="../../images/allStats.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">All stats</figcaption>
+            <figure>
+              <img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption >All stats</figcaption>
             </figure>
           </a>
       </li>
-      <li>
+      <li class="mainMenuLi">
         <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
-            <figure class="figure">
-              <img height="75" width="75" src="../../images/personalization.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">Personalization</figcaption>
+            <figure>
+              <img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption >Personalization</figcaption>
             </figure>
-          </a>
+        </a>
       </li>
-      <li>
+      <li style="align-content: center; margin-top: 40px;">
         <a>
-            <figure class="figure">
-              <img height="75" width="75" src="../../images/about.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption"><p>About</p></figcaption>
+            <figure >
+              <img src="../../images/therapy/about.png" class="figure-img img-fluid rounded" alt="Image not found">
+              <figcaption><p>About</p></figcaption>
             </figure>
           </a>
       </li>
     </ul>
-  </nav>
+
+    <figure class="avatar">
+      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
+    <div class="helloUser">
+      <p><div class="helloUser_Hello">Hello</div><div class="helloUser_Name"> Michael</div></p>
+      <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
+    </div>
+
+    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+  </div>
 </div>
 
-<div class="container">
-  <div class="col-sm-6" id="NEWS">
-    <div class="well" ng-repeat="info in news">
-      <p>
-        {{info.time | date:'MMM dd, yyyy HH:mm'}}
-        {{info.description}}
-      </p>
-    </div>
-    <!-- <div class="well" ng-repeat="info in news[0]" ng-show="isChosen(2)">
-       <p>
-         {{info.time | date:'MMM dd, yyyy HH:mm'}}
-         {{info.description}}
-       </p>
-     </div> -->
-    <ul class="pagination">
-      <!-- TODO: ADD Number OF PAGE-->
-      <li ng-repeat="page in pages"><a ui-sref="app.therapies({therapyId: {{therapyId}},page: {{page}}})">{{page}}</a></li>
-      <!-- <li><a href="#" ng-click="setPage(news[1])">2</a></li>
-       <li><a href="#">3</a></li>
-       <li><a href="#">4</a></li>
-       <li><a href="#">5</a></li> -->
-    </ul>
+<div>
+  <div class="col-sm-6" style="margin-right: 100px;">
+    <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
+    <div class="notifications">
+      <div class="well" ng-repeat="info in news">
+        <ul class="list-inline">
+          <li id="notificationImage">
+            <img src="../../images/therapy/notification1.png" alt="image not found">
+          </li>
+          <li class="notificationText">
+            {{info.time | date:'MMM dd, yyyy HH:mm'}}
+            {{info.description}}
+              <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
+          </li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.therapies({therapyId: {{therapyId}},page: {{page}}})">{{page}}</a></li>
+        </ul>
+      </div>
   </div>
-  <div id="rightSidebar">
-    <div class="col-sm-5">
-      <img src="../../images/mockStats.svg" width="150" height="150">
-      MOCK STATS
-      <div id="lineUnderStats"></div>
-      <p></p>
-      <p style="font-family: 'DejaVu Sans';">Therapy member list
-        <a ui-sref="app.members({therapyId: {{therapyId}}})"><img src="../../images/therapyMemberList.svg" width="40" height="40"></a></p>
+</div>
+
+</div>
+
+<div class="col-md-5" id="rightSidebar">
+    <div>
+      <p id="statsHeader">Statistics</p>
+      <div id="injectedStats">
+
+      </div>
+      <p id="therapyMemberListHeader">
+        <a ui-sref="app.members({therapyId: {{therapyId}}})">Therapy member list</a>
+      </p>
 
 
 
-      <div class="row">
-        <div class="col-md-2" ng-repeat="remainder in [0,1]">
-          <ul>
-            <li id="people" ng-repeat="patient in patients" ng-if="$index % 2 == remainder">
-              <figure  class="figure">
-              <img height="35" width="35" src="../../images/unknownPerson.svg" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption class="figure-caption">{{patient.email}} <br>{{patient.role}}</figcaption>
-              </figure>
+      <div> <!--class="row"-->
+        <div > <!--ng-repeat="remainder in [0,1]"-->
+          <ul class="list-inline">
+            <li style="width: 50%; float: left;"> <!--ng-if="$index % 2 == remainder">--><!--ng-repeat="patient in patients"-->
+              <ul class="list-inline">
+                <li id="therapyMemberListAvatar">
+                  <img class="figure-img img-fluid rounded" src="../../images/therapy/tlist1.png" alt="Image not found">
+                </li>
+                <li id="therapyMemberList" ng-repeat="patient in patients">
+                  {{patient.email}} {{patient.role}} <!--FIXME - text wrapping bug-->
+                </li>
+              </ul>
+
             </li>
           </ul>
         </div>
@@ -95,6 +114,25 @@
 
 
     </div>
-  </div>
 </div>
 
+<!--<div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+      </div>
+      <div ng-repeat="x in [1,2,3]" id="newsField">
+        <img src="../../images/leftSidebar/logo.png" height="10" width="10">      Lorem {{x}} ipsum
+      </div>-->
+<!--<div class="pull-right btn-group">
+<a ng-repeat="page in data.therapyinfo | filter:therapyFilterFn |
+            pageCunt:pageSize" ng-click="selectPage($index + 1)"
+   class="btn btn-default" ng-class="getPageClass($index+1)">
+  {{$index+1}}
+</a>
+</div>-->
+<!--<ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>-->

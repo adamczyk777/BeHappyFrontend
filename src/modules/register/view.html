@@ -1,31 +1,42 @@
-<div class="container">
+<div class="container" id="loginContainer">
   <div class="row">
-    <div class="col-xs-6">
-      <h1>Register</h1>
-      <form ng-submit="vm.register()" novalidate>
+    <div class="center-block" id="loginForm">
+      <div id="loginFormLogo">
+        <center><img src="../../images/login/mini_logo.png"></center> <!--FIXME remove center tag-->
+      </div>
+      <h1 style="font-family: Verdana"><b>BeHappy</b></h1> <!--TODO add this element CSS (as soon as it is included in layout)-->
+      <form ng-submit="vm.register()">
         <div class="form-group" ng-show="vm.needEmail">
-          <label for="email" class="control-label">Email</label>
+          <!--<label for="email" class="control-label">Email</label>-->
           <input type="email"
                  class="form-control"
                  ng-model="vm.registerForm.email"
                  id="email"
-                 required="required">
+                 required="required"
+                 placeholder="email"
+          >
         </div>
         <div class="form-group">
-          <label for="password" class="control-label">Password</label>
+          <!--<label for="password" class="control-label">Password</label>-->
           <input type="password"
                  class="form-control"
                  ng-model="vm.registerForm.password"
                  id="password"
                  required="required"
-                 ng-minlength="6">
+                 ng-minlength="6"
+                 placeholder="password"
+          >
         </div>
         <div class="form-group">
-          <button class="btn btn-primary"
-                  type="submit">Register
-          </button>
+          <center>
+            <button id="loginButton" style="width: 100px;" class="btn btn-primary"
+                    type="submit">Register
+            </button>
+          </center>
         </div>
       </form>
+      <p id="registerUnderLostPassword"><a ui-sref="login">Already registered? Log in!</a></p>
+
     </div>
   </div>
 </div>

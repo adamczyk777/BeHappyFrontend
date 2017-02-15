@@ -200,11 +200,11 @@ ul {
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 180px;
-  margin-left: -20px;
+  width: 260px;
+  margin-left: 0px;
+  text-indent: 0px;
   padding: 0;
   list-style: none;
-
 }
 
 #sidebarFooter
@@ -213,36 +213,50 @@ ul {
   width:  180px;
   height: 50px;
   padding: 1px;
-  font-size: 120%;
   //-moz-border-radius: 35px;
   //border-radius: 35px;
-  background-color: navy;
-  color: silver;
   position: fixed;
   bottom: 0;
   text-align: center;
+  font-family: "Museo Sans Cyrl Semi-light";
+  font-size: 23px;
+  color: #dfe8e0;
+  margin-left: 20px;
+  margin-bottom: 22px;
   //margin-left: auto;
   //margin-right: auto;
 }
 .figure figcaption{
-  color: silver;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 62px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
 }
 
 .sidebar-nav li {
-  text-indent: 0px;
-  line-height: 40px;
+  margin-left: 0px;
+  line-height: 48px;
 }
 
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999;
+  font-family: "Museo Sans Cyrl Semi-light";
+  font-size: 23px;
+  color: #dfe8e0;
+}
+.sidebar-nav li a img{
+  margin-top: 40px;
+  margin-bottom: 65px;
 }
 
 .sidebar-nav li a:hover {
   text-decoration: none;
-  color: #fff;
+  color: #f8faf8;
   background: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
 }
 
 .sidebar-nav li a:active,
@@ -264,25 +278,262 @@ ul {
   color: #fff;
   background: none;
 }
-#mainMenu {
-  color: red;
-  display: inline;
+
+/* login form css*/
+#loginContainer{
   width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
 }
-#mainMenu ul{
-  //display: inline-block;
-  width: 100%;
+
+#loginForm{
+  background-color: white;
+  height: 462px;
+  width: 382px;
+  margin-top: 220px;
+  margin-bottom: 220px;
+  border: 1px solid #628c67;
+  border-radius: 5px;
+}
+
+#loginFormLogo{
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+
+#email{
+  height: 44px;
+  width: 255px;
+  border: 2px solid #eeeeee;
+  color: #999999;
+  font-family: Arial;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 58px;
+  margin-bottom: 22px;
+  padding-left: 13px
+}
+
+#password{
+  height: 44px;
+  width: 255px;
+  border: 2px solid #eeeeee;
+  color: #999999;
+  font-family: Arial;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 22px;
+  padding-left: 13px
+}
+
+#loginButton{
+  /*margin-left: auto;
+  margin-right: auto;*/
+  margin-bottom: 22px;
+  text-align: center;
+  font-family: Arial;
+  font-size: 18px;
+  color: #628c67;
+  background-color: #f2f2f2;
+  border-color: #d9d9d9;
+  height: 40px;
+  width: 79px;
+}
+
+#lostPassword{
+  text-align: center;
+  font-family: Sans;
+  font-size: 12px;
+  color: #000000;
+}
+
+#registerUnderLostPassword{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 36px;
+  padding-top: -5px;
+  font-family: Sans;
+  color: #000000;
+  font-size: 12px;
+}
+/* end of login page CSS*/
+
+/* menu gorne  CSS*/
+
+.mainMenu {
+
+  margin-bottom: 0px;
+
+}
+
+.mainMenu ul{
+  display: inline-block;
   align-content: center;
+ // float: left; //to wyjebuje calkowicie
+  max-width: 1280px;
+  position: relative;
+ // margin-left: 62px;
 }
-#mainMenu li{
+.mainMenuLi{
   //display: table-cell;
-  width: 19%;
-  align-content: center;
-  //height: 100px;
+ // align-content: center;
+  margin-top: 40px;
+  margin-right: 65px;
 }
+
+.mainMenu figcaption{
+  margin-top: 24px;
+  margin-bottom: 62px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+}
+
+.mainMenu li {
+  margin-top: 40px;
+  margin-right: 65px;
+}
+
+
+.logoutButton{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-top: 16px;
+  font-family: "DejaVu Serif Italic";
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+}
+.helloUser{
+
+  margin-top: 35px;
+  float: right;
+  //display: inline;
+
+}
+.helloUser_Hello{
+  display: inline;
+  font-family: DejaVu Serif Italic;
+  font-size: 19px;
+  color: #000000;
+  text-align: center;
+}
+
+.helloUser_Name{
+  display: inline;
+  font-family: DejaVu Serif Italic;
+  font-size: 19px;
+  color: #628c67;
+  text-align: center;
+}
+
+.avatar{
+  margin-top: 25px;
+  margin-left: 35px;
+  margin-right: 0px;
+  float: right;
+
+}
+
+.notifications{
+  width: 610px;
+  height: 100%;
+}
+
+.well{
+  height: 94px;
+  border-left: 2px solid #b5b1b2;/* other colors: #628c67 and #ff5e5b for other notifications*/
+  margin-bottom: 10px;
+  padding-top: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  align-content: center;
+}
+
+#notificationImage{
+  margin-bottom: 30px;
+  position: absolute;
+  display: block;
+}
+
+.notificationText{
+  position: absolute;
+  margin-left: 116px;
+  display: block;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  padding-right: 60px;
+  padding-top: 28px;
+  font-family: Sans;
+  font-size: 16px;
+  color: #628c67;
+}
+
+#therapyMemberList{
+  position: relative;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  font-family: Sans;
+  font-size: 16px;
+  color: #628c67;
+}
+
+#therapyMemberListAvatar{
+  position: relative;
+}
+#notificationPages{
+  background-color: transparent;
+  color: black;
+  border-color: silver
+}
+
+.btn-group{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#rightSidebar{
+  display: block;
+  vertical-align: top;
+}
+
+#statsHeader{
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: "DejaVu Serif";
+  font-size: 16px;
+  color: #000000;
+
+}
+
+#injectedStats{
+  width: 570px;
+  height: 430px;
+}
+
+#therapyMemberListHeader{
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: "DejaVu Serif";
+  font-size: 16px;
+  color: #000000;
+}
+/* end of therapy page CSS*/
+
+
 @media(min-width: 768px) {
   #wrapper {
-    padding-left: 200px;
+    // padding-left: 260px;
   }
 
   #wrapper.toggled {
@@ -290,11 +541,11 @@ ul {
   }
 
   #sidebar-wrapper {
-    width: 180px;
-    background-color: black;
+    width: 260px;
+    background-color: #628c67;
   }
 
-  #sidebarItem {
+  .sidebarItem {
     color: silver;
     font-style: oblique;
     font-family: cursive;
@@ -305,8 +556,11 @@ ul {
   }
 
   #page-content-wrapper {
-    padding: 20px;
+    /* padding: 20px;*/
     position: relative;
+    margin-left: 260px;
+    left: 62px;
+    max-width: 1280px;
   }
 
   #wrapper.toggled #page-content-wrapper {
@@ -321,3 +575,6 @@ ul {
     -ms-user-select: none;
   }
 }
+
+
+
