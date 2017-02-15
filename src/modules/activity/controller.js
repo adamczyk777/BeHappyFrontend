@@ -1,8 +1,7 @@
 module.exports = controller;
 /** @ngInject */
-function controller($stateParams, $http, api) {
+function controller($log, $stateParams, $http, api) {
   var vm = this;
-  vm.test = "test1234";
   vm.therapyId = $stateParams.therapyId;
   vm.activityList = [
     {
@@ -12,8 +11,8 @@ function controller($stateParams, $http, api) {
       mark: ""
     }
   ];
-  vm.activityDataObject = {
-    date: "2017-11-11",
+  vm.packedActivity = {
+    date: "",
     activities: vm.activityList
   };
   vm.addActivity = function () {
@@ -25,7 +24,15 @@ function controller($stateParams, $http, api) {
     });
   };
   vm.sendActivityData = function () {
-    $http.post(api.endpoint + "/activity/" + vm.therapyId + "/add", vm.activityDataObject);
+    $http.post(api.endpoint + "/activity/" + vm.therapyId + "/add", vm.packedActivity)
+      .then(
+        function successCallback(response) {
+          $log.log(response);
+          $log.log(vm.packedActivity);
+        },
+        function fialureCallback(response) {
+          $log.log('somethoing went wrong with sending data');
+          $log.log(response);
+        });
   };
 }
-
