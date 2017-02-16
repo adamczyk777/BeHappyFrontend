@@ -1,35 +1,38 @@
-<h1>Daily Activity:</h1>
-<div class="col-xs-6">
-  <form name="activity" >
-    <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
-      <input ng-model="vm.packedActivity.date" type="text" placeholder="Kliknij, aby wybrać datę">
-    </datepicker></br></br></br></br>
-    <div ng-repeat="el in vm.activityList">
-      <div class="form-group">
-        <label>Activity:</label>
-        <input class="form-control" type="text" ng-model="el.activity">
+<div ng-cloak>
+  <h1>Daily Activity:</h1>
+  <div class="col-xs-6">
+    <form name="activity" >
+      <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
+        <input ng-model="vm.packedActivity.date" type="text" placeholder="Kliknij, aby wybrać datę">
+      </datepicker></br></br></br></br>
+      <div ng-repeat="el in vm.activityList">
+        <div class="form-group">
+          <label>Activity:</label>
+          <input class="form-control" type="text" ng-model="el.activity">
+        </div>
+        <div class="form-group">
+          <label>Start Time:</label>
+          <input class="form-control" type="time" ng-model="el.startTime">
+        </div>
+        <div class="form-group">
+          <label>Finish Time:</label>
+          <input class="form-control" type="time" ng-model="el.endTime">
+        </div>
+        <div class="form-group">
+          <label>How hard was it for you?:</label>
+          <select class="form-control" ng-model="el.mark">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Start Time:</label>
-        <input class="form-control" type="time" ng-model="el.startTime">
-      </div>
-      <div class="form-group">
-        <label>Finish Time:</label>
-        <input class="form-control" type="time" ng-model="el.endTime">
-      </div>
-      <div class="form-group">
-        <label>How hard was it for you?:</label>
-        <select class="form-control" ng-model="el.mark">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-    </div>
-  </form>
-  <button class="btn btn-default" ng-click="vm.addActivity()">add</button>
-  <button class="btn btn-primary" ng-click="vm.sendActivityData()">send</button>
-</div>
+    </form>
+    <button class="btn btn-default" ng-click="vm.addActivity()">add</button>
+    <button class="btn btn-primary" ng-click="vm.sendActivityData()">send</button>
+  </div>
 
+
+</div>

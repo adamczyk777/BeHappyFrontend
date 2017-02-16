@@ -1,5 +1,6 @@
-<div class="nav nav-tabs">
-  <div class="mainMenu">
+<div ng-cloak>
+  <div class="nav nav-tabs">
+    <div class="mainMenu">
       <ul class="list-inline">
         <li >
           <a ui-sref="app.therapies({therapyId: {{therapyId}}, page: {{1}} })">
@@ -38,27 +39,29 @@
       </div>
 
     </div>
+  </div>
+
+  <h1 class="formName">Monitoring samopoczucia</h1>
+  <form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
+    <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
+      <input ng-model="vm.date" type="text" placeholder="Kliknij, aby wybrać datę">
+    </datepicker>
+    <div class="moodForm">
+      <h3 class="questionFrame">Jak się czujesz?</h3>
+      <rzslider rz-slider-model="vm.formModel.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
+    </div>
+    <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
+      <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
+      <button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
+      <button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
+    </div>
+    <div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">
+      <h3 class="questionFrame">Jaki to był lęk?</h3>
+      <rzslider rz-slider-model="vm.formModel.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
+    </div>
+    <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
+  </form>
+  {{vm.toSend}}
+
+
 </div>
-
-<h1 class="formName">Monitoring samopoczucia</h1>
-<form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
-  <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
-    <input ng-model="vm.date" type="text" placeholder="Kliknij, aby wybrać datę">
-  </datepicker>
-  <div class="moodForm">
-    <h3 class="questionFrame">Jak się czujesz?</h3>
-    <rzslider rz-slider-model="vm.formModel.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
-  </div>
-  <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
-    <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
-    <button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
-    <button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
-  </div>
-  <div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">
-    <h3 class="questionFrame">Jaki to był lęk?</h3>
-    <rzslider rz-slider-model="vm.formModel.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
-  </div>
-  <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
-</form>
-{{vm.toSend}}
-
