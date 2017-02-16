@@ -1,61 +1,59 @@
-<div ng-cloak>
-  <div class="nav nav-tabs"> <!--FIXME responsive?-->
-    <div class="mainMenu" ><!-- menu z obrazkami -->
-      <ul class="list-inline">
-        <li class="mainMenuLi">
-          <a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">
-            <figure >
-              <img src="../../images/stats/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >back</figcaption>
-            </figure>
-          </a>
-        </li>
-      </ul>
+<div class="nav nav-tabs"> <!--FIXME responsive?-->
+  <div class="mainMenu" ><!-- menu z obrazkami -->
+    <ul class="list-inline">
+      <li class="mainMenuLi">
+        <a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">
+          <figure >
+            <img src="../../images/stats/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >back</figcaption>
+          </figure>
+        </a>
+      </li>
+    </ul>
 
-      <figure class="avatar">
-        <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-      </figure>
-      <div class="helloUser">
-        <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
-        <p>
-         <span>
-           <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
-              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
-           </a>
-         </span>
-          <span>
-           <button class="logoutButton" ng-click="vm.logout">logout</button>
-         </span>
-        </p>
+    <figure class="avatar">
+      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
+    <div class="helloUser">
+      <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
+      <p>
+       <span>
+         <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+            <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+         </a>
+       </span>
+        <span>
+         <button class="logoutButton" ng-click="vm.logout">logout</button>
+       </span>
+      </p>
+    </div>
+
+    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-6" style="margin-right: 100px;">
+    <h3>Select mood chart:</h3>
+    <form ng-submit="vm.changeMoodChart()" class="form-inline">
+      <div class="form-group">
+        <select ng-model="vm.formMood.zones" class="form-control" >
+          <option ng-selected="vm.formMood.zones === 7" value="7">Last week</option>
+          <option ng-selected="vm.formMood.zones === 31" value ="31">Last month</option>
+          <option ng-selected="vm.formMood.zones === 12" value="12">Last year</option>
+        </select>
       </div>
-
-      <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
-    </div>
+      <button class="btn btn-primary">Show</button>
+    </form>
+    <h2>Mood chart:</h2>
+    <canvas id="mood" class="chart chart-line" chart-data="vm.moodData"
+            chart-labels="vm.moodLabels" chart-series="vm.moodSeries" chart-options="vm.moodOptions"
+            chart-dataset-override="vm.moodDatasetOverride" chart-click="onClick">
+    </canvas>
   </div>
 
-  <div>
-    <div class="col-sm-6" style="margin-right: 100px;">
-      <h3>Select mood chart:</h3>
-      <form ng-submit="vm.changeMoodChart()" class="form-inline">
-        <div class="form-group">
-          <select ng-model="vm.formMood.zones" class="form-control" >
-            <option ng-selected="vm.formMood.zones === 7" value="7">Last week</option>
-            <option ng-selected="vm.formMood.zones === 31" value ="31">Last month</option>
-            <option ng-selected="vm.formMood.zones === 12" value="12">Last year</option>
-          </select>
-        </div>
-        <button class="btn btn-primary">Show</button>
-      </form>
-      <h2>Mood chart:</h2>
-      <canvas id="mood" class="chart chart-line" chart-data="vm.moodData"
-              chart-labels="vm.moodLabels" chart-series="vm.moodSeries" chart-options="vm.moodOptions"
-              chart-dataset-override="vm.moodDatasetOverride" chart-click="onClick">
-      </canvas>
-    </div>
+</div>
 
-  </div>
+<div class="col-md-5" id="rightSidebar">
 
-  <div class="col-md-5" id="rightSidebar">
-
-  </div>
 </div>

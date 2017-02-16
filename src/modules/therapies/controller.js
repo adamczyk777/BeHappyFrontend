@@ -10,6 +10,11 @@ function controller($scope, $stateParams, $http, $log, api, TokenStorage, $state
   $scope.therapyId = $stateParams.therapyId;
   $scope.page = $stateParams.page;
 
+  $scope.logout = function () {
+    TokenStorage.clear();
+    $state.go('login');
+  };
+
   $scope.findTherapyName = function () {
     for (var i = 0; i < $scope.therapies.length; i++) {
       $log.log($scope.therapyId + "===" + $scope.therapies[i].id);

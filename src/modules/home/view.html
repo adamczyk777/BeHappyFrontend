@@ -1,87 +1,84 @@
-<div ng-cloak>
-  <div class="nav nav-tabs"> <!--FIXME responsive?-->
-    <div class="mainMenu" ><!-- menu z obrazkami -->
-      <ul class="list-inline">
-        <li class="mainMenuLi">
-          <a ui-sref="app.addTherapy">
-            <figure >
-              <img src="../../images/home/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Add therapy</figcaption>
-            </figure>
-          </a>
-        </li>
-        <li class="mainMenuLi">
-          <a href="http://www.tutorialspoint.com/spring/">
-            <figure >
-              <img src="../../images/home/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Go for tutorial</figcaption>
-            </figure>
-          </a>
-        </li>
-        <li class="mainMenuLi">
-          <a ui-sref="app.stats({therapyId: {{therapyId}}})"> <!--FIXME Do we have all stats anywhere?-->
-            <figure>
-              <img src="../../images/home/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Check the stats</figcaption>
-            </figure>
-          </a>
-        </li>
-      </ul>
+<div class="nav nav-tabs"> <!--FIXME responsive?-->
+  <div class="mainMenu" ><!-- menu z obrazkami -->
+    <ul class="list-inline">
+      <li class="mainMenuLi">
+        <a ui-sref="app.addTherapy">
+          <figure >
+            <img src="../../images/home/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Add therapy</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="mainMenuLi">
+        <a href="http://www.tutorialspoint.com/spring/">
+          <figure >
+            <img src="../../images/home/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Go for tutorial</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li class="mainMenuLi">
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})"> <!--FIXME Do we have all stats anywhere?-->
+          <figure>
+            <img src="../../images/home/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Check the stats</figcaption>
+          </figure>
+        </a>
+      </li>
+    </ul>
 
-      <figure class="avatar">
-        <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-      </figure>
-      <div class="helloUser">
-        <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
-        <p>
-         <span>
-           <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
-              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
-           </a>
-         </span>
-          <span>
-           <button class="logoutButton" ng-click="vm.logout()">logout</button>
-         </span>
-        </p>
+    <figure class="avatar">
+      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
+    <div class="helloUser">
+      <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
+      <p>
+       <span>
+         <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+            <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+         </a>
+       </span>
+        <span>
+         <button class="logoutButton" ng-click="vm.logout()">logout</button>
+       </span>
+      </p>
+    </div>
+
+    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-6" style="margin-right: 100px;">
+    <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
+    <div class="notifications">
+      <div class="well" ng-repeat="info in news">
+        <ul class="list-inline">
+          <li id="notificationImage">
+            <img src="../../images/therapy/notification1.png" alt="image not found">
+          </li>
+          <li class="notificationText">
+            {{info.time | date:'MMM dd, yyyy HH:mm'}}
+            {{info.description}}
+            <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
+          </li>
+        </ul>
       </div>
-
-      <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
+      <div class="text-center">
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.home({page: {{page}}})">{{page}}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
+</div>
+
+<div class="col-md-5" id="rightSidebar">
   <div>
-    <div class="col-sm-6" style="margin-right: 100px;">
-      <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Recent activity</p>
-      <div class="notifications">
-        <div class="well" ng-repeat="info in news">
-          <ul class="list-inline">
-            <li id="notificationImage">
-              <img src="../../images/therapy/notification1.png" alt="image not found">
-            </li>
-            <li class="notificationText">
-              {{info.time | date:'MMM dd, yyyy HH:mm'}}
-              {{info.description}}
-              <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
-            </li>
-          </ul>
-        </div>
-        <div class="text-center">
-          <ul class="pagination">
-            <li ng-repeat="page in pages"><a ui-sref="app.home({page: {{page}}})">{{page}}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col-md-5" id="rightSidebar">
-    <div>
-      <p id="statsHeader">Statistics</p>
-      <div id="injectedStats">
-        <!--HERE INSERT STATS-->
-      </div>
+    <p id="statsHeader">Statistics</p>
+    <div id="injectedStats">
+      <!--HERE INSERT STATS-->
     </div>
   </div>
-
 </div>
