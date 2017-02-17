@@ -25,7 +25,7 @@ var invitationController = require('./modules/invitation/controller');
 
 /** @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js', 'rzModule', '720kb.datepicker'])
+  .module('app', ['ui.router', 'ngAnimate', 'chart.js', 'rzModule', '720kb.datepicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');

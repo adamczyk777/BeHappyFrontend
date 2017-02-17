@@ -1,43 +1,43 @@
 <div class="nav nav-tabs">
   <div class="mainMenu">
-      <ul class="list-inline">
-        <li >
-          <a ui-sref="app.therapies({therapyId: {{therapyId}}, page: {{1}} })">
-            <figure  >
-              <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Back</figcaption>
-            </figure>
-          </a>
-        </li>
-        <li>
-          <a ui-sref="app.therapies">
-            <figure >
-              <img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Tools</figcaption>
-            </figure>
-          </a>
-        </li>
-        <li>
-          <a ui-sref="app.therapies">
-            <figure >
-              <img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Tutorial</figcaption>
-            </figure>
-          </a>
-        </li>
+    <ul class="list-inline">
+      <li >
+        <a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">
+          <figure  >
+            <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Back</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="app.therapies">
+          <figure >
+            <img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Tools</figcaption>
+          </figure>
+        </a>
+      </li>
+      <li>
+        <a ui-sref="app.therapies">
+          <figure >
+            <img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
+            <figcaption >Tutorial</figcaption>
+          </figure>
+        </a>
+      </li>
 
-      </ul>
+    </ul>
 
-      <figure class="avatar">
-        <img src="../../images/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-      </figure>
+    <figure class="avatar">
+      <img src="../../images/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
+    </figure>
 
-      <div class="helloUser">
-        <p class="helloUser_Hello">Hi <span class="helloUser_Name">Name</span></p> <!--TODO hardcoded-->
-        <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
-      </div>
-
+    <div class="helloUser">
+      <p class="helloUser_Hello">Hi <span class="helloUser_Name">Name</span></p> <!--TODO hardcoded-->
+      <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
     </div>
+
+  </div>
 </div>
 
 <h1 class="formName">Monitoring samopoczucia</h1>
@@ -60,5 +60,6 @@
   </div>
   <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
 </form>
+{{vm.toSend}}
 
 

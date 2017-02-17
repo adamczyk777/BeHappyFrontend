@@ -2,7 +2,7 @@
   <div class="mainMenu" ><!-- menu z obrazkami -->
     <ul class="list-inline">
       <li class="mainMenuLi">
-        <a ui-sref="app.therapies({therapyId: {{therapyId}}, page: {{1}} })">
+        <a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">
           <figure >
             <img src="../../images/stats/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption >back</figcaption>
@@ -17,14 +17,14 @@
     <div class="helloUser">
       <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
       <p>
-         <span>
-           <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
-              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
-           </a>
-         </span>
+       <span>
+         <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+            <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+         </a>
+       </span>
         <span>
-           <button class="logoutButton" ng-click="vm.logout">logout</button>
-         </span>
+         <button class="logoutButton" ng-click="vm.logout">logout</button>
+       </span>
       </p>
     </div>
 
