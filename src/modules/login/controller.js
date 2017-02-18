@@ -3,6 +3,10 @@ module.exports = controller;
 function controller($log, TokenStorage, $http, api, $state) {
   var vm = this;
 
+  if (TokenStorage.isAuthenticated()) {
+    $state.go('app.home', {page: 1});
+  }
+
   vm.loginForm = {
     email: '',
     password: ''

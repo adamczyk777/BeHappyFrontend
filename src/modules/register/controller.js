@@ -1,9 +1,16 @@
 module.exports = controller;
 /** @ngInject */
-function controller($log, $http, $stateParams, $state, api) {
+function controller(TokenStorage, $log, $http, $stateParams, $state, api) {
   var vm = this;
+
+  if (TokenStorage.isAuthenticated()) {
+    $state.go('app.home', {page: 1});
+  }
+
   vm.needEmail = 1;
+
   var uri = '';
+
   vm.registerForm = {
     email: '',
     password: ''
