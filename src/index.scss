@@ -150,12 +150,12 @@ ul {
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
 }
-
-#page-content-wrapper {
+/*
+#page-content-wrapper { not necessary
   width: 100%;
-  position: absolute;
-  padding: 15px;
-}
+ // position: absolute;
+//  padding: 15px; not necessary anymore
+}*/
 
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
@@ -364,17 +364,17 @@ ul {
 
 .mainMenu {
 
-  margin-bottom: 0px;
+  max-width: 1280px;
+
+  position: relative;
 
 }
 
-.mainMenu ul{
+.mainMenu ul {
   display: inline-block;
   align-content: center;
- // float: left; //to wyjebuje calkowicie
-  max-width: 1280px;
+ // float: left; //to wyje**** calkowicie
   position: relative;
- // margin-left: 62px;
 }
 .mainMenuLi{
   //display: table-cell;
@@ -383,16 +383,20 @@ ul {
   margin-right: 65px;
 }
 
-.mainMenu figcaption{
-  margin-top: 24px;
-  margin-bottom: 62px;
+.myfigcaption{
+  margin-top: 1.5em;
+  margin-bottom: 4em;
   font-family: "DejaVu Serif Italic";
-  font-size: 16px;
+  font-size: 1em;
   color: #000000;
   text-align: center;
 }
 
-.mainMenu li {
+.marginTopIcon{
+  margin-top: 2em;
+}
+
+.mainMenu li  {
   margin-top: 40px;
   margin-right: 65px;
 }
@@ -405,17 +409,14 @@ ul {
   cursor:pointer;
   overflow: hidden;
   outline:none;
-  margin-top: 16px;
+  margin-top: 1em;
   font-family: "DejaVu Serif Italic";
-  font-size: 16px;
+  font-size: 1em;
   color: #000000;
-  text-align: center;
+  display: inline;
 }
 .helloUser{
 
-  margin-top: 35px;
-  float: right;
-  //display: inline;
 
 }
 .helloUser_Hello{
@@ -423,7 +424,7 @@ ul {
   font-family: DejaVu Serif Italic;
   font-size: 19px;
   color: #000000;
-  text-align: center;
+  position: relative;
 }
 
 .helloUser_Name{
@@ -434,14 +435,40 @@ ul {
   text-align: center;
 }
 
-.avatar{
-  margin-top: 25px;
-  margin-left: 35px;
-  margin-right: 0px;
+.helloAndAvatar {
+
+  vertical-align: bottom;
   float: right;
+  display: inline;
 
 }
+.fill {
+  min-height: 100%;
+}
 
+
+.container {
+  display:table;
+  width: 100%;
+  margin-top: -50px;
+  padding: 50px 0 0 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+  height:100%;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  display: table-row;
+}
+
+
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+  vertical-align: middle;
+}
 .notifications{
   width: 610px;
   height: 100%;
