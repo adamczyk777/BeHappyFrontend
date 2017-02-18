@@ -2,12 +2,14 @@ module.exports = controller;
 var moment = require('moment');
 /** @ngInject */
 
-function controller(TokenStorage, $state, $log) {
+function controller($stateParams, TokenStorage, $state, $log) {
   if (!TokenStorage.isAuthenticated()) {
     $state.go('login');
   }
 
   var vm = this;
+
+  vm.therapyId = $stateParams.therapyId;
 
   vm.formMood = { // domyslne wartosci do zapytania
     startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),

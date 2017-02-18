@@ -21,17 +21,18 @@ var homeController = require('./modules/home/controller');
 var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 var confirmationController = require('./modules/confirmation/controller');
+var invitationController = require('./modules/invitation/controller');
 
 /** @ngInject */
 angular
-  .module('app', ['ui.router', 'chart.js', 'rzModule', '720kb.datepicker'])
+  .module('app', ['ui.router', 'ngAnimate', 'chart.js', 'rzModule', '720kb.datepicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://localhost:8082/api'
+      endpoint: 'http://behappy.io/api'
     };
   })
   .controller('RegisterController', registerController)
@@ -45,5 +46,6 @@ angular
   .controller('InviteController', inviteController)
   .controller('MembersController', membersController)
   .controller('ConfirmationController', confirmationController)
+  .controller('InvitationController', invitationController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor);

@@ -33,7 +33,7 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
   };
 
   vm.anxietySlider = {
-    fear: 5,
+    fear: 0,
     options: {
       floor: 1,
       ceil: 10,
@@ -65,26 +65,30 @@ function controller($stateParams, $log, $http, api, $state, TokenStorage) {
  // obiekt, do którego widok przyczepia dane do wysłania:
   vm.formModel = {
     date: vm.maxDate, // jesli nie wybrano daty domyslna to dzisiejsza
-    mark: null,
-    fear: null
+    mark: 5,
+    fear: 0
   };
 
   vm.sendMood = function () {
+    // quickfix
+    vm.formModel.date = vm.date;
     vm.toSend = {
-      date: vm.formModel.date,
-      mark: parseInt(vm.moodSlider.mark, 10),
-      fear: parseInt(vm.anxietySlider.fear, 10)
+      date: moment(vm.formModel.date).format("YYYY-MM-DD"), // vm.formModel.date,
+      mark: parseInt(vm.formModel.mark, 10),
+      fear: parseInt(vm.formModel.fear, 10)
     };
-    vm.toSend.date = moment(vm.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
+   //  vm.toSend.date = moment(vm.formModel.date).format("YYYY-MM-DD"); // obcinanie godziny
     $log.log("date: " + vm.toSend.date);
     $log.log("mark: " + vm.toSend.mark);
     $log.log("fear: " + vm.toSend.fear);
+    $log.log(vm.toSend);
     $http({
       method: 'POST',
       url: api.endpoint + '/mood/' + vm.therapyId + '/add',
       data: vm.toSend
     }).then(function successCallback(response) {
       $log.log("Submitted! " + response);
+      $state.go('app.therapies', {therapyId: vm.therapyId, page: 1});
     }, function errorCallback(response) {
       $log.log("Http error status code:" + response.status.toString());
     });

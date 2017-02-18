@@ -18,12 +18,13 @@
         </a>
       </li>
       <li class="mainMenuLi">
-        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
-          <figure >
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})"> <!--FIXME Do we have all stats anywhere?-->
+          <figure>
             <img src="../../images/home/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
             <figcaption >Check the stats</figcaption>
           </figure>
         </a>
+      </li>
     </ul>
 
     <figure class="avatar">
@@ -32,14 +33,14 @@
     <div class="helloUser">
       <p><span class="helloUser_Hello">Hello</span><span class="helloUser_Name"> Michael</span></p>
       <p>
-         <span>
-           <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
-              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
-           </a>
-         </span>
-         <span>
-           <button class="logoutButton" ng-click="vm.logout">logout</button>
-         </span>
+       <span>
+         <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+            <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+         </a>
+       </span>
+        <span>
+         <button class="logoutButton" ng-click="vm.logout()">logout</button>
+       </span>
       </p>
     </div>
 
@@ -57,15 +58,16 @@
             <img src="../../images/therapy/notification1.png" alt="image not found">
           </li>
           <li class="notificationText">
+            {{info.time | date:'MMM dd, yyyy HH:mm'}}
             {{info.description}}
             <!--Dies irae, dies illa,Solvet saeclum in favilla: Teste David cum Sibylla. Lorem ipsum dolor amet sit.-->
           </li>
         </ul>
       </div>
       <div class="text-center">
-        <div class="btn-group" ng-repeat="x in [1,2,3,4,5]">
-          <button type="button" class="btn btn-primary" id="notificationPages">{{x}}</button>
-        </div>
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.home({page: {{page}}})">{{page}}</a></li>
+        </ul>
       </div>
     </div>
   </div>

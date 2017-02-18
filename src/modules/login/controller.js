@@ -3,6 +3,10 @@ module.exports = controller;
 function controller($log, TokenStorage, $http, api, $state) {
   var vm = this;
 
+  if (TokenStorage.isAuthenticated()) {
+    $state.go('app.home', {page: 1});
+  }
+
   vm.loginForm = {
     email: '',
     password: ''
@@ -17,15 +21,11 @@ function controller($log, TokenStorage, $http, api, $state) {
       {headers: {Authorization: btoa(vm.loginForm.email + ":" + vm.loginForm.password)}}
     ).then(
       function onSuccess(response) {
-        $log.log(response.data.token);
         TokenStorage.store(response.data.token);
-        $state.go('app.home');
+        $state.go('app.home', {page: 1});
       },
       function onFailure(response) {
-        // TODO: add a handlet that will redirect user to register page if he is unathorized + in the future add something like a popup with ur unregisteret or sth ~Kuba
         $log.log(response);
-        $log.log(vm.loginForm);
-        $log.log(TokenStorage.retrieve());
       }
     );
   };

@@ -6,14 +6,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('app', {
-      url: '',
+      url: '/app',
       abstract: true,
       template: require('./modules/layout.html'),
       controller: 'TherapiesController',
       controllerAs: 'vm'
     })
     .state('app.home', {
-      url: '/',
+      url: '/{page}',
       controller: 'HomeController',
       controllerAs: 'vm',
       template: require('./modules/home/view.html')
@@ -25,6 +25,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/login/view.html')
     })
     .state('invitation', {
+      url: '/invitation/{id}',
+      controller: 'InvitationController',
+      controllerAs: 'vm',
+      template: require('./modules/invitation/view.html')
+    })
+    .state('invite', {
       url: '/register/invite/{userId}',
       controller: 'RegisterController',
       controllerAs: 'vm',
@@ -37,7 +43,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       template: require('./modules/register/view.html')
     })
     .state('app.therapies', {
-      url: '/therapies/{therapyId}',
+      url: '/therapies/{therapyId}/{page}',
       controller: 'TherapiesController',
       controllerAs: 'vm',
       template: require('./modules/therapies/view.html')
