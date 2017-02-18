@@ -1,7 +1,7 @@
 <div class="nav nav-tabs">
-  <div class="container">
+  <div class="container upperMenu ">
     <div class="row ">
-      <div class="col-md-1 no-float">
+      <div class="col-md-2 no-float">
         <a ui-sref="app.therapies">
           <div class="text-center">
             <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
@@ -9,7 +9,7 @@
           </div>
         </a>
       </div>
-      <div class="col-md-1 no-float">
+      <div class="col-md-2 no-float">
         <a ui-sref="app.therapies">
           <div class="text-center">
               <img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
@@ -17,7 +17,7 @@
           </div>
         </a>
       </div>
-      <div class="col-md-1 no-float ">
+      <div class="col-md-2 no-float ">
         <a ui-sref="app.therapies">
           <div class="text-center">
             <img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
@@ -25,36 +25,25 @@
           </div>
         </a>
       </div>
-      <div class="col-md-6 no-float ">
-
+      <div class="col-md-3 no-float ">
 
       </div>
-
       <div class="col-md-2 no-float align-right">
-
         <div class="helloUser text-center">
           <p class="helloUser_Hello ">Hello, <span class="helloUser_Name">Michael!</span></p> <!--TODO hardcoded-->
           <div>
-
              <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
                 <img src="../../images/therapy/personalization.png" height="30px" width="30px">
              </a>
-
-
              <button class="logoutButton" ng-click="vm.logout">logout</button>
-
           </div>
         </div>
-
-
       </div>
       <div class="col-md-1 no-float ">
-
         <div class="avatar text-center">
            <img src="../../images/avatar.png" class="figure-img img-fluid rounded " alt="Image not found">
         </div>
-
-       </div>
+      </div>
     </div>
   </div>
 </div>
@@ -101,25 +90,74 @@
     <!--</div>-->
 <!--</div>-->
 
-<h1 class="formName">Monitoring samopoczucia</h1>
-<form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
-  <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
-    <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
-  </datepicker>
-  <div class="moodForm">
-    <h3 class="questionFrame">Jak się czujesz?</h3>
-    <rzslider rz-slider-model="vm.moodSlider.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
-  </div>
-  <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
-    <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
-    <button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
-    <button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
-  </div>
-  <div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">
-    <h3 class="questionFrame">Jaki to był lęk?</h3>
-    <rzslider rz-slider-model="vm.anxietySlider.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
-  </div>
-  <button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>
-</form>
+
+<div class="container howAreYou ">
+
+    <div>
+      <div class="smile">
+        <img src="../../images//mood/smile.png" class="figure-img img-fluid rounded " alt="Image not found">
+      </div>
+      <div class="smileCaption text-left">
+        <p class="formName ">Monitorowanie samopoczucia CBT</p>
+        <p class="HowAreYou2 ">How are You?</p>
+      </div>
+      <div class="sig">
+        <img src="../../images//mood/sig.png" class="figure-img img-fluid rounded " alt="Image not found">
+      </div>
+    </div>
+
+</div>
+
+<div class="container moodFormContainer ">
+  <form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">
+    <datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">
+      <input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">
+    </datepicker>
+    <div class="moodForm">
+      <h3 class="questionFrame">Jak się dzisiaj czujesz?</h3>
+      <rzslider rz-slider-model="vm.moodSlider.mark" rz-slider-options="vm.moodSlider.options"></rzslider>
+    </div>
+    <div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">
+      <h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>
+      <div class="btnContainer text-center">
+        <button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>
+        <button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>
+      </div>
+    </div>
+    <div class="anxietyForm" ng-show="vm.showForm.anxietySlider">
+      <h3 class="questionFrame">Jaki to był lęk?</h3>
+      <rzslider rz-slider-model="vm.anxietySlider.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>
+    </div>
+    <div ng-show="vm.showForm.buttonSave" class="btnContainer text-center">
+      <button  class="btn saveMood">Zapisz</button>
+    </div>
+
+  </form>
+
+</div>
+
+
+<!--<div class="container-fluid">-->
+  <!--<h1 class="formName">Monitoring samopoczucia</h1>-->
+  <!--<form name="wellBeing" ng-submit="vm.sendMood()" class="form-inline">-->
+    <!--<datepicker date-format="yyyy-MM-dd" date-min-limit="{{ vm.minDate }}" date-max-limit="{{ vm.maxDate }}">-->
+      <!--<input ng-model="date" type="text" placeholder="Kliknij, aby wybrać datę">-->
+    <!--</datepicker>-->
+    <!--<div class="moodForm">-->
+      <!--<h3 class="questionFrame">Jak się czujesz?</h3>-->
+      <!--<rzslider rz-slider-model="vm.moodSlider.mark" rz-slider-options="vm.moodSlider.options"></rzslider>-->
+    <!--</div>-->
+    <!--<div class="anxietyForm" ng-show="vm.showForm.anxietyQuestion">-->
+      <!--<h3 class="questionFrame">Czy odczuwałeś dziś lęk?</h3>-->
+      <!--<button ng-click="vm.showAnxiety()" class="btn anxietyAnswer" type="button">Tak</button>-->
+      <!--<button ng-click="vm.noAnxiety()" class="btn anxietyAnswer" type="button">Nie</button>-->
+    <!--</div>-->
+    <!--<div class="anxietySubForm" ng-show="vm.showForm.anxietySlider">-->
+      <!--<h3 class="questionFrame">Jaki to był lęk?</h3>-->
+      <!--<rzslider rz-slider-model="vm.anxietySlider.fear" rz-slider-options="vm.anxietySlider.options"></rzslider>-->
+    <!--</div>-->
+    <!--<button ng-show="vm.showForm.buttonSave" class="btn saveMood">Zapisz i zakończ</button>-->
+  <!--</form>-->
+<!--</div>-->
 
 
