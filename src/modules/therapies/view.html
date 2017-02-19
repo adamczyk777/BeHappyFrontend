@@ -1,57 +1,126 @@
-<div class="nav nav-tabs"> <!--FIXME responsive?-->
-  <div class="mainMenu" ><!-- menu z obrazkami -->
-    <ul class="list-inline">
-      <li class="mainMenuLi">
+<!--<div class="nav nav-tabs"> &lt;!&ndash;FIXME responsive?&ndash;&gt;-->
+  <!--<div class="mainMenu" >&lt;!&ndash; menu z obrazkami &ndash;&gt;-->
+    <!--<ul class="list-inline">-->
+      <!--<li class="mainMenuLi">-->
+        <!--<a ui-sref="app.mood({therapyId: {{therapyId}}})">-->
+          <!--<figure >-->
+            <!--<img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+            <!--<figcaption >How are you</figcaption>-->
+          <!--</figure>-->
+        <!--</a>-->
+      <!--</li>-->
+      <!--<li class="mainMenuLi">-->
+        <!--<a ui-sref="app.activity({therapyId: {{therapyId}}})">-->
+            <!--<figure >-->
+              <!--<img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+              <!--<figcaption >Daily Activity</figcaption>-->
+            <!--</figure>-->
+          <!--</a>-->
+      <!--</li>-->
+      <!--<li class="mainMenuLi">-->
+        <!--<a ui-sref="app.stats({therapyId: {{therapyId}}})">-->
+            <!--<figure>-->
+              <!--<img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+              <!--<figcaption >All stats</figcaption>-->
+            <!--</figure>-->
+          <!--</a>-->
+      <!--</li>-->
+      <!--<li class="mainMenuLi">-->
+        <!--<a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">-->
+            <!--<figure>-->
+              <!--<img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+              <!--<figcaption >Personalization</figcaption>-->
+            <!--</figure>-->
+        <!--</a>-->
+      <!--</li>-->
+      <!--<li style="align-content: center; margin-top: 40px;">-->
+        <!--<a>-->
+            <!--<figure >-->
+              <!--<img src="../../images/therapy/about.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+              <!--<figcaption><p>About</p></figcaption>-->
+            <!--</figure>-->
+          <!--</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+    <!--<figure class="avatar">-->
+      <!--<img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+    <!--</figure>-->
+    <!--<div class="helloUser">-->
+      <!--<p><div class="helloUser_Hello">Hello</div><div class="helloUser_Name"> Michael</div></p>-->
+      <!--<p><button class="logoutButton" ng-click="logout()">logout</button></p>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">&ndash;&gt;-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="nav nav-tabs">
+  <div class="container upperMenu ">
+    <div class="row ">
+      <div class="col-md-1 no-float">
         <a ui-sref="app.mood({therapyId: {{therapyId}}})">
-          <figure >
-            <img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption >How are you</figcaption>
-          </figure>
+          <div class="text-center">
+            <img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">How are you</figcaption>
+          </div>
         </a>
-      </li>
-      <li class="mainMenuLi">
+      </div>
+      <div class="col-md-1 no-float">
         <a ui-sref="app.activity({therapyId: {{therapyId}}})">
-            <figure >
-              <img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Daily Activity</figcaption>
-            </figure>
-          </a>
-      </li>
-      <li class="mainMenuLi">
-        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
-            <figure>
-              <img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >All stats</figcaption>
-            </figure>
-          </a>
-      </li>
-      <li class="mainMenuLi">
-        <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
-            <figure>
-              <img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption >Personalization</figcaption>
-            </figure>
+          <div class="text-center">
+            <img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Daily Activity</figcaption>
+          </div>
         </a>
-      </li>
-      <li style="align-content: center; margin-top: 40px;">
-        <a>
-            <figure >
-              <img src="../../images/therapy/about.png" class="figure-img img-fluid rounded" alt="Image not found">
-              <figcaption><p>About</p></figcaption>
-            </figure>
-          </a>
-      </li>
-    </ul>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
+          <div class="text-center">
+            <img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">All stats</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
+          <div class="text-center">
+            <img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Personalization</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a href=http://www.tutorialspoint.com/spring/">
+          <div class="text-center">
+            <img src="../../images/therapy/about.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">About</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 no-float ">
 
-    <figure class="avatar">
-      <img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-    </figure>
-    <div class="helloUser">
-      <p><div class="helloUser_Hello">Hello</div><div class="helloUser_Name"> Michael</div></p>
-      <p><button class="logoutButton" ng-click="logout()">logout</button></p>
+
+
+
+      </div>
+      <div class="col-md-2 no-float align-right">
+        <div class="helloUser text-center">
+          <p class="helloUser_Hello ">Hello, <span class="helloUser_Name">Michael!</span></p> <!--TODO hardcoded-->
+          <div>
+            <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+            </a>
+            <button class="logoutButton" ng-click="vm.logout">logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 no-float ">
+        <div class="avatar text-center">
+          <img src="../../images/avatar.png" class="figure-img img-fluid rounded " alt="Image not found">
+        </div>
+      </div>
     </div>
-
-    <!--    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">-->
   </div>
 </div>
 
