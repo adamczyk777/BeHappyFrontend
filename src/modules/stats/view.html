@@ -51,9 +51,14 @@
             chart-dataset-override="vm.moodDatasetOverride" chart-click="onClick">
     </canvas>
   </div>
-
 </div>
 
 <div class="col-md-5" id="rightSidebar">
-
+  <p id="statsHeader">Przebieg dnia</p>
+  <div class="well" id="dailyActivity" ng-repeat="x in [{name: 'Spacer z psem (średnie)',hour: '10:30'},
+                                                         {name: 'Umycie się (łatwe)}',hour: '12:00'},
+                                                         {name: 'Praca (trudne)', hour: '14:00'}
+                                                         ]">
+    <span>{{x.name}}</span><span style="float: right">{{x.hour}}</span>
+  </div>
 </div>

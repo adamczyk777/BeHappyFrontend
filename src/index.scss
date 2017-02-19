@@ -406,6 +406,7 @@ ul {
   margin-bottom: 220px;
   border: 1px solid #628c67;
   border-radius: 5px;
+  margin-left: 40em;
 }
 
 #loginFormLogo{
@@ -596,6 +597,15 @@ ul {
   padding-right: 15px;
   position: relative;
   align-content: center;
+}
+
+#dailyActivity{
+  height: 45px;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 32px;
+  font-family: Sans;
+  border-left-color: #ff5e5b;
 }
 
 #notificationImage{
