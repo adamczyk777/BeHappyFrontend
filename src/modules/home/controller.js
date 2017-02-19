@@ -49,4 +49,7 @@ function controller($scope, TokenStorage, $state, $log, $http, $stateParams, api
   };
 
   $scope.getNews($scope.page);
+  vm.editData = function () {
+    $state.go('app.editData');
+};
 }

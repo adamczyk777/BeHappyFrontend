@@ -22,10 +22,11 @@ var inviteController = require('./modules/invite/controller');
 var membersController = require('./modules/members/controller');
 var confirmationController = require('./modules/confirmation/controller');
 var invitationController = require('./modules/invitation/controller');
+var editDataController = require('./modules/editData/controller');
 
 /** @ngInject */
 angular
-  .module('app', ['ui.router', 'ngAnimate', 'chart.js', 'rzModule', '720kb.datepicker'])
+  .module('app', ['ui.router', 'chart.js', 'rzModule', '720kb.datepicker'])
   .config(routesConfig)
   .config(function ($httpProvider) {
     $httpProvider.interceptors.push('TokenAuthInterceptor');
@@ -47,5 +48,6 @@ angular
   .controller('MembersController', membersController)
   .controller('ConfirmationController', confirmationController)
   .controller('InvitationController', invitationController)
+  .controller('EditDataController', editDataController)
   .factory('TokenStorage', tokenStorageService)
   .factory('TokenAuthInterceptor', tokenAuthInterceptor);

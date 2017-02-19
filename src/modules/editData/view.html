@@ -1,0 +1,49 @@
+<div class="container main-content" style="width: 95%">
+  <div class="jumbotron">
+    <div class="container">
+      <h3>Edit your data</h3>
+
+      <form ng-submit=" vm.changePersonalData()">
+
+        <div class="form-group">
+          <label for="email" class="control-label">New email</label>
+          <input type="email"
+                 class="form-control"
+                 ng-model="vm.dataForm.newEmail"
+                 id="email">
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label">Current password</label>
+          <input type="password"
+                 class="form-control"
+                 ng-model="vm.dataForm.currentPassword"
+                 id="curretpassword"
+                 required="required">
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label">New password</label>
+          <input type="password"
+                 class="form-control"
+                 ng-model="vm.dataForm.newPassword"
+                 id="password">
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label">Confirm password</label>
+          <input type="password"
+                 class="form-control"
+                 ng-model="vm.dataForm.newPasswordConfirmed"
+                 id="confirmedpassword"
+                 ng-required="vm.dataForm.newPasswordConfirmed">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
