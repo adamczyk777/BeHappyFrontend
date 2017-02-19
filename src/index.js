@@ -32,7 +32,7 @@ angular
   })
   .factory('api', function () {
     return {
-      endpoint: 'http://behappy.io/api'
+      endpoint: 'http://behappy.io:8080/api'
     };
   })
   .controller('RegisterController', registerController)
