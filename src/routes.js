@@ -6,7 +6,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $stateProvider
     .state('app', {
-      url: '/app',
+      url: '',
       abstract: true,
       template: require('./modules/layout.html'),
       controller: 'TherapiesController',
