@@ -361,6 +361,33 @@ ul {
   background: none;
 }
 
+.memberList{
+  position: absolute;
+  margin-left: 116px;
+  display: inline;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  padding-top: 28px;
+  font-family: Arial;
+  font-size: 18px;
+  color: #000000;
+}
+
+.memberListSelect{
+  position: absolute;
+  margin-left: 116px;
+  display: inline;
+  white-space: normal;
+  text-wrap: normal;
+  text-align: left;
+  padding-top: 28px;
+  font-family: Arial;
+  font-size: 18px;
+  color: #000000;
+}
+
+
 /* login form css*/
 #loginContainer{
   width: 100%;

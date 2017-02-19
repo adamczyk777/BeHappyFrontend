@@ -1,16 +1,17 @@
+<!--
 <div>
   <div class="panel">
     <h3>Patients in therapy</h3>
     <button ng-show="isHidden" ng-click="hidePatientsList()">Show</button>
     <ul ng-hide="isHidden">
-    <!-- check therapy.js for description of usage of patient.id - 11 -->
-    <!-- <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>-->
+    &lt;!&ndash; check therapy.js for description of usage of patient.id - 11 &ndash;&gt;
+    &lt;!&ndash; <li>{{patient.email}}  <button ng-click="addPatient(patient.id - 11)" class="btn btn-primary" type="submit">Add</button></li>&ndash;&gt;
       <li ng-repeat="patient in patients">{{patient.email}}   role: {{patient.role}}
         <form name="deleteUserForm" ng-submit="deleteUser(patient)">
           <button class="btn btn-primary" type="submit" ng-show="canDelete()">Delete</button>
         </form>
         <form ng-submit="addPermission(patient)">
-          <button ng-show="canAddPermission(patient.role)">Add special permission</button> <!-- ng-show="isWarden(patient.role)" -->
+          <button ng-show="canAddPermission(patient.role)">Add special permission</button> &lt;!&ndash; ng-show="isWarden(patient.role)" &ndash;&gt;
         </form>
       </li><br>
       <button ng-click="hidePatientsList()">Hide</button>
@@ -37,5 +38,144 @@
         </button>
       </div>
     </form>
+  </div>
+</div>
+-->
+
+<!--<div class="nav nav-tabs"> &lt;!&ndash;FIXME responsive?&ndash;&gt;-->
+<!--<div class="mainMenu" >&lt;!&ndash; menu z obrazkami &ndash;&gt;-->
+<!--<ul class="list-inline">-->
+<!--<li class="mainMenuLi">-->
+<!--<a ui-sref="app.mood({therapyId: {{therapyId}}})">-->
+<!--<figure >-->
+<!--<img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--<figcaption >How are you</figcaption>-->
+<!--</figure>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li class="mainMenuLi">-->
+<!--<a ui-sref="app.activity({therapyId: {{therapyId}}})">-->
+<!--<figure >-->
+<!--<img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--<figcaption >Daily Activity</figcaption>-->
+<!--</figure>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li class="mainMenuLi">-->
+<!--<a ui-sref="app.stats({therapyId: {{therapyId}}})">-->
+<!--<figure>-->
+<!--<img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--<figcaption >All stats</figcaption>-->
+<!--</figure>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li class="mainMenuLi">-->
+<!--<a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">-->
+<!--<figure>-->
+<!--<img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--<figcaption >Personalization</figcaption>-->
+<!--</figure>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li style="align-content: center; margin-top: 40px;">-->
+<!--<a>-->
+<!--<figure >-->
+<!--<img src="../../images/therapy/about.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--<figcaption><p>About</p></figcaption>-->
+<!--</figure>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--<figure class="avatar">-->
+<!--<img src="../../images/therapy/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+<!--</figure>-->
+<!--<div class="helloUser">-->
+<!--<p><div class="helloUser_Hello">Hello</div><div class="helloUser_Name"> Michael</div></p>-->
+<!--<p><button class="logoutButton" ng-click="logout()">logout</button></p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;    <hr style="height: 1px; background-color: #e6e6e6; width: 100%;">&ndash;&gt;-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="nav nav-tabs">
+  <div class="container upperMenu ">
+    <div class="row ">
+      <div class="col-md-1 no-float">
+        <a ui-sref="app.mood({therapyId: {{therapyId}}})">
+          <div class="text-center">
+            <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Back</figcaption>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 no-float ">
+
+
+
+
+      </div>
+
+      <div class="col-md-2 no-float align-right">
+        <div class="helloUser text-center">
+          <p class="helloUser_Hello ">Hello, <span class="helloUser_Name">Michael!</span></p> <!--TODO hardcoded-->
+          <div>
+            <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+            </a>
+            <button class="logoutButton" ng-click="vm.logout">logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 no-float ">
+        <div class="avatar text-center">
+          <img src="../../images/avatar.png" class="figure-img img-fluid rounded " alt="Image not found">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-6" style="margin-right: 100px;">
+    <p style="margin-top: 60px; margin-bottom: 40px; font-family: DejaVu Serif; font-size: 16px;" >Zarządzanie uczestnikami</p>
+    <div class="notifications">
+      <div class="well" ng-repeat="x in [1,2,3,4,5]"><!--patient in patients-->
+        <ul class="list-inline">
+          <li id="notificationImage">
+            <img src="../../images/therapy/notification1.png" alt="image not found">
+          </li>
+          <li class="memberList">
+            {{patient.email}} {{patient.role}}
+            Lorem Ipsumowicz (patient)
+          </li>
+          <li class="memberListSelect">
+            <select>
+              <option>Choose role</option>
+              <option>Warden</option>
+              <option>Patient</option>
+              <option>Therapist</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <ul class="pagination">
+          <li ng-repeat="page in pages"><a ui-sref="app.therapies({therapyId: {{therapyId}},page: {{page}}})">{{page}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="col-md-5" id="rightSidebar">
+  <div>
+    <p id="statsHeader">Dodawanie uczestników</p>,
+
+
+
   </div>
 </div>
