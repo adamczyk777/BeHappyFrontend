@@ -1,49 +1,135 @@
-<div class="container main-content" style="width: 95%">
-  <div class="jumbotron">
-    <div class="container">
-      <h3>Edit your data</h3>
+<div class="nav nav-tabs">
+  <div class="container upperMenu ">
+    <div class="row ">
+      <div class="col-md-1 no-float">
+        <a ui-sref="app.mood({therapyId: {{therapyId}}})">
+          <div class="text-center">
+            <img src="../../images/therapy/howAreYou.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">How are you</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float">
+        <a ui-sref="app.activity({therapyId: {{therapyId}}})">
+          <div class="text-center">
+            <img src="../../images/therapy/dailyActivity.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Daily Activity</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a ui-sref="app.stats({therapyId: {{therapyId}}})">
+          <div class="text-center">
+            <img src="../../images/therapy/allStats.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">All stats</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a ui-sref="app.personalization({therapyId: {{therapyId}}})" ng-show="canEdit()">
+          <div class="text-center">
+            <img src="../../images/therapy/personalization.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Personalization</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-1 no-float ">
+        <a href=http://www.tutorialspoint.com/spring/">
+          <div class="text-center">
+            <img src="../../images/therapy/about.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">About</figcaption>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 no-float ">
 
-      <form ng-submit=" vm.changePersonalData()">
 
-        <div class="form-group">
-          <label for="email" class="control-label">New email</label>
-          <input type="email"
-                 class="form-control"
-                 ng-model="vm.dataForm.newEmail"
-                 id="email">
-        </div>
-        <div class="form-group">
-          <label for="password" class="control-label">Current password</label>
-          <input type="password"
-                 class="form-control"
-                 ng-model="vm.dataForm.currentPassword"
-                 id="curretpassword"
-                 required="required">
-        </div>
-        <div class="form-group">
-          <label for="password" class="control-label">New password</label>
-          <input type="password"
-                 class="form-control"
-                 ng-model="vm.dataForm.newPassword"
-                 id="password">
-        </div>
-        <div class="form-group">
-          <label for="password" class="control-label">Confirm password</label>
-          <input type="password"
-                 class="form-control"
-                 ng-model="vm.dataForm.newPasswordConfirmed"
-                 id="confirmedpassword"
-                 ng-required="vm.dataForm.newPasswordConfirmed">
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </form>
 
-    </div>
 
+      </div>
+      <div class="col-md-2 no-float align-right">
+        <div class="helloUser text-center">
+          <p class="helloUser_Hello ">Hello, <span class="helloUser_Name">Michael!</span></p> <!--TODO hardcoded-->
+          <div>
+            <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+            </a>
+            <button class="logoutButton" ng-click="vm.logout">logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 no-float ">
+        <div class="avatar text-center">
+          <img src="../../images/avatar.png" class="figure-img img-fluid rounded " alt="Image not found">
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+
+
+<div class="container editDataFormContainer" >
+      <form class="form-horizontal" ng-submit=" vm.changePersonalData()">
+        <p class="editDataCaption">Ustawienia ogólne</p>
+        <div class="jumbotron editDataContainer">
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4 text-center" for="editEmail">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">name</span></label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="name" >
+            </div>
+          </div>
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4" for="editEmail">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">surname</span></label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="surname">
+            </div>
+          </div>
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4" for="editEmail">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">email</span>
+            </label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" id="editEmail" ng-model="vm.dataForm.newEmail">
+            </div>
+          </div>
+        </div>
+
+        <p class="editDataCaption">Zmiana hasła</p>
+
+        <div class="jumbotron editDataContainer">
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4" for="currentpassword">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">stare hasło</span>
+            </label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="currentpassword" ng-model="vm.dataForm.currentPassword">
+            </div>
+          </div>
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4" for="newpassword">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">nowe hasło</span>
+            </label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="newpassword" ng-model="vm.dataForm.newPassword">
+            </div>
+          </div>
+          <div class="form-group editDataGroup">
+            <label class="control-label col-sm-4" for="confirmedpassword">
+              <span style="font-family: Sans; font-size:  1em; color: #000000">powtórz</span>
+            </label>
+            <div class="col-sm-6">
+              <input type="password" class="form-control" id="confirmedpassword" ng-model="vm.dataForm.newPasswordConfirmed">
+            </div>
+          </div>
+
+        </div>
+        <div class="text-center" style="width: 60%">
+          <button class="btn btn-primary  saveMood">Zapisz</button>
+        </div>
+      </form>
 </div>
 
 

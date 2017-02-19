@@ -16,6 +16,21 @@ function controller(TokenStorage, $state, $log, $http, api) {
 
   vm.changePersonalData = function () {
     $log.log("Trying to change personal data");
+    $log.log(vm.dataForm.newEmail);
+    $log.log(vm.dataForm.currentPassword);
+    $log.log(vm.dataForm.newPassword);
+    $log.log(vm.dataForm.newPasswordConfirmed);
+    if (vm.dataForm.newEmail === '') { // xD
+      delete vm.dataForm.newEmail;
+    }
+    if (vm.dataForm.newPassword === '') { // xD
+      delete vm.dataForm.newPassword;
+    }
+    if (vm.dataForm.newPasswordConfirmed === '') { // xD
+      delete vm.dataForm.newPasswordConfirmed;
+    }
+   // walkclean(); // removes empty variables ALE NIE DZIALA TEN SPOSOB WTF
+    $log.log(vm.dataForm);
     $http({
       method: 'PATCH',
       url: api.endpoint + '/users/edit',
@@ -43,4 +58,14 @@ function controller(TokenStorage, $state, $log, $http, api) {
       $log.log("Http error status code:" + response.status.toString());
     });
   };*/
+  // function walkclean() { // CZEMU TO NIE DZIALA ??!?!?!?!?!?!? IF STATEMENT
+  //   for (var k = 0; k < vm.dataForm.length; k++) {
+  //     var v = vm.dataForm[k];
+  //     $log.log(vm.dataForm[k]);
+  //     if (v.length === 0) { // xD NIE DZIALA JAK JEST PUSTY STRING WTFFFFF
+  //       $log.log("dupa dupa dupa");
+  //       delete vm.dataForm[k];
+  //     }
+  //   }
+  // }
 }
