@@ -1,43 +1,95 @@
+<!--<div class="nav nav-tabs">-->
+  <!--<div class="mainMenu">-->
+    <!--<ul class="list-inline">-->
+      <!--<li >-->
+        <!--<a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">-->
+          <!--<figure  >-->
+            <!--<img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+            <!--<figcaption >Back</figcaption>-->
+          <!--</figure>-->
+        <!--</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a ui-sref="app.therapies">-->
+          <!--<figure >-->
+            <!--<img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+            <!--<figcaption >Tools</figcaption>-->
+          <!--</figure>-->
+        <!--</a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a ui-sref="app.therapies">-->
+          <!--<figure >-->
+            <!--<img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+            <!--<figcaption >Tutorial</figcaption>-->
+          <!--</figure>-->
+        <!--</a>-->
+      <!--</li>-->
+
+    <!--</ul>-->
+
+    <!--<figure class="avatar">-->
+      <!--<img src="../../images/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">-->
+    <!--</figure>-->
+
+    <!--<div class="helloUser">-->
+      <!--<p class="helloUser_Hello">Hi <span class="helloUser_Name">Name</span></p> &lt;!&ndash;TODO hardcoded&ndash;&gt;-->
+      <!--<p><button class="logoutButton" ng-click="vm.logout">logout</button></p>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
 <div class="nav nav-tabs">
-  <div class="mainMenu">
-    <ul class="list-inline">
-      <li >
+  <div class="container upperMenu ">
+    <div class="row ">
+      <div class="col-md-2 no-float">
         <a ui-sref="app.therapies({therapyId: {{vm.therapyId}}, page: {{1}} })">
-          <figure  >
-            <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption >Back</figcaption>
-          </figure>
+          <div class="text-center">
+            <img src="../../images/mood/ic1.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Back</figcaption>
+          </div>
         </a>
-      </li>
-      <li>
-        <a ui-sref="app.therapies">
-          <figure >
-            <img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption >Tools</figcaption>
-          </figure>
+      </div>
+      <div class="col-md-2 no-float">
+        <a href="http://www.tutorialspoint.com/spring/">
+          <div class="text-center">
+            <img src="../../images/mood/ic2.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Tools</figcaption>
+          </div>
         </a>
-      </li>
-      <li>
-        <a ui-sref="app.therapies">
-          <figure >
-            <img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded" alt="Image not found">
-            <figcaption >Tutorial</figcaption>
-          </figure>
+      </div>
+      <div class="col-md-2 no-float ">
+        <a href="http://www.tutorialspoint.com/spring/">
+          <div class="text-center">
+            <img src="../../images/mood/ic3.png" class="figure-img img-fluid rounded marginTopIcon" alt="Image not found">
+            <figcaption class="myfigcaption">Tutorial</figcaption>
+          </div>
         </a>
-      </li>
+      </div>
+      <div class="col-md-3 no-float ">
 
-    </ul>
-
-    <figure class="avatar">
-      <img src="../../images/avatar.png" class="figure-img img-fluid rounded" alt="Image not found">
-    </figure>
-
-    <div class="helloUser">
-      <p class="helloUser_Hello">Hi <span class="helloUser_Name">Name</span></p> <!--TODO hardcoded-->
-      <p><button class="logoutButton" ng-click="vm.logout">logout</button></p>
+      </div>
+      <div class="col-md-2 no-float align-right">
+        <div class="helloUser text-center">
+          <p class="helloUser_Hello ">Hello, <span class="helloUser_Name">Michael!</span></p> <!--TODO hardcoded-->
+          <div>
+            <a ui-sref="app.personalization({therapyId: {{therapyId}}})">
+              <img src="../../images/therapy/personalization.png" height="30px" width="30px">
+            </a>
+            <button class="logoutButton" ng-click="vm.logout">logout</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 no-float ">
+        <div class="avatar text-center">
+          <img src="../../images/avatar.png" class="figure-img img-fluid rounded " alt="Image not found">
+        </div>
+      </div>
     </div>
-
   </div>
+</div>
+
+
 </div>
 <h1 class="formName">Aktywność dzienna:</h1>
 <div class="col-xs-3">

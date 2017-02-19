@@ -17,21 +17,78 @@ h1 {
 
 /* formularz */
 
+.smileCaption{
+
+  float:left;
+  margin-top: 2.5em;
+
+}
+
+
+.smile{
+
+  float:left;
+  margin-right: 2.5em;
+  margin-top: 3em;
+
+}
+.sig{
+
+
+  float:right;
+  margin-top: 3em;
+
+}
+
+
+.howAreYou {
+
+  margin-left: 3em;
+  width: 60%;
+  margin-top: -50px;
+  padding: 50px 0 0 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+  height:100%;
+
+}
+.HowAreYou2 {
+
+  font-size: 3em;
+  font-family: "DejaVu Serif Italic";
+  color: #628c67;
+  float: none;
+
+}
+
+.moodFormContainer {
+
+  margin-left: 3em;
+  width: 60%;
+  margin-top: -50px;
+  padding: 3em 0 0 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+  height:100%;
+
+}
+
 .formName {
   font-size: 1.5em;
+  font-family: "DejaVu Serif Italic";
+  display: inline;
+  color: #000000;
 }
 
 .questionFrame {
-  background: #F2EAE9;
-  border: 1px solid #B0A7A5;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 15px 30px;
-  width: 100%;
+  font-family: Arial;
+  font-size: 2em;
+  float: left;
+  color: #628c67;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .moodForm {
-  padding-top: 45px;
+  margin-top: 3em;
 }
 
 /* datepicker */
@@ -73,22 +130,47 @@ datepicker input {
 }
 
 /* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
-.anxietyAnswer {
-  width: 64px;
-  height: 64px;
-  background: none;
-  border-radius: 32px;
-  border: 2px solid #000000;
-}
+
 
 .anxietyAnswer:first-of-type {
   margin-right: 10px;
 }
 
-.saveMood {
-  display: block;
+
+/* przyciski monitoringu samopoczucia terapii behawioralno-poznawczej */
+.anxietyAnswer {
+  width: 9em;
+  height: 9em;
   background: none;
-  margin-top: 20px;
+  border-radius: 9em;
+  border: 2px solid #628c67;
+}
+
+.btnContainer {
+
+  width: 100%;
+  float: left;
+  padding-bottom: 3em;
+
+}
+
+.anxietyForm {
+
+  float: left;
+  margin-top: 3em;
+  width: 100%;
+
+}
+
+.saveMood {
+  //width: 2.5em;
+  //height: 1.2em;
+  font-family: Arial;
+  color: #628c67;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  background-color: #f2f2f2;
+  border: 2px solid #d9d9d9;
 }
 
 .main-content {
@@ -150,12 +232,12 @@ ul {
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
 }
-
-#page-content-wrapper {
+/*
+#page-content-wrapper { not necessary
   width: 100%;
-  position: absolute;
-  padding: 15px;
-}
+ // position: absolute;
+//  padding: 15px; not necessary anymore
+}*/
 
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
@@ -364,17 +446,17 @@ ul {
 
 .mainMenu {
 
-  margin-bottom: 0px;
+  max-width: 1280px;
+
+  position: relative;
 
 }
 
-.mainMenu ul{
+.mainMenu ul {
   display: inline-block;
   align-content: center;
- // float: left; //to wyjebuje calkowicie
-  max-width: 1280px;
+ // float: left; //to wyje**** calkowicie
   position: relative;
- // margin-left: 62px;
 }
 .mainMenuLi{
   //display: table-cell;
@@ -383,16 +465,20 @@ ul {
   margin-right: 65px;
 }
 
-.mainMenu figcaption{
-  margin-top: 24px;
-  margin-bottom: 62px;
+.myfigcaption{
+  margin-top: 1.5em;
+  margin-bottom: 4em;
   font-family: "DejaVu Serif Italic";
-  font-size: 16px;
+  font-size: 1em;
   color: #000000;
   text-align: center;
 }
 
-.mainMenu li {
+.marginTopIcon{
+  margin-top: 2em;
+}
+
+.mainMenu li  {
   margin-top: 40px;
   margin-right: 65px;
 }
@@ -405,17 +491,14 @@ ul {
   cursor:pointer;
   overflow: hidden;
   outline:none;
-  margin-top: 16px;
+  margin-top: 1em;
   font-family: "DejaVu Serif Italic";
-  font-size: 16px;
+  font-size: 1em;
   color: #000000;
-  text-align: center;
+  display: inline;
 }
 .helloUser{
 
-  margin-top: 35px;
-  float: right;
-  //display: inline;
 
 }
 .helloUser_Hello{
@@ -423,7 +506,7 @@ ul {
   font-family: DejaVu Serif Italic;
   font-size: 19px;
   color: #000000;
-  text-align: center;
+  position: relative;
 }
 
 .helloUser_Name{
@@ -434,14 +517,41 @@ ul {
   text-align: center;
 }
 
-.avatar{
-  margin-top: 25px;
-  margin-left: 35px;
-  margin-right: 0px;
+.helloAndAvatar {
+
+  vertical-align: bottom;
   float: right;
+  display: inline;
 
 }
+.fill {
+  min-height: 100%;
+}
 
+
+.upperMenu {
+  display:table;
+  width: 100%;
+  margin-top: -50px;
+  padding: 50px 0 0 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+  height:100%;
+}
+
+
+.row {
+  height: 100%;
+  width: 100%;
+  display: table-row;
+}
+
+
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+  vertical-align: middle;
+}
 .notifications{
   width: 610px;
   height: 100%;
@@ -508,7 +618,7 @@ ul {
 
 .btn-group{
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 2.5em;
 }
 
 #rightSidebar{
