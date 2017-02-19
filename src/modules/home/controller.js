@@ -11,6 +11,9 @@ function controller($scope, TokenStorage, $state, $log, $http, $stateParams, api
     TokenStorage.clear();
     $state.go('login');
   };
+  vm.editData = function () {
+    $state.go('app.editData');
+  };
   vm.checkInterceptor = function () {
     $http.get(api.endpoint + '/test/secure')
       .then(function successCallback() {

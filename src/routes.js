@@ -95,5 +95,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'TherapiesController',
       controllerAs: 'vm',
       template: require('./modules/personalization/view.html')
+    })
+    .state('app.editData', {
+      url: '/users/edit',
+      controller: 'EditDataController',
+      controllerAs: 'vm',
+      template: require('./modules/editData/view.html')
     });
 }
