@@ -312,7 +312,7 @@ ul {
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 260px;
+  /*width: 260px;*/
   margin-left: 0px;
   text-indent: 0px;
   padding: 0;
@@ -321,20 +321,20 @@ ul {
 
 #sidebarFooter
 {
-  line-height: 50px;
-  width:  180px;
-  height: 50px;
-  padding: 1px;
+  line-height: 3.125em;
+  width:  11.25em;
+  height: 3.125em;
+  padding: 0.0625em;
   //-moz-border-radius: 35px;
   //border-radius: 35px;
   position: fixed;
   bottom: 0;
   text-align: center;
   font-family: "Museo Sans Cyrl Semi-light";
-  font-size: 23px;
+  font-size: 1.4375em;
   color: #dfe8e0;
-  margin-left: 20px;
-  margin-bottom: 22px;
+  margin-left: 1.25em;
+  margin-bottom: 1.375em;
   //margin-left: auto;
   //margin-right: auto;
 }
@@ -349,19 +349,21 @@ ul {
 
 .sidebar-nav li {
   margin-left: 0px;
-  line-height: 48px;
+  line-height: 2.884vw;
 }
 
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
   font-family: "Museo Sans Cyrl Semi-light";
-  font-size: 23px;
+  font-size: 1.382vw;
   color: #dfe8e0;
+  text-wrap: normal;
+  word-wrap: break-word;
 }
 .sidebar-nav li a img{
-  margin-top: 40px;
-  margin-bottom: 65px;
+  margin-top: 2.404vw;
+  margin-bottom: 3.906vw;
 }
 
 .sidebar-nav li a:hover {
@@ -718,15 +720,10 @@ ul {
   }
 
   #sidebar-wrapper {
-    width: 260px;
+    min-width: 15.625vw;
     background-color: #628c67;
   }
 
-  .sidebarItem {
-    color: silver;
-    font-style: oblique;
-    font-family: cursive;
-  }
 
   #wrapper.toggled #sidebar-wrapper {
     width: 0;
@@ -735,9 +732,9 @@ ul {
   #page-content-wrapper {
     /* padding: 20px;*/
     position: relative;
-    margin-left: 260px;
-    left: 62px;
-    max-width: 1280px;
+    margin-left: 15.625vw;
+    left: 3.725vw;
+    max-width: 76.923vw;
   }
 
   #wrapper.toggled #page-content-wrapper {
